@@ -1,0 +1,101 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cvs",
+  "info": {
+    "name": "cv",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "dadName": {
+      "type": "string"
+    },
+    "dadResidentID": {
+      "type": "string"
+    },
+    "dadPhone": {
+      "type": "string"
+    },
+    "dadJobs": {
+      "type": "string"
+    },
+    "dadAddress": {
+      "type": "string"
+    },
+    "momName": {
+      "type": "string"
+    },
+    "momJobs": {
+      "type": "string"
+    },
+    "momPhone": {
+      "type": "string"
+    },
+    "avatar": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "name": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "dob": {
+      "type": "date"
+    },
+    "studentId": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "school": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "studyRecord": {
+      "type": "json"
+    },
+    "ltvExamResult": {
+      "type": "json"
+    },
+    "department": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "expectation1": {
+      "type": "string"
+    },
+    "expectation2": {
+      "type": "string"
+    },
+    "parent": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "cvs"
+    },
+    "approver": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "status": {
+      "type": "string"
+    }
+  }
+}
