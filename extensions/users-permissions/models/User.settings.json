@@ -60,8 +60,11 @@
       "configurable": false
     },
     "cvs": {
-      "via": "parent",
-      "collection": "cv"
+      "collection": "cv",
+      "via": "parent"
+    },
+    "otp": {
+      "type": "string"
     }
   }
 }
