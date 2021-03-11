@@ -29,8 +29,8 @@ const getBalance = async () => {
   return doc.getElementsByTagName("balance")[0].textContent;
 };
 
-const sendSMS = async (userPhone, msgConfig, otp) => {
-  const smsXML = getSMSXML(userPhone, msgConfig, otp);
+const sendSMS = async (userPhone, msgContent, otp) => {
+  const smsXML = getSMSXML(userPhone, msgContent, otp);
   const { response: smsResponse } = await soapRequest({
     soapUrl,
     headers,
@@ -52,6 +52,7 @@ const sendSMS = async (userPhone, msgConfig, otp) => {
 module.exports = {
   async requestOTP(event) {
     const userId = event.queryStringParameters.id;
+    const { userPhone, msgContent } = JSON.parse(event.body);
     const user = await strapi.plugins["users-permissions"].models.user
       .findOne(userId)
       .populate("profile");
@@ -63,16 +64,15 @@ module.exports = {
       "users-permissions"
     ].models.user.update({ id: user.id }, { otp });
     if (!updatedUser) throw new Error("Tài khoản không tồn tại!");
-    const { userPhone, msgConfig } = JSON.parse(event.body);
-    msgConfig.content = clearUnicode(msgConfig.content);
+    msgContent = clearUnicode(msgContent);
     const balance = await getBalance();
-    const fee = getSMSfee(userPhone, msgConfig);
+    const fee = getSMSfee(userPhone, msgContent);
     if (balance < fee) {
       throw new Error(
         `Gửi SMS hiện tại không khả dụng, xin vui lòng thử lại sau.`
       );
     }
-    return await sendSMS(userPhone, msgConfig, otp);
+    return await sendSMS(userPhone, msgContent, otp);
   },
   async confirmOTP(event) {
     const userId = event.queryStringParameters.id;

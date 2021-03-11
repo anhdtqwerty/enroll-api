@@ -84,8 +84,8 @@ const getMsgNum = async (userPhone, content) => {
       );
   } else return 1 + Math.floor(content.length / viettelMaximumSMSLength);
 };
-const getSMSfee = async (userPhone, msgConfig) => {
-  const msgNum = getMsgNum(userPhone, msgConfig.content);
+const getSMSfee = async (userPhone, msgContent) => {
+  const msgNum = getMsgNum(userPhone, msgContent);
   return msgNum * smsFee;
 };
 
@@ -93,12 +93,12 @@ const getBalanceXML = () => {
   return balanceXMLTemplate;
 };
 
-const getSMSXML = (userPhone, msgConfig, otp) => {
-  msgConfig.content = msgConfig.content.replace("{{otp}}", otp);
+const getSMSXML = (userPhone, msgContent, otp) => {
+  msgContent = msgContent.replace("{{otp}}", otp);
   return smsXMLTemplate
     .replace(`{{userId}}`, userPhone)
     .replace(`{{receiverId}}`, userPhone)
-    .replace(`{{content}}`, msgConfig.content);
+    .replace(`{{content}}`, msgContent);
 };
 
 module.exports = {
