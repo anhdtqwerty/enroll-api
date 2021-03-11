@@ -65,6 +65,10 @@
     },
     "otp": {
       "type": "string"
+    },
+    "isConfirmedOTP": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

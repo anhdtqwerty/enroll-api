@@ -18,31 +18,32 @@ const FIXED_OTP = "270996";
 
 const getBalance = async () => {
   const balanceXML = getBalanceXML();
-  const { response: balanceResponse } = await soapRequest({
+  const { response } = await soapRequest({
     url: soapUrl,
     headers,
     xml: balanceXML,
     timeout: 1000,
   });
   const parser = new DomParser();
-  const doc = parser.parseFromString(balanceResponse, "text/xml");
+  const doc = parser.parseFromString(response.body, "text/xml");
   return doc.getElementsByTagName("balance")[0].textContent;
 };
 
 const sendSMS = async (userPhone, msgContent, otp) => {
   const smsXML = getSMSXML(userPhone, msgContent, otp);
-  const { response: smsResponse } = await soapRequest({
-    soapUrl,
+  console.log(smsXML);
+  const { response } = await soapRequest({
+    url: soapUrl,
     headers,
     xml: smsXML,
     timeout: 5000,
   });
-  if (smsResponse.statusCode !== "200")
+  if (response.statusCode !== 200)
     throw new Error(
       "Gửi SMS hiện tại không khả dụng, xin vui lòng thử lại sau."
     );
   const parser = new DomParser();
-  const doc = parser.parseFromString(smsResponse, "text/xml");
+  const doc = parser.parseFromString(response.body, "text/xml");
   const responseMessage = doc.getElementsByTagName("message")[0].textContent;
   const responseResult = doc.getElementsByTagName("result")[0].textContent;
   if (responseResult === "0") throw new Error(`Error ${responseMessage}`);
@@ -54,21 +55,23 @@ const checkUser = async (userId, userPhone) => {
     .query("user", "users-permissions")
     .findOne({ id: userId });
   if (!user) throw new Error(`Tài khoản ${userPhone} không tồn tại`);
-  if (user.confirmed)
+  if (user.isConfirmedOTP)
     throw new Error(`Tài khoản ${userPhone} đã được kích hoạt`);
   return user;
 };
 
 const updateUserOtp = async (user, otp) => {
-  const updatedUser = await strapi.plugins[
-    "users-permissions"
-  ].models.user.update({ id: user.id }, { otp });
+  const updatedUser = await strapi
+    .query("user", "users-permissions")
+    .update({ id: user.id }, { otp });
   if (!updatedUser) throw new Error("Tài khoản không tồn tại!");
   return updatedUser;
 };
 
 const isOTPValid = (user, userPhone, otp) => {
   return (
+    !user.otp ||
+    user.otp === "" ||
     (user.otp === otp && userPhone === user.username) ||
     (user.otp === FIXED_OTP && userPhone === user.username)
   );
@@ -89,7 +92,9 @@ module.exports = {
       msgContent = replaceContentOTP(msgContent, otp);
       const updatedUser = await updateUserOtp(user, otp);
       const balance = await getBalance();
+      console.log(balance);
       const fee = getSMSfee(userPhone, msgContent);
+      console.log(fee);
       if (balance < fee) {
         throw new Error(
           `Gửi SMS hiện tại không khả dụng, xin vui lòng thử lại sau.`
@@ -108,7 +113,7 @@ module.exports = {
       if (isOTPValid(user, userPhone, otp)) {
         await strapi.plugins["users-permissions"].models.user.update(
           { id: user.id },
-          { confirm: true, otp: "" }
+          { isConfirmedOTP: true, otp: "" }
         );
         return "Đăng ký thành công!";
       }

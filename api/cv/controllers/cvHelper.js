@@ -72,7 +72,7 @@ const isViettelProvider = (userPhone) => {
   return viettelStartNums.includes(userPhoneStartNum);
 };
 
-const getMsgNum = async (userPhone, content) => {
+const getMsgNum = (userPhone, content) => {
   if (isViettelProvider(userPhone)) {
     if (content.length <= vietelFirstSMSLength) return 1;
     else
@@ -84,8 +84,9 @@ const getMsgNum = async (userPhone, content) => {
       );
   } else return 1 + Math.floor(content.length / viettelMaximumSMSLength);
 };
-const getSMSfee = async (userPhone, msgContent) => {
+const getSMSfee = (userPhone, msgContent) => {
   const msgNum = getMsgNum(userPhone, msgContent);
+  console.log(msgNum);
   return msgNum * smsFee;
 };
 

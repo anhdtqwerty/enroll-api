@@ -7,15 +7,22 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "test": "cross-env NODE_ENV=test mocha --timeout 10000 ./tests/cvs/index.js --exit || true"
   },
   "dependencies": {
+    "chai": "^4.3.3",
+    "chai-http": "^4.3.0",
+    "cross-env": "^7.0.3",
+    "del": "^4.1.1",
     "dom-parser": "^0.1.6",
     "easy-soap-request": "^4.1.2",
     "knex": "0.21.18",
+    "mocha": "^8.3.1",
     "sqlite3": "5.0.0",
     "strapi": "3.5.2",
     "strapi-admin": "3.5.2",
+    "strapi-connector-bookshelf": "^3.5.2",
     "strapi-connector-mongoose": "3.5.2",
     "strapi-plugin-content-manager": "3.5.2",
     "strapi-plugin-content-type-builder": "3.5.2",
