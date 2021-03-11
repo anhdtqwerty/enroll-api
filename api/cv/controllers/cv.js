@@ -51,8 +51,8 @@ const sendSMS = async (userPhone, msgContent, otp) => {
 
 module.exports = {
   async requestOTP(event) {
-    const userId = event.queryStringParameters.id;
-    const { userPhone, msgContent } = JSON.parse(event.body);
+    const userId = event.params.id;
+    const { userPhone, msgContent } = JSON.parse(event.request.body);
     try {
       const user = await strapi.plugins["users-permissions"].models.user
         .findOne(userId)
@@ -79,8 +79,8 @@ module.exports = {
     }
   },
   async confirmOTP(event) {
-    const userId = event.queryStringParameters.id;
-    const { userPhone, otp } = JSON.parse(event.body);
+    const userId = event.params.id;
+    const { userPhone, otp } = JSON.parse(event.request.body);
     try {
       const user = await strapi.plugins["users-permissions"].models.user
         .findOne(userId)
