@@ -1,6 +1,5 @@
 "use strict";
 const soapRequest = require("easy-soap-request");
-const fs = require("fs");
 const DomParser = require("dom-parser");
 const { getSMSXML, getBalanceXML, getSMSfee } = require("./cvHelper.js");
 const { generateRegisterOTP, clearUnicode } = require("../../utility.js");
