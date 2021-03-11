@@ -49,26 +49,40 @@ const sendSMS = async (userPhone, msgContent, otp) => {
   return `Gửi tin nhắn thành công đến số điện thoại ${userPhone}`;
 };
 
+const checkUser = async (userId, userPhone) => {
+  const user = await strapi.plugins["users-permissions"].models.user
+    .findOne({ id: userId })
+    .populate("profile");
+  if (!user) throw new Error(`Tài khoản ${userPhone} không tồn tại`);
+  if (user.confirmed || user.otp !== "")
+    throw new Error(`Tài khoản ${userPhone} đã được kích hoạt`);
+  return user;
+};
+
+const updateUserOtp = async (user, otp) => {
+  const updatedUser = await strapi.plugins[
+    "users-permissions"
+  ].models.user.update({ id: user.id }, { otp });
+  if (!updatedUser) throw new Error("Tài khoản không tồn tại!");
+  return updatedUser;
+};
+
+const isOTPValid = (user, userPhone, otp) => {
+  return (
+    (user.otp === otp && userPhone === user.username) ||
+    (user.otp === FIXED_OTP && userPhone === user.username)
+  );
+};
+
 module.exports = {
   async requestOTP(event) {
     const userId = event.params.id;
-    console.log(event.request.body);
     const { userPhone, msgContent } = event.request.body;
     try {
-      const user = await strapi.plugins["users-permissions"].models.user
-        .findOne(userId)
-        .populate("profile");
-      if (!user) throw new Error(`Tài khoản ${userPhone} không tồn tại`);
-      if (user.confirmed || user.otp !== "")
-        throw new Error("Tài khoản đã được kích hoạt");
+      const user = await checkUser(userId, userPhone);
       const otp = generateRegisterOTP();
-      console.log(otp);
-      const updatedUser = await strapi.plugins[
-        "users-permissions"
-      ].models.user.update({ id: user.id }, { otp });
-      if (!updatedUser) throw new Error("Tài khoản không tồn tại!");
+      const updatedUser = await updateUserOtp(user, otp);
       msgContent = clearUnicode(msgContent);
-      console.log(msgContent);
       const balance = await getBalance();
       const fee = getSMSfee(userPhone, msgContent);
       if (balance < fee) {
@@ -85,16 +99,8 @@ module.exports = {
     const userId = event.params.id;
     const { userPhone, otp } = event.request.body;
     try {
-      const user = await strapi.plugins["users-permissions"].models.user
-        .findOne(userId)
-        .populate("profile");
-      if (!user) throw new Error(`Tài khoản ${userPhone} không tồn tại`);
-      if (user.confirmed && otp === "")
-        throw new Error(`Tài khoản ${userPhone} đã được kích hoạt`);
-      if (
-        (user.otp === otp && userPhone === user.username) ||
-        (user.otp === FIXED_OTP && userPhone === user.username)
-      ) {
+      const user = await checkUser(userId, userPhone);
+      if (isOTPValid(user, userPhone, otp)) {
         await strapi.plugins["users-permissions"].models.user.update(
           { id: user.id },
           { confirm: true, otp: "" }
