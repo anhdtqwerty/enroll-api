@@ -73,16 +73,21 @@ const isOTPValid = (user, userPhone, otp) => {
     (user.otp === FIXED_OTP && userPhone === user.username)
   );
 };
+const replaceContentOTP = (msgContent, otp) => {
+  msgContent = msgContent.replace("{{otp}}", otp);
+  msgContent = clearUnicode(msgContent);
+  return msgContent;
+};
 
 module.exports = {
   async requestOTP(event) {
     const userId = event.params.id;
-    const { userPhone, msgContent } = event.request.body;
+    let { userPhone, msgContent } = event.request.body;
     try {
       const user = await checkUser(userId, userPhone);
       const otp = generateRegisterOTP();
+      msgContent = replaceContentOTP(msgContent, otp);
       const updatedUser = await updateUserOtp(user, otp);
-      msgContent = clearUnicode(msgContent);
       const balance = await getBalance();
       const fee = getSMSfee(userPhone, msgContent);
       if (balance < fee) {
@@ -90,7 +95,7 @@ module.exports = {
           `Gửi SMS hiện tại không khả dụng, xin vui lòng thử lại sau.`
         );
       }
-      return await sendSMS(userPhone, msgContent, otp);
+      return await sendSMS(userPhone, msgContent);
     } catch (error) {
       throw error;
     }
