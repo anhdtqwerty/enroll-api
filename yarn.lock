@@ -3481,6 +3481,11 @@
     "@babel/runtime" "^7.8.7"
     "csstype" "^3.0.2"
 
+"dom-parser@^0.1.6":
+  "integrity" "sha512-3nVRKbLEwmGfghLoeT1dxlK/0votalnOfasP+8VCHYDfDuCETY4LeMblfOeqww6XZk2ymZ1Uewy/hVad6Dy3yw=="
+  "resolved" "https://registry.npmjs.org/dom-parser/-/dom-parser-0.1.6.tgz"
+  "version" "0.1.6"
+
 "dom-serializer@^1.0.1":
   "integrity" "sha512-n6kZFH/KlCrqs/1GHMOd5i2fd/beQHuehKdWvNNffbGHTr/almdhuVvTVFb3V7fglz+nC50fFusu3lY33h12pA=="
   "resolved" "https://registry.npmjs.org/dom-serializer/-/dom-serializer-1.2.0.tgz"
@@ -3601,6 +3606,13 @@
     "find-root" "^1.0.0"
     "lodash" "^4.17.4"
     "semver" "^5.4.1"
+
+"easy-soap-request@^4.1.2":
+  "integrity" "sha512-RciEnXz2qbKDjhXsQMRyYi1vF5UqL6kvzhuwQyLdK/7+meVzxrFAoRjd9ubfuF+kdZHRfWDsTAkonI9icunExg=="
+  "resolved" "https://registry.npmjs.org/easy-soap-request/-/easy-soap-request-4.1.2.tgz"
+  "version" "4.1.2"
+  dependencies:
+    "axios" "^0.21.1"
 
 "ecc-jsbn@~0.1.1":
   "integrity" "sha1-OoOpBOVDUyh4dMVkt1SThoSamMk="
@@ -4305,6 +4317,11 @@
   "integrity" "sha1-FQStJSMVjKpA20onh8sBQRmU6k8="
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
+
+"fs@^0.0.1-security":
+  "integrity" "sha1-invTcYa23d84E/I4WLV+yq9eQdQ="
+  "resolved" "https://registry.npmjs.org/fs/-/fs-0.0.1-security.tgz"
+  "version" "0.0.1-security"
 
 "fsevents@^1.2.7":
   "integrity" "sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw=="

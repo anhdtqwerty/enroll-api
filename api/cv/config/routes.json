@@ -1,6 +1,22 @@
 {
   "routes": [
     {
+      "method": "POST",
+      "path": "/request-otp/:id",
+      "handler": "cv.requestOTP",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/confirm-otp/:id",
+      "handler": "cv.confirmOTP",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "GET",
       "path": "/cvs",
       "handler": "cv.find",

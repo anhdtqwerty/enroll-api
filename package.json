@@ -9,8 +9,10 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
+    "dom-parser": "^0.1.6",
+    "easy-soap-request": "^4.1.2",
+    "fs": "^0.0.1-security",
     "knex": "0.21.18",
     "sqlite3": "5.0.0",
     "strapi": "3.5.2",
