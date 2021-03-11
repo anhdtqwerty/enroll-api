@@ -97,7 +97,6 @@ const getSMSXML = (userPhone, msgConfig) => {
   return smsXMLTemplate
     .replace(`{{userId}}`, userPhone)
     .replace(`{{receiverId}}`, userPhone)
-    .replace(`{{serviceId}}`, msgConfig.serviceId)
     .replace(`{{content}}`, msgConfig.content);
 };
 

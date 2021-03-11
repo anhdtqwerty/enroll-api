@@ -16,7 +16,7 @@ const FIXED_OTP = "270996";
  * to customize this controller
  */
 
-const getBalance = async (msgConfig) => {
+const getBalance = async () => {
   const balanceXML = getBalanceXML();
   const { response: balanceResponse } = await soapRequest({
     url: soapUrl,
