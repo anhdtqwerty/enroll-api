@@ -50,9 +50,14 @@ const sendSMS = async (userPhone, msgContent, otp) => {
 };
 
 const checkUser = async (userId, userPhone) => {
-  const user = await strapi.plugins["users-permissions"].models.user
-    .findOne({ id: userId })
-    .populate("profile");
+  console.log(userId);
+  //   const user = await strapi.plugins["users-permissions"].models.user
+  //     .findOne({ id: userId })
+  //     .populate("profile");
+  const user = await strapi
+    .query("user", "users-permissions")
+    .findOne({ id: userId });
+  console.log(user);
   if (!user) throw new Error(`Tài khoản ${userPhone} không tồn tại`);
   if (user.confirmed || user.otp !== "")
     throw new Error(`Tài khoản ${userPhone} đã được kích hoạt`);

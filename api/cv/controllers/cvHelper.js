@@ -37,7 +37,7 @@ const balanceXMLTemplate =
   `   </soapenv:Body>` +
   ` </soapenv:Envelope>`;
 
-const smsFee = 800;
+const smsFee = 450; //đ/ SMS
 const viettelMaximumSMSLength = 160;
 const vietelFirstSMSLength = 122;
 const viettelStartNums = [
