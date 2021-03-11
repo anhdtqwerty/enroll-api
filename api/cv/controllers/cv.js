@@ -25,7 +25,7 @@ const getBalance = async () => {
     timeout: 1000,
   });
   const parser = new DomParser();
-  doc = parser.parseFromString(balanceResponse, "text/xml");
+  const doc = parser.parseFromString(balanceResponse, "text/xml");
   return doc.getElementsByTagName("balance")[0].textContent;
 };
 
@@ -42,7 +42,7 @@ const sendSMS = async (userPhone, msgContent, otp) => {
       "Gửi SMS hiện tại không khả dụng, xin vui lòng thử lại sau."
     );
   const parser = new DomParser();
-  doc = parser.parseFromString(smsResponse, "text/xml");
+  const doc = parser.parseFromString(smsResponse, "text/xml");
   const responseMessage = doc.getElementsByTagName("message")[0].textContent;
   const responseResult = doc.getElementsByTagName("result")[0].textContent;
   if (responseResult === "0") throw new Error(`Error ${responseMessage}`);
