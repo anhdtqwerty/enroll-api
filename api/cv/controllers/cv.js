@@ -29,8 +29,8 @@ const getBalance = async () => {
   return doc.getElementsByTagName("balance")[0].textContent;
 };
 
-const sendSMS = async (userPhone, msgConfig) => {
-  const smsXML = getSMSXML(userPhone, msgConfig);
+const sendSMS = async (userPhone, msgConfig, otp) => {
+  const smsXML = getSMSXML(userPhone, msgConfig, otp);
   const { response: smsResponse } = await soapRequest({
     soapUrl,
     headers,

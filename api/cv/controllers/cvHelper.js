@@ -93,7 +93,8 @@ const getBalanceXML = () => {
   return balanceXMLTemplate;
 };
 
-const getSMSXML = (userPhone, msgConfig) => {
+const getSMSXML = (userPhone, msgConfig, otp) => {
+  msgConfig.content = msgConfig.content.replace("{{otp}}", otp);
   return smsXMLTemplate
     .replace(`{{userId}}`, userPhone)
     .replace(`{{receiverId}}`, userPhone)
