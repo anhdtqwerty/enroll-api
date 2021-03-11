@@ -52,7 +52,8 @@ const sendSMS = async (userPhone, msgContent, otp) => {
 module.exports = {
   async requestOTP(event) {
     const userId = event.params.id;
-    const { userPhone, msgContent } = JSON.parse(event.request.body);
+    console.log(event.request.body);
+    const { userPhone, msgContent } = event.request.body;
     try {
       const user = await strapi.plugins["users-permissions"].models.user
         .findOne(userId)
@@ -61,11 +62,13 @@ module.exports = {
       if (user.confirmed || user.otp !== "")
         throw new Error("Tài khoản đã được kích hoạt");
       const otp = generateRegisterOTP();
+      console.log(otp);
       const updatedUser = await strapi.plugins[
         "users-permissions"
       ].models.user.update({ id: user.id }, { otp });
       if (!updatedUser) throw new Error("Tài khoản không tồn tại!");
       msgContent = clearUnicode(msgContent);
+      console.log(msgContent);
       const balance = await getBalance();
       const fee = getSMSfee(userPhone, msgContent);
       if (balance < fee) {
@@ -80,7 +83,7 @@ module.exports = {
   },
   async confirmOTP(event) {
     const userId = event.params.id;
-    const { userPhone, otp } = JSON.parse(event.request.body);
+    const { userPhone, otp } = event.request.body;
     try {
       const user = await strapi.plugins["users-permissions"].models.user
         .findOne(userId)
