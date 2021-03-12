@@ -3,6 +3,7 @@ const soapRequest = require("easy-soap-request");
 const DomParser = require("dom-parser");
 const { getSMSXML, getBalanceXML, getSMSfee } = require("./cvHelper.js");
 const { generateRegisterOTP, clearUnicode } = require("../../utility.js");
+const moment = require("moment");
 
 const soapUrl = "http://ams.tinnhanthuonghieu.vn:8009/bulkapi?wsdl";
 const headers = {
@@ -73,9 +74,15 @@ const isOTPValid = (user, userPhone, otp) => {
     (user.otp &&
       user.otp !== "" &&
       userPhone === user.username &&
-      user.otp == otp)
+      user.otp == otp &&
+      !isOTPExpired(user.otpExpireTime))
   );
 };
+
+const isOTPExpired = (otpExpireTime) => {
+  return moment().isAfter(otpExpireTime);
+};
+
 const replaceContentOTP = (msgContent, otp) => {
   msgContent = msgContent.replace("{{otp}}", otp);
   msgContent = clearUnicode(msgContent);
@@ -89,8 +96,9 @@ module.exports = {
     try {
       const user = await checkUser(userId, userPhone);
       const otp = generateRegisterOTP();
+      const otpExpireTime = moment().add(5, "minutes");
       msgContent = replaceContentOTP(msgContent, otp);
-      await updateUser(user, { otp });
+      await updateUser(user, { otp, otpExpireTime });
       const balance = await getBalance();
       const fee = getSMSfee(userPhone, msgContent);
       if (balance < fee) {
@@ -98,7 +106,7 @@ module.exports = {
           `Gửi SMS hiện tại không khả dụng, xin vui lòng thử lại sau.`
         );
       }
-      // return await sendSMS(userPhone, msgContent);
+      return await sendSMS(userPhone, msgContent);
     } catch (error) {
       throw error;
     }
@@ -108,14 +116,11 @@ module.exports = {
     const { userPhone, otp } = event.request.body;
     try {
       const user = await checkUser(userId, userPhone);
-      console.log(user);
-      console.log(otp);
-      console.log(isOTPValid(user, userPhone, otp));
       if (isOTPValid(user, userPhone, otp)) {
         await updateUser(user, { isConfirmedOTP: true, otp: "" });
         return "Đăng ký thành công!";
       }
-      throw new Error("Xác nhận OTP không thành công!");
+      throw new Error("Mã OTP không chính xác!");
     } catch (error) {
       throw error;
     }

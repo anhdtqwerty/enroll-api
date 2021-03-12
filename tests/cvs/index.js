@@ -45,7 +45,7 @@ describe("CVS API", function () {
       });
   });
 
-  it("request register otp", (done) => {
+  it("request otp", (done) => {
     chai
       .request(app.server)
       .post(`/request-otp/${user.id}`)
@@ -62,7 +62,7 @@ describe("CVS API", function () {
       });
   });
 
-  it("request register otp", (done) => {
+  it("confirm otp", (done) => {
     chai
       .request(app.server)
       .post(`/confirm-otp/${user.id}`)
