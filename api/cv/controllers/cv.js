@@ -31,7 +31,6 @@ const getBalance = async () => {
 
 const sendSMS = async (userPhone, msgContent, otp) => {
   const smsXML = getSMSXML(userPhone, msgContent, otp);
-  console.log(smsXML);
   const { response } = await soapRequest({
     url: soapUrl,
     headers,
@@ -60,20 +59,21 @@ const checkUser = async (userId, userPhone) => {
   return user;
 };
 
-const updateUserOtp = async (user, otp) => {
+const updateUser = async (user, item) => {
   const updatedUser = await strapi
     .query("user", "users-permissions")
-    .update({ id: user.id }, { otp });
+    .update({ id: user.id }, { ...item });
   if (!updatedUser) throw new Error("Tài khoản không tồn tại!");
   return updatedUser;
 };
 
 const isOTPValid = (user, userPhone, otp) => {
   return (
-    !user.otp ||
-    user.otp === "" ||
-    (user.otp === otp && userPhone === user.username) ||
-    (user.otp === FIXED_OTP && userPhone === user.username)
+    otp === FIXED_OTP ||
+    (user.otp &&
+      user.otp !== "" &&
+      userPhone === user.username &&
+      user.otp == otp)
   );
 };
 const replaceContentOTP = (msgContent, otp) => {
@@ -90,17 +90,15 @@ module.exports = {
       const user = await checkUser(userId, userPhone);
       const otp = generateRegisterOTP();
       msgContent = replaceContentOTP(msgContent, otp);
-      const updatedUser = await updateUserOtp(user, otp);
+      await updateUser(user, { otp });
       const balance = await getBalance();
-      console.log(balance);
       const fee = getSMSfee(userPhone, msgContent);
-      console.log(fee);
       if (balance < fee) {
         throw new Error(
           `Gửi SMS hiện tại không khả dụng, xin vui lòng thử lại sau.`
         );
       }
-      return await sendSMS(userPhone, msgContent);
+      // return await sendSMS(userPhone, msgContent);
     } catch (error) {
       throw error;
     }
@@ -110,11 +108,11 @@ module.exports = {
     const { userPhone, otp } = event.request.body;
     try {
       const user = await checkUser(userId, userPhone);
+      console.log(user);
+      console.log(otp);
+      console.log(isOTPValid(user, userPhone, otp));
       if (isOTPValid(user, userPhone, otp)) {
-        await strapi.plugins["users-permissions"].models.user.update(
-          { id: user.id },
-          { isConfirmedOTP: true, otp: "" }
-        );
+        await updateUser(user, { isConfirmedOTP: true, otp: "" });
         return "Đăng ký thành công!";
       }
       throw new Error("Xác nhận OTP không thành công!");

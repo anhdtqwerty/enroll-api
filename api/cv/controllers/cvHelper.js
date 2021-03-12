@@ -86,7 +86,6 @@ const getMsgNum = (userPhone, content) => {
 };
 const getSMSfee = (userPhone, msgContent) => {
   const msgNum = getMsgNum(userPhone, msgContent);
-  console.log(msgNum);
   return msgNum * smsFee;
 };
 
