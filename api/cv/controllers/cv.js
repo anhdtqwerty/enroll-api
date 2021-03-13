@@ -98,7 +98,10 @@ module.exports = {
       const otp = generateRegisterOTP();
       const otpExpireTime = moment().add(5, "minutes");
       msgContent = replaceContentOTP(msgContent, otp);
-      await updateUser(user, { otp, otpExpireTime });
+      await updateUser(user, {
+        otp,
+        otpExpireTime: otpExpireTime.toISOString(),
+      });
       const balance = await getBalance();
       const fee = getSMSfee(userPhone, msgContent);
       if (balance < fee) {

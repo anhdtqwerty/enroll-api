@@ -94,10 +94,22 @@ const getBalanceXML = () => {
 };
 
 const getSMSXML = (userPhone, msgContent) => {
+  userPhone = getValidPhone(userPhone);
   return smsXMLTemplate
     .replace(`{{userId}}`, userPhone)
     .replace(`{{receiverId}}`, userPhone)
     .replace(`{{content}}`, msgContent);
+};
+
+String.prototype.replaceBetween = function (start, end, what) {
+  return this.substring(0, start) + what + this.substring(end);
+};
+
+const getValidPhone = (phone) => {
+  if (phone.indexOf("+84") == 0) phone = phone.replace("+84", "84");
+  if (phone.indexOf("+ 84") == 0) phone = phone.replace("+ 84", "84");
+  if (phone.indexOf("0") == 0) phone = phone.replaceBetween(0, 1, "84");
+  return phone;
 };
 
 module.exports = {

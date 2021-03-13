@@ -33,7 +33,7 @@ describe("CVS API", function () {
       .send({
         email: "tungunity96@gmail.com",
         password: "123123",
-        username: "84973728668",
+        username: "0973728668",
       })
       .end((error, response) => {
         const result = response.body;
@@ -50,7 +50,7 @@ describe("CVS API", function () {
       .request(app.server)
       .post(`/request-otp/${user.id}`)
       .send({
-        userPhone: "84973728668",
+        userPhone: "0973728668",
         msgContent: "Ma OTP cua ban la: {{otp}}",
       })
       .end((error, response) => {
@@ -67,7 +67,7 @@ describe("CVS API", function () {
       .request(app.server)
       .post(`/confirm-otp/${user.id}`)
       .send({
-        userPhone: "84973728668",
+        userPhone: "0973728668",
         otp: "270996",
       })
       .end((error, response) => {
