@@ -111,7 +111,7 @@ module.exports = {
       }
       return await sendSMS(userPhone, msgContent);
     } catch (error) {
-      throw error;
+      event.throw(500, error);
     }
   },
   async confirmOTP(event) {
@@ -125,7 +125,7 @@ module.exports = {
       }
       throw new Error("Mã OTP không chính xác!");
     } catch (error) {
-      throw error;
+      event.throw(500, error);
     }
   },
 };
