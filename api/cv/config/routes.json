@@ -1,22 +1,6 @@
 {
   "routes": [
     {
-      "method": "POST",
-      "path": "/request-otp/:id",
-      "handler": "cv.requestOTP",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "POST",
-      "path": "/confirm-otp/:id",
-      "handler": "cv.confirmOTP",
-      "config": {
-        "policies": []
-      }
-    },
-    {
       "method": "GET",
       "path": "/cvs",
       "handler": "cv.find",
@@ -44,6 +28,30 @@
       "method": "POST",
       "path": "/cvs",
       "handler": "cv.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/request-otp/:id",
+      "handler": "cv.requestOTP",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/confirm-register/:id",
+      "handler": "cv.confirmRegister",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/confirm-password/:id",
+      "handler": "cv.confirmResetPassword",
       "config": {
         "policies": []
       }

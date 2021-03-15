@@ -5946,7 +5946,7 @@
   "resolved" "https://registry.npmjs.org/klona/-/klona-2.0.4.tgz"
   "version" "2.0.4"
 
-"knex@>=0.15.0 <0.22.0", "knex@0.21.18":
+"knex@0.21.18":
   "integrity" "sha512-hP4Qyy2LjQLsabQYc6YgDFHb+CJJBjQz1TMPTKyN85CF2NLIsZsF4FDe0NvQXeXMeak3E/kKr5iJog1JBm6ZCQ=="
   "resolved" "https://registry.npmjs.org/knex/-/knex-0.21.18.tgz"
   "version" "0.21.18"
@@ -9974,7 +9974,7 @@
   "resolved" "https://registry.npmjs.org/strapi-provider-upload-local/-/strapi-provider-upload-local-3.5.2.tgz"
   "version" "3.5.2"
 
-"strapi-utils@3.5.2":
+"strapi-utils@^3.5.2", "strapi-utils@3.5.2":
   "integrity" "sha512-4S6qvhniERYg85RM8iyNdT3u+0ECVCQxQlc830KB2YbsZTVTNF9i4h3J2bAsmkNWmJ35JwOxL/FfksqJFvhguA=="
   "resolved" "https://registry.npmjs.org/strapi-utils/-/strapi-utils-3.5.2.tgz"
   "version" "3.5.2"

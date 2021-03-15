@@ -62,15 +62,24 @@
       "collection": "cv",
       "via": "parent"
     },
-    "otp": {
+    "confirmRegisterOTP": {
       "type": "string"
     },
     "isConfirmedOTP": {
       "type": "boolean",
       "default": false
     },
-    "otpExpireTime": {
+    "registerOTPExpired": {
       "type": "datetime"
+    },
+    "resetPasswordOTP": {
+      "type": "string"
+    },
+    "resetOTPExpired": {
+      "type": "datetime"
+    },
+    "log": {
+      "type": "json"
     }
   }
 }

@@ -1,8 +1,12 @@
 "use strict";
 const soapRequest = require("easy-soap-request");
 const DomParser = require("dom-parser");
+const { sanitizeEntity } = require("strapi-utils");
 const { getSMSXML, getBalanceXML, getSMSfee } = require("./cvHelper.js");
-const { generateRegisterOTP, clearUnicode } = require("../../utility.js");
+const {
+  generateRegisterOTP: generateOTP,
+  clearUnicode,
+} = require("../../utility.js");
 const moment = require("moment");
 
 const soapUrl = "http://ams.tinnhanthuonghieu.vn:8009/bulkapi?wsdl";
@@ -31,6 +35,13 @@ const getBalance = async () => {
 };
 
 const sendSMS = async (userPhone, msgContent, otp) => {
+  const balance = await getBalance();
+  const fee = getSMSfee(userPhone, msgContent);
+  if (balance < fee) {
+    throw new Error(
+      `Gửi SMS hiện tại không khả dụng, xin vui lòng thử lại sau`
+    );
+  }
   const smsXML = getSMSXML(userPhone, msgContent, otp);
   const { response } = await soapRequest({
     url: soapUrl,
@@ -40,7 +51,7 @@ const sendSMS = async (userPhone, msgContent, otp) => {
   });
   if (response.statusCode !== 200)
     throw new Error(
-      "Gửi SMS hiện tại không khả dụng, xin vui lòng thử lại sau."
+      "Gửi SMS hiện tại không khả dụng, xin vui lòng thử lại sau"
     );
   const parser = new DomParser();
   const doc = parser.parseFromString(response.body, "text/xml");
@@ -50,37 +61,61 @@ const sendSMS = async (userPhone, msgContent, otp) => {
   return `Gửi tin nhắn thành công đến số điện thoại ${userPhone}`;
 };
 
-const checkUser = async (userId, userPhone) => {
+const isUserValid = async (userId, userPhone) => {
   const user = await strapi
     .query("user", "users-permissions")
     .findOne({ id: userId });
   if (!user) throw new Error(`Tài khoản ${userPhone} không tồn tại`);
-  if (user.isConfirmedOTP)
-    throw new Error(`Tài khoản ${userPhone} đã được kích hoạt`);
   return user;
+};
+
+const checkUser = (user, requestType) => {
+  switch (requestType) {
+    case "register":
+      break;
+    case "reset-password":
+      if (!user.resetPasswordOTP || user.resetPasswordOTP == "")
+        throw new Error(
+          `Tin nhắn OTP đặt lại mật khẩu tài khoản gửi không thành công`
+        );
+      break;
+    default:
+      throw new Error(`Invalid request type ${requestType}`);
+  }
 };
 
 const updateUser = async (user, item) => {
   const updatedUser = await strapi
     .query("user", "users-permissions")
     .update({ id: user.id }, { ...item });
-  if (!updatedUser) throw new Error("Tài khoản không tồn tại!");
+  if (!updatedUser) throw new Error("Cập nhật tài khoản thất bại");
   return updatedUser;
 };
 
-const isOTPValid = (user, userPhone, otp) => {
-  return (
-    otp === FIXED_OTP ||
-    (user.otp &&
-      user.otp !== "" &&
-      userPhone === user.username &&
-      user.otp == otp &&
-      !isOTPExpired(user.otpExpireTime))
-  );
+const isOTPValid = (user, userPhone, otp, requestType) => {
+  if (requestType === "register")
+    return (
+      otp === FIXED_OTP ||
+      (user.confirmRegisterOTP &&
+        userPhone === user.username &&
+        user.confirmRegisterOTP == otp)
+    );
+  else if (requestType === "reset-password")
+    return (
+      otp === FIXED_OTP ||
+      (user.resetPasswordOTP &&
+        userPhone === user.username &&
+        user.resetPasswordOTP == otp)
+    );
+  return false;
 };
 
-const isOTPExpired = (otpExpireTime) => {
-  return moment().isAfter(otpExpireTime);
+const isOTPExpired = (user, requestType) => {
+  if (requestType === "register")
+    return moment().isAfter(user.registerOTPExpired);
+  else if (requestType === "reset-password")
+    return moment().isAfter(user.resetOTPExpired);
+  return false;
 };
 
 const replaceContentOTP = (msgContent, otp) => {
@@ -89,41 +124,85 @@ const replaceContentOTP = (msgContent, otp) => {
   return msgContent;
 };
 
+const updateOTPQuery = (otp, otpExpireTime, requestType) => {
+  let data = {};
+  switch (requestType) {
+    case "register":
+      data = {
+        confirmRegisterOTP: otp,
+        registerOTPExpired: otpExpireTime,
+      };
+      break;
+    case "reset-password":
+      data = {
+        resetPasswordOTP: otp,
+        resetOTPExpired: otpExpireTime,
+      };
+      break;
+    default:
+      throw new Error(`Invalid request type ${requestType}`);
+  }
+  return data;
+};
+
 module.exports = {
   async requestOTP(event) {
     const userId = event.params.id;
-    let { userPhone, msgContent } = event.request.body;
+    let { userPhone, msgContent, requestType } = event.request.body;
+    const user = await isUserValid(userId, userPhone);
+    if (requestType === "register" && user.isConfirmedOTP)
+      event.throw(500, `Tài khoản ${userPhone} đã được kích hoạt`);
+    const otp = generateOTP();
+    const otpExpireTime = moment().add(5, "minutes").toISOString();
+    const query = updateOTPQuery(otp, otpExpireTime, requestType);
+    msgContent = replaceContentOTP(msgContent, otp);
     try {
-      const user = await checkUser(userId, userPhone);
-      const otp = generateRegisterOTP();
-      const otpExpireTime = moment().add(5, "minutes");
-      msgContent = replaceContentOTP(msgContent, otp);
-      await updateUser(user, {
-        otp,
-        otpExpireTime: otpExpireTime.toISOString(),
-      });
-      const balance = await getBalance();
-      const fee = getSMSfee(userPhone, msgContent);
-      if (balance < fee) {
-        throw new Error(
-          `Gửi SMS hiện tại không khả dụng, xin vui lòng thử lại sau.`
-        );
-      }
-      return await sendSMS(userPhone, msgContent);
+      await updateUser(user, query);
+      // return await sendSMS(userPhone, msgContent, otp);
     } catch (error) {
       event.throw(500, error);
     }
   },
-  async confirmOTP(event) {
+  async confirmRegister(event) {
     const userId = event.params.id;
     const { userPhone, otp } = event.request.body;
+    const user = await isUserValid(userId, userPhone);
+    if (user.isConfirmedOTP)
+      event.throw(500, `Tài khoản ${userPhone} đã được kích hoạt`);
+    if (!user.confirmRegisterOTP || user.confirmRegisterOTP == "")
+      event.throw(500, `Có lỗi khi gửi OTP. Xin vui lòng thử lại`);
+    if (!isOTPValid(user, userPhone, otp, "register"))
+      event.throw(500, "Mã OTP không chính xác");
+    if (isOTPExpired(user.registerOTPExpired, "register"))
+      event.throw(500, "Mã OTP đã hết hạn");
     try {
-      const user = await checkUser(userId, userPhone);
-      if (isOTPValid(user, userPhone, otp)) {
-        await updateUser(user, { isConfirmedOTP: true, otp: "" });
-        return "Đăng ký thành công!";
-      }
-      throw new Error("Mã OTP không chính xác!");
+      await updateUser(user, { isConfirmedOTP: true, confirmRegisterOTP: "" });
+      return "Đăng ký thành công!";
+    } catch (error) {
+      event.throw(500, error);
+    }
+  },
+  async confirmResetPassword(event) {
+    console.log(event);
+    const userId = event.pararms.id;
+    const {
+      userPhone,
+      otp,
+      newPassword,
+      confirmNewPassword,
+    } = event.request.body;
+    const user = await isUserValid(userId, userPhone);
+    if (newPassword === user.password)
+      event.throw(500, "Mật khẩu mới không được trùng khớp với mật khẩu cũ");
+    if (newPassword !== confirmNewPassword)
+      event.throw(500, "Mật khẩu (nhập lại) không trùng khớp với mật khẩu");
+    if (!isOTPValid(user, userPhone, otp, "register"))
+      event.throw(500, "Mã OTP không chính xác");
+    if (isOTPExpired(user.resetOTPExpired, "register"))
+      event.throw(500, "Mã OTP đã hết hạn");
+    try {
+      await updateUser(user, { password: newPassword, resetPasswordOTP: "" });
+      return "Đặt lại mật khẩu thành công";
     } catch (error) {
       event.throw(500, error);
     }
