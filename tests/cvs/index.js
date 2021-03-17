@@ -49,7 +49,6 @@ describe("CVS API", function () {
       .post(`/request-otp`)
       .send({
         userPhone: "0973728668",
-        msgContent: "Ma OTP cua ban la: {{otp}}",
         requestType: "register",
       })
       .end((error, response) => {
@@ -63,7 +62,7 @@ describe("CVS API", function () {
   it("confirm register otp", (done) => {
     chai
       .request(app.server)
-      .post(`/confirm-register/${user.id}`)
+      .post(`/confirm-register`)
       .send({
         userPhone: "0973728668",
         otp: "270996",
@@ -82,7 +81,6 @@ describe("CVS API", function () {
       .post(`/request-otp`)
       .send({
         userPhone: "0973728668",
-        msgContent: "Ma OTP cua ban la: {{otp}}",
         requestType: "reset-password",
       })
       .end((error, response) => {
@@ -95,12 +93,24 @@ describe("CVS API", function () {
   it("confirm reset password otp", (done) => {
     chai
       .request(app.server)
-      .post(`/confirm-password/${user.id}`)
+      .post(`/confirm-reset-password/${user.username}`)
       .send({
-        userPhone: "0973728668",
+        otp: "270996",
+      })
+      .end((error, response) => {
+        const result = response.body;
+        expect(response).to.have.status(200);
+        expect(response).to.have.property("body");
+        done();
+      });
+  });
+  it("change password", (done) => {
+    chai
+      .request(app.server)
+      .put(`/change-password/${user.username}`)
+      .send({
         newPassword: "123456",
         confirmNewPassword: "123456",
-        otp: "270996",
       })
       .end((error, response) => {
         const result = response.body;

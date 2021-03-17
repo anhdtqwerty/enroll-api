@@ -10,7 +10,7 @@
     },
     {
       "method": "POST",
-      "path": "/confirm-register/:id",
+      "path": "/confirm-register",
       "handler": "cv.confirmRegister",
       "config": {
         "policies": []
@@ -18,8 +18,16 @@
     },
     {
       "method": "POST",
-      "path": "/confirm-password/:id",
+      "path": "/confirm-reset-password/:phone",
       "handler": "cv.confirmResetPassword",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/change-password/:phone",
+      "handler": "cv.changePassword",
       "config": {
         "policies": []
       }

@@ -16,6 +16,8 @@ const headers = {
   soapAction: "",
 };
 const FIXED_OTP = "270996";
+const CONTENT_OTP_SMS =
+  "Ma OTP cua ban la {{otp}}. OTP cua ban co hieu luc trong 5 phut";
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/concepts/controllers.html#core-controllers)
  * to customize this controller
@@ -61,10 +63,10 @@ const sendSMS = async (userPhone, msgContent, otp) => {
   return `Gửi tin nhắn thành công đến số điện thoại ${userPhone}`;
 };
 
-const isUserValid = async (userPhone, userId) => {
-  let query = { username: userPhone };
-  if (userId) query.id = userId;
-  const user = await strapi.query("user", "users-permissions").findOne(query);
+const isUserValid = async (userPhone) => {
+  const user = await strapi
+    .query("user", "users-permissions")
+    .findOne({ username: userPhone });
   if (!user) throw new Error(`Tài khoản ${userPhone} không tồn tại`);
   return user;
 };
@@ -132,8 +134,9 @@ const updateOTPQuery = (otp, otpExpireTime, requestType) => {
 
 module.exports = {
   async requestOTP(event) {
-    let { userPhone, msgContent, requestType } = event.request.body;
-    const user = await isUserValid(userPhone, null);
+    let { userPhone, requestType } = event.request.body;
+    let msgContent = CONTENT_OTP_SMS;
+    const user = await isUserValid(userPhone);
     if (requestType === "register" && user.isConfirmedOTP)
       event.throw(500, `Tài khoản ${userPhone} đã được kích hoạt`);
     const otp = generateOTP();
@@ -148,9 +151,8 @@ module.exports = {
     }
   },
   async confirmRegister(event) {
-    const userId = event.params.id;
     const { userPhone, otp } = event.request.body;
-    const user = await isUserValid(userPhone, userId);
+    const user = await isUserValid(userPhone);
     if (user.isConfirmedOTP)
       event.throw(500, `Tài khoản ${userPhone} đã được kích hoạt`);
     if (!user.confirmRegisterOTP || user.confirmRegisterOTP == "")
@@ -167,23 +169,41 @@ module.exports = {
     }
   },
   async confirmResetPassword(event) {
-    const userId = event.params.id;
-    const {
-      userPhone,
-      otp,
-      newPassword,
-      confirmNewPassword,
-    } = event.request.body;
-    const user = await isUserValid(userPhone, userId);
-    if (newPassword !== confirmNewPassword)
-      event.throw(500, "Mật khẩu (nhập lại) không trùng khớp với mật khẩu");
-    if (!isOTPValid(user, userPhone, otp, "register"))
+    const phone = event.params.phone;
+    const { otp } = event.request.body;
+    const user = await isUserValid(phone);
+    if (user.isConfirmedReset)
+      event.throw(500, `Xin vui lòng thử lại đổi mật khẩu`);
+    if (!user.resetPasswordOTP || user.resetPasswordOTP == "")
+      event.throw(500, `Có lỗi khi gửi OTP. Xin vui lòng thử lại`);
+    if (!isOTPValid(user, phone, otp, "reset-password"))
       event.throw(500, "Mã OTP không chính xác");
-    if (isOTPExpired(user.resetOTPExpired, "register"))
+    if (isOTPExpired(user.resetOTPExpired, "reset-password"))
       event.throw(500, "Mã OTP đã hết hạn");
     try {
-      await updateUser(user, { password: newPassword, resetPasswordOTP: "" });
-      return "Đặt lại mật khẩu thành công";
+      await updateUser(user, { isConfirmedReset: true, otp: "" });
+      return "Xin vui lòng nhập mật khẩu mới";
+    } catch (error) {
+      event.throw(500, error);
+    }
+  },
+  async changePassword(event) {
+    const phone = event.params.phone;
+    const { newPassword, confirmNewPassword } = event.request.body;
+    const user = await isUserValid(phone);
+    if (newPassword !== confirmNewPassword)
+      event.throw(500, `Mật khẩu (nhập lại) không trùng khớp với mật khẩu`);
+    const hashPassword = await strapi.admin.services.auth.hashPassword(
+      newPassword
+    );
+    if (hashPassword === user.password)
+      event.throw(500, `Mật khẩu mới không được trùng với mật khẩu cũ`);
+    try {
+      await updateUser(user, {
+        isConfirmedReset: false,
+        password: newPassword,
+      });
+      return "Đổi mật khẩu thành công!";
     } catch (error) {
       event.throw(500, error);
     }
