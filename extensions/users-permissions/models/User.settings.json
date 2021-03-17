@@ -80,6 +80,10 @@
     },
     "log": {
       "type": "json"
+    },
+    "isConfirmedReset": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
