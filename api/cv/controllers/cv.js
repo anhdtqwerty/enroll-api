@@ -158,7 +158,7 @@ module.exports = {
     msgContent = replaceContentOTP(msgContent, otp);
     try {
       await updateUser(user, query);
-      // return await sendSMS(userPhone, msgContent, otp);
+      return await sendSMS(userPhone, msgContent, otp);
     } catch (error) {
       event.throw(500, error);
     }
@@ -183,8 +183,7 @@ module.exports = {
     }
   },
   async confirmResetPassword(event) {
-    console.log(event);
-    const userId = event.pararms.id;
+    const userId = event.params.id;
     const {
       userPhone,
       otp,
@@ -192,8 +191,6 @@ module.exports = {
       confirmNewPassword,
     } = event.request.body;
     const user = await isUserValid(userId, userPhone);
-    if (newPassword === user.password)
-      event.throw(500, "Mật khẩu mới không được trùng khớp với mật khẩu cũ");
     if (newPassword !== confirmNewPassword)
       event.throw(500, "Mật khẩu (nhập lại) không trùng khớp với mật khẩu");
     if (!isOTPValid(user, userPhone, otp, "register"))
