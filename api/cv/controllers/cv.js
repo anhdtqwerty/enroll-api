@@ -201,7 +201,7 @@ module.exports = {
     try {
       await updateUser(user, {
         isConfirmedReset: false,
-        password: newPassword,
+        password: hashPassword,
       });
       return "Đổi mật khẩu thành công!";
     } catch (error) {
