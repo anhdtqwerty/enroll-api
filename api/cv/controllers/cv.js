@@ -142,8 +142,7 @@ module.exports = {
     msgContent = replaceContentOTP(msgContent, otp);
     try {
       await updateUser(user, query);
-      return "Thành công"
-      // return await sendSMS(userPhone, msgContent, otp);
+      return await sendSMS(userPhone, msgContent, otp);
     } catch (error) {
       event.throw(500, error);
     }
