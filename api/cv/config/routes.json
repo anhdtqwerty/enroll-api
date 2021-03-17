@@ -2,7 +2,7 @@
   "routes": [
     {
       "method": "POST",
-      "path": "/request-otp/:id",
+      "path": "/request-otp",
       "handler": "cv.requestOTP",
       "config": {
         "policies": []

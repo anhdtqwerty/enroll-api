@@ -61,27 +61,12 @@ const sendSMS = async (userPhone, msgContent, otp) => {
   return `Gửi tin nhắn thành công đến số điện thoại ${userPhone}`;
 };
 
-const isUserValid = async (userId, userPhone) => {
-  const user = await strapi
-    .query("user", "users-permissions")
-    .findOne({ id: userId });
+const isUserValid = async (userPhone, userId) => {
+  let query = { username: userPhone };
+  if (userId) query.id = userId;
+  const user = await strapi.query("user", "users-permissions").findOne(query);
   if (!user) throw new Error(`Tài khoản ${userPhone} không tồn tại`);
   return user;
-};
-
-const checkUser = (user, requestType) => {
-  switch (requestType) {
-    case "register":
-      break;
-    case "reset-password":
-      if (!user.resetPasswordOTP || user.resetPasswordOTP == "")
-        throw new Error(
-          `Tin nhắn OTP đặt lại mật khẩu tài khoản gửi không thành công`
-        );
-      break;
-    default:
-      throw new Error(`Invalid request type ${requestType}`);
-  }
 };
 
 const updateUser = async (user, item) => {
@@ -147,9 +132,8 @@ const updateOTPQuery = (otp, otpExpireTime, requestType) => {
 
 module.exports = {
   async requestOTP(event) {
-    const userId = event.params.id;
     let { userPhone, msgContent, requestType } = event.request.body;
-    const user = await isUserValid(userId, userPhone);
+    const user = await isUserValid(userPhone, null);
     if (requestType === "register" && user.isConfirmedOTP)
       event.throw(500, `Tài khoản ${userPhone} đã được kích hoạt`);
     const otp = generateOTP();
@@ -158,7 +142,8 @@ module.exports = {
     msgContent = replaceContentOTP(msgContent, otp);
     try {
       await updateUser(user, query);
-      return await sendSMS(userPhone, msgContent, otp);
+      return "Thành công"
+      // return await sendSMS(userPhone, msgContent, otp);
     } catch (error) {
       event.throw(500, error);
     }
@@ -166,7 +151,7 @@ module.exports = {
   async confirmRegister(event) {
     const userId = event.params.id;
     const { userPhone, otp } = event.request.body;
-    const user = await isUserValid(userId, userPhone);
+    const user = await isUserValid(userPhone, userId);
     if (user.isConfirmedOTP)
       event.throw(500, `Tài khoản ${userPhone} đã được kích hoạt`);
     if (!user.confirmRegisterOTP || user.confirmRegisterOTP == "")
@@ -190,7 +175,7 @@ module.exports = {
       newPassword,
       confirmNewPassword,
     } = event.request.body;
-    const user = await isUserValid(userId, userPhone);
+    const user = await isUserValid(userPhone, userId);
     if (newPassword !== confirmNewPassword)
       event.throw(500, "Mật khẩu (nhập lại) không trùng khớp với mật khẩu");
     if (!isOTPValid(user, userPhone, otp, "register"))

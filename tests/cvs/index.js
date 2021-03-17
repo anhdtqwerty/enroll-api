@@ -43,43 +43,43 @@ describe("CVS API", function () {
         done();
       });
   });
-  // it("request register otp", (done) => {
-  //   chai
-  //     .request(app.server)
-  //     .post(`/request-otp/${user.id}`)
-  //     .send({
-  //       userPhone: "0973728668",
-  //       msgContent: "Ma OTP cua ban la: {{otp}}",
-  //       requestType: "register",
-  //     })
-  //     .end((error, response) => {
-  //       const result = response.body;
-  //       console.log(result);
-  //       expect(response).to.have.status(200);
-  //       expect(response).to.have.property("body");
-  //       done();
-  //     });
-  // });
-  // it("confirm register otp", (done) => {
-  //   chai
-  //     .request(app.server)
-  //     .post(`/confirm-register/${user.id}`)
-  //     .send({
-  //       userPhone: "0973728668",
-  //       otp: "270996",
-  //     })
-  //     .end((error, response) => {
-  //       const result = response.body;
-  //       console.log(result);
-  //       expect(response).to.have.status(200);
-  //       expect(response).to.have.property("body");
-  //       done();
-  //     });
-  // });
+  it("request register otp", (done) => {
+    chai
+      .request(app.server)
+      .post(`/request-otp`)
+      .send({
+        userPhone: "0973728668",
+        msgContent: "Ma OTP cua ban la: {{otp}}",
+        requestType: "register",
+      })
+      .end((error, response) => {
+        const result = response.body;
+        console.log(result);
+        expect(response).to.have.status(200);
+        expect(response).to.have.property("body");
+        done();
+      });
+  });
+  it("confirm register otp", (done) => {
+    chai
+      .request(app.server)
+      .post(`/confirm-register/${user.id}`)
+      .send({
+        userPhone: "0973728668",
+        otp: "270996",
+      })
+      .end((error, response) => {
+        const result = response.body;
+        console.log(result);
+        expect(response).to.have.status(200);
+        expect(response).to.have.property("body");
+        done();
+      });
+  });
   it("request reset password otp", (done) => {
     chai
       .request(app.server)
-      .post(`/request-otp/${user.id}`)
+      .post(`/request-otp`)
       .send({
         userPhone: "0973728668",
         msgContent: "Ma OTP cua ban la: {{otp}}",
@@ -88,23 +88,6 @@ describe("CVS API", function () {
       .end((error, response) => {
         const result = response.body;
         expect(response).to.have.status(200);
-        expect(response).to.have.property("body");
-        done();
-      });
-  });
-  it("confirm reset password otp fail", (done) => {
-    chai
-      .request(app.server)
-      .post(`/confirm-password/${user.id}`)
-      .send({
-        userPhone: "0973728668",
-        newPassword: "123123",
-        confirmNewPassword: "123123",
-        otp: "270996",
-      })
-      .end((error, response) => {
-        const result = response.body;
-        expect(response).to.have.status(500);
         expect(response).to.have.property("body");
         done();
       });
