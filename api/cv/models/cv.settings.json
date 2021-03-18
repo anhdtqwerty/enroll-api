@@ -86,9 +86,9 @@
       "type": "string"
     },
     "parent": {
-      "via": "cvs",
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "cvs"
     },
     "approver": {
       "plugin": "users-permissions",
@@ -98,7 +98,8 @@
       "type": "string"
     },
     "activeCode": {
-      "type": "string"
+      "via": "cv",
+      "model": "active-code"
     }
   }
 }
