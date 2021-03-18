@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tour apprev="17856" appversion="6.1.1" start="node1">
+  <panorama id="node1" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node1/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3499" width="3499" levelingroll="0">
+      <level predecode="0" preload="0" height="3499" width="3499"/>
+      <level predecode="0" preload="0" height="1749" width="1749"/>
+      <level predecode="0" preload="0" height="874" width="874"/>
+      <level predecode="1" preload="1" height="437" width="437"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="53">
+      <start tilt="-0.64" projection="4" pan="-0.74" fov="76.9"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fov="5"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="105.79886290" description="" comment="" datetime="20/04/2020 4:18 PM" nodeid="node1" customnodeid="" title="1. Cổng trường" tags="Viet Ta" copyright="" latitude="20.97219191" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="-8.49" id="Point01" url="{node2}" description="" title="2. Sân trường" target="" pan="-358.33" skinid="ht_node-12h"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <panorama id="node2" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node2/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3500" width="3500" levelingroll="0">
+      <level predecode="0" preload="0" height="3500" width="3500"/>
+      <level predecode="0" preload="0" height="1750" width="1750"/>
+      <level predecode="0" preload="0" height="875" width="875"/>
+      <level predecode="1" preload="1" height="437" width="437"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start tilt="5.25" projection="4" pan="34.91" fov="77.5"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fov="5"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="" description="Diện tích 7000m2, là không gian vui chơi, hoạt động tập thể, tập trung" comment="" datetime="20/04/2020 4:14 PM" nodeid="node2" customnodeid="" title="2. Sân trường" tags="Viet Ta" copyright="" latitude="" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="1.09" id="Point01" url="{node3}" description="" title="3. Sân trường - Sân khấu" target="" pan="-283.96" skinid="ht_node-12h"/>
+      <hotspot tilt="-6.57" id="Point02" url="{node1}" description="" title="1. Cổng trường" target="" pan="-150.54" skinid="ht_node-12h"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <panorama id="node3" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node3/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3503" width="3503" levelingroll="0">
+      <level predecode="0" preload="0" height="3503" width="3503"/>
+      <level predecode="0" preload="0" height="1751" width="1751"/>
+      <level predecode="0" preload="0" height="875" width="875"/>
+      <level predecode="1" preload="1" height="437" width="437"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start tilt="2.51" projection="4" pan="-21.24" fov="70"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fov="5"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="" description="" comment="" datetime="20/04/2020 4:11 PM" nodeid="node3" customnodeid="" title="3. Sân trường - Sân khấu" tags="Viet Ta" copyright="" latitude="" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="-3.06" id="Point01" url="{node4}" description="" title="4. Sân khấu" target="" pan="-21.71" skinid="ht_node-12h"/>
+      <hotspot tilt="-1.98" id="Point02" url="{node2}" description="" title="2. Sân trường" target="" pan="-226.44" skinid="ht_node-12h"/>
+      <hotspot tilt="-0.82" id="Point03" url="{node14}" description="" title="5. Hàng lang trước" target="" pan="-199.56" skinid="ht_node-12h"/>
+      <hotspot tilt="-2.03" id="Point04" url="{node10}" description="" title="8. Phòng máy tính" target="" pan="-65.79" skinid="ht_node-12h"/>
+      <hotspot tilt="-1.94" id="Point05" url="{node7}" description="" title="6. Hành lang " target="" pan="-72.28" skinid="ht_node-1h30"/>
+      <hotspot tilt="-1.76" id="Point06" url="{node11}" description="" title="13. Lớp học" target="" pan="-104.5" skinid="ht_node-12h"/>
+      <hotspot tilt="4.14" id="Point07" url="{node13}" description="" title="14. Hội trường" target="" pan="-104.43" skinid="ht_node-12h"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <panorama id="node4" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node4/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3497" width="3497" levelingroll="0">
+      <level predecode="0" preload="0" height="3497" width="3497"/>
+      <level predecode="0" preload="0" height="1748" width="1748"/>
+      <level predecode="0" preload="0" height="874" width="874"/>
+      <level predecode="1" preload="1" height="437" width="437"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start tilt="-0.06" projection="4" pan="-115.14" fov="76.9"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fov="5"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="" description="" comment="" datetime="20/04/2020 4:22 PM" nodeid="node4" customnodeid="" title="4. Sân khấu" tags="Viet Ta" copyright="" latitude="" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="-5.05" id="Point01" url="{node3}" description="" title="3. Sân trường - Sân khấu" target="" pan="-177.3" skinid="ht_node-12h"/>
+      <hotspot tilt="-4.05" id="Point02" url="{node7}" description="" title="6. Hành lang " target="" pan="-92.36" skinid="ht_node-12h"/>
+      <hotspot tilt="-2.97" id="Point03" url="{node10}" description="" title="8. Phòng máy tính" target="" pan="-52.66" skinid="ht_node-12h"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <panorama id="node14" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node14/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3497" width="3497" levelingroll="0">
+      <level predecode="0" preload="0" height="3497" width="3497"/>
+      <level predecode="0" preload="0" height="1748" width="1748"/>
+      <level predecode="0" preload="0" height="874" width="874"/>
+      <level predecode="1" preload="1" height="437" width="437"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start tilt="-2.92" projection="4" pan="100.03" fov="77.1"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fov="5"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="" description="" comment="" datetime="20/04/2020 5:32 PM" nodeid="node14" customnodeid="" title="5. Hàng lang trước" tags="Viet Ta" copyright="" latitude="" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="-3.75" id="Point01" url="{node3}" description="" title="3. Sân trường - Sân khấu" target="" pan="-260.71" skinid="ht_node-12h"/>
+      <hotspot tilt="-3.31" id="Point02" url="{node7}" description="" title="6. Hành lang " target="" pan="-280.8" skinid="ht_node-12h"/>
+      <hotspot tilt="-7.97" id="Point03" url="{node2}" description="" title="2. Sân trường" target="" pan="-189.53" skinid="ht_node-12h"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <panorama id="node7" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node7/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3494" width="3494" levelingroll="0">
+      <level predecode="0" preload="0" height="3494" width="3494"/>
+      <level predecode="0" preload="0" height="1747" width="1747"/>
+      <level predecode="0" preload="0" height="873" width="873"/>
+      <level predecode="1" preload="1" height="436" width="436"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start tilt="1.28" projection="4" pan="85.76" fov="76.9"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fov="5"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="" description="" comment="" datetime="20/04/2020 4:40 PM" nodeid="node7" customnodeid="" title="6. Hành lang " tags="Viet Ta" copyright="" latitude="" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="-0.13" id="Point01" url="{node4}" description="" title="4. Sân khấu" target="" pan="-267.08" skinid="ht_node-12h"/>
+      <hotspot tilt="-4.25" id="Point02" url="{node10}" description="" title="8. Phòng máy tính" target="" pan="-287.17" skinid="ht_node-1h30"/>
+      <hotspot tilt="-2.79" id="Point03" url="{node15}" description="" title="7. Hành lang sau" target="" pan="-180.5" skinid="ht_node-12h"/>
+      <hotspot tilt="-5.73" id="Point04" url="{node5}" description="" title="9. Phòng chức năng" target="" pan="-90.39" skinid="ht_node-12h"/>
+      <hotspot tilt="-2.58" id="Point05" url="{node6}" description="" title="10. Phòng thí nghiệm - thực hành" target="" pan="-159.68" skinid="ht_node-12h"/>
+      <hotspot tilt="-3.29" id="Point06" url="{node9}" description="" title="11. Canteen" target="" pan="-0.45" skinid="ht_node-10h30"/>
+      <hotspot tilt="-3.36" id="Point07" url="{node8}" description="" title="12. Lớp học" target="" pan="-14.98" skinid="ht_node-1h30"/>
+      <hotspot tilt="-4.07" id="Point08" url="{node11}" description="" title="13. Lớp học" target="" pan="-256.2" skinid="ht_node-10h30"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <panorama id="node15" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node15/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3499" width="3499" levelingroll="0">
+      <level predecode="0" preload="0" height="3499" width="3499"/>
+      <level predecode="0" preload="0" height="1749" width="1749"/>
+      <level predecode="0" preload="0" height="874" width="874"/>
+      <level predecode="1" preload="1" height="437" width="437"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start tilt="0" projection="4" pan="0" fov="70"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" fovpixel="2" pan="0"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="" description="" comment="" datetime="20/04/2020 5:43 PM" nodeid="node15" customnodeid="" title="7. Hành lang sau" tags="Program Files" copyright="" latitude="" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="-6.67" id="Point01" url="{node6}" description="" title="10. Phòng thí nghiệm - thực hành" target="" pan="-331.49" skinid="ht_node-12h"/>
+      <hotspot tilt="0.71" id="Point02" url="{node7}" description="" title="6. Hành lang " target="" pan="-275.68" skinid="ht_node-12h"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <panorama id="node10" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node10/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3496" width="3496" levelingroll="0">
+      <level predecode="0" preload="0" height="3496" width="3496"/>
+      <level predecode="0" preload="0" height="1748" width="1748"/>
+      <level predecode="0" preload="0" height="874" width="874"/>
+      <level predecode="1" preload="1" height="437" width="437"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start tilt="-0.54" projection="4" pan="2.98" fov="76.7"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fov="5"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="" description="Trang bị máy tính, máy chiếu, điều hòa và thiết bị tin học" comment="" datetime="20/04/2020 5:01 PM" nodeid="node10" customnodeid="" title="8. Phòng máy tính" tags="Viet Ta" copyright="" latitude="" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="-3.8" id="Point01" url="{node7}" description="" title="6. Hành lang " target="" pan="-216.72" skinid="ht_node-1h30"/>
+      <hotspot tilt="-2.9" id="Point02" url="{node4}" description="" title="4. Sân khấu" target="" pan="-319.99" skinid="ht_node-10h30"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <panorama id="node5" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node5/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3496" width="3496" levelingroll="0">
+      <level predecode="0" preload="0" height="3496" width="3496"/>
+      <level predecode="0" preload="0" height="1748" width="1748"/>
+      <level predecode="0" preload="0" height="874" width="874"/>
+      <level predecode="1" preload="1" height="437" width="437"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start tilt="-0.43" projection="4" pan="-91.89" fov="77.2"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fov="5"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="" description="Phòng sinh hoạt chung cho các em học sinh và CLB" comment="" datetime="20/04/2020 4:28 PM" nodeid="node5" customnodeid="" title="9. Phòng chức năng" tags="Viet Ta" copyright="" latitude="" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="-4.91" id="Point01" url="{node7}" description="" title="6. Hành lang " target="" pan="-256.47" skinid="ht_node-12h"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <panorama id="node6" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node6/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3495" width="3495" levelingroll="0">
+      <level predecode="0" preload="0" height="3495" width="3495"/>
+      <level predecode="0" preload="0" height="1747" width="1747"/>
+      <level predecode="0" preload="0" height="873" width="873"/>
+      <level predecode="1" preload="1" height="436" width="436"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start tilt="0.54" projection="4" pan="128.43" fov="70"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fov="5"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="" description="Trang thiết bị, dụng cụ thực hành cho các môn hóa học, vật lý, sinh học..." comment="" datetime="20/04/2020 4:35 PM" nodeid="node6" customnodeid="" title="10. Phòng thí nghiệm - thực hành" tags="Viet Ta" copyright="" latitude="" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="-10.19" id="Point01" url="{node15}" description="" title="7. Hành lang sau" target="" pan="-12.4" skinid="ht_node-12h"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <panorama id="node9" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node9/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3495" width="3495" levelingroll="0">
+      <level predecode="0" preload="0" height="3495" width="3495"/>
+      <level predecode="0" preload="0" height="1747" width="1747"/>
+      <level predecode="0" preload="0" height="873" width="873"/>
+      <level predecode="1" preload="1" height="436" width="436"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start tilt="0.8" projection="4" pan="-93.36" fov="76.7"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fov="5"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="" description="Là nơi không gian sinh hoạt chung, ăn trưa, thư giãn cho học sinh" comment="" datetime="20/04/2020 4:54 PM" nodeid="node9" customnodeid="" title="11. Canteen" tags="Viet Ta" copyright="" latitude="" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="-4.4" id="Point01" url="{node7}" description="" title="6. Hành lang " target="" pan="-135.17" skinid="ht_node-12h"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <panorama id="node8" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node8/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3494" width="3494" levelingroll="0">
+      <level predecode="0" preload="0" height="3494" width="3494"/>
+      <level predecode="0" preload="0" height="1747" width="1747"/>
+      <level predecode="0" preload="0" height="873" width="873"/>
+      <level predecode="1" preload="1" height="436" width="436"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start tilt="-2.16" projection="4" pan="-98.49" fov="76.9"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fov="5"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="" description="Có 40 chỗ ngồi cho học sinh, trang bị máy chiếu, điều hòa" comment="" datetime="20/04/2020 4:51 PM" nodeid="node8" customnodeid="" title="12. Lớp học" tags="Viet Ta" copyright="" latitude="" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="-9.42" id="Point01" url="{node7}" description="" title="6. Hành lang " target="" pan="-190.77" skinid="ht_node-12h"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <panorama id="node11" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node11/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3494" width="3494" levelingroll="0">
+      <level predecode="0" preload="0" height="3494" width="3494"/>
+      <level predecode="0" preload="0" height="1747" width="1747"/>
+      <level predecode="0" preload="0" height="873" width="873"/>
+      <level predecode="1" preload="1" height="436" width="436"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start tilt="0.2" projection="4" pan="-169.94" fov="76.7"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fov="5"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="" description="Có 40 chỗ ngồi cho học sinh, trang bị máy chiếu, điều hòa" comment="" datetime="20/04/2020 5:06 PM" nodeid="node11" customnodeid="" title="13. Lớp học" tags="Viet Ta" copyright="" latitude="" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="-6.38" id="Point01" url="{node3}" description="" title="3. Sân trường - Sân khấu" target="" pan="-191.48" skinid="ht_node-12h"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <panorama id="node13" hideabout="1">
+    <input levelingpitch="0" levelbiashidpi="0.400" leveltilesize="510" levelbias="0.400" overlap="1" leveltileurl="tiles/node13/cf_%c/l_%l/c_%x/tile_%y.jpg" height="3496" width="3496" levelingroll="0">
+      <level predecode="0" preload="0" height="3496" width="3496"/>
+      <level predecode="0" preload="0" height="1748" width="1748"/>
+      <level predecode="0" preload="0" height="874" width="874"/>
+      <level predecode="1" preload="1" height="437" width="437"/>
+      <preview strip="1" color="0x808080"/>
+    </input>
+    <view fovmode="0" pannorth="0">
+      <start tilt="0.31" projection="4" pan="-87.44" fov="70"/>
+      <flyin tilt="-90" projection="9" pan="0" fov="170"/>
+      <min tilt="-90" pan="0" fov="5"/>
+      <max tilt="90" fovstereographic="270" fovfisheye="360" pan="360" scaletofit="1" fov="120"/>
+    </view>
+    <userdata longitude="" description="Trang bị 200 ghế, máy chiếu, điều hòa... tổ chức hội họp, hội thảo, sự kiện." comment="" datetime="20/04/2020 5:16 PM" nodeid="node13" customnodeid="" title="14. Hội trường" tags="Viet Ta" copyright="" latitude="" author="" info="" source=""/>
+    <hotspots wordwrap="1" height="20" width="180">
+      <label backgroundcolor="0xffffff" backgroundalpha="1" borderalpha="1" textcolor="0x000000" textalpha="1" wordwrap="1" bordercolor="0x000000" borderradius="1" height="20" border="1" width="180" background="1" enabled="1"/>
+      <polystyle backgroundcolor="0x0000ff" backgroundalpha="0.25098" borderalpha="1" handcursor="1" mode="0" bordercolor="0x0000ff"/>
+      <hotspot tilt="-1.9" id="Point02" url="{node3}" description="" title="3. Sân trường - Sân khấu" target="" pan="-253.24" skinid="ht_node-12h"/>
+      <hotspot tilt="-0.1" id="Point01" url="{node3}" description="" title="3. Sân trường - Sân khấu" target="" pan="-113.48" skinid="ht_node-12h"/>
+    </hotspots>
+    <media/>
+    <transition blendtime="1" zoomspeed="5" softedge="0" blendcolor="0x000000" zoomoutpause="1" type="crossdissolve" zoomout="0" zoomfov="12" zoomin="2" enabled="1"/>
+    <autorotate speed="0.050" noderandom="1" returntohorizon="0.000" delay="3.00" useanimation="0" startloaded="0" nodedelay="0.00" nodefilter="" enabled="1"/>
+    <animation useinautorotation="0" animsequence="Animation01" syncanimationwithvideo="0"/>
+    <control lockedkeyboard="0" dblclickfullscreen="0" sensitivity="8" lockedmouse="0" invertwheel="0" invertcontrol="1" rubberband="0" lockedkeyboardzoom="0" simulatemass="1" lockedwheel="0" contextfullscreen="0" speedwheel="1" contextprojections="0" hideabout="1"/>
+  </panorama>
+  <masternode>
+    <userdata longitude="" description="" comment="" datetime="" nodeid="master" customnodeid="" title="" tags="" copyright="" latitude="" author="" info="" source=""/>
+  </masternode>
+</tour>
