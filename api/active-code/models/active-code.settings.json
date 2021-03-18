@@ -17,8 +17,7 @@
       "minLength": 8
     },
     "grade": {
-      "type": "string",
-      "default": "Khoi 6"
+      "type": "string"
     },
     "department": {
       "type": "string"
