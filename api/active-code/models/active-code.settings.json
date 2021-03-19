@@ -31,8 +31,8 @@
       "default": "inactive"
     },
     "cv": {
-      "model": "cv",
-      "via": "activeCode"
+      "via": "activeCode",
+      "model": "cv"
     },
     "userPhone": {
       "type": "string"

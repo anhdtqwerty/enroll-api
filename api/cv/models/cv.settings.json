@@ -98,8 +98,14 @@
       "type": "string"
     },
     "activeCode": {
-      "via": "cv",
-      "model": "active-code"
+      "model": "active-code",
+      "via": "cv"
+    },
+    "step": {
+      "type": "integer",
+      "default": 1,
+      "min": 1,
+      "max": 4
     }
   }
 }
