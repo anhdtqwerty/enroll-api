@@ -28,9 +28,7 @@ module.exports = {
     let msgContent = strapi.services.cv.replaceContentOTP(otp);
     try {
       await strapi.services.cv.updateUser(user, query);
-      //TODO: bỏ comment dòng dưới khi test xong
-      // return await strapi.services.cv.sendSMS(userPhone, msgContent, otp);
-      return "Thành công";
+      return await strapi.services.cv.sendSMS(userPhone, msgContent, otp);
     } catch (error) {
       event.throw(500, error);
     }
