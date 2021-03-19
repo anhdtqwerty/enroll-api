@@ -1,8 +1,61 @@
-'use strict';
-
+"use strict";
+const { sanitizeEntity } = require("strapi-utils");
+const { generateDocumentCode, isCodeValid } = require("../../utility.js");
+const moment = require("moment");
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/concepts/controllers.html#core-controllers)
  * to customize this controller
  */
-
-module.exports = {};
+const generateCode = async () => {
+  let code = "";
+  let existingCode = {};
+  do {
+    code = generateDocumentCode();
+    existingCode = await strapi.services["active-code"].findOne({
+      code: code,
+    });
+  } while (existingCode);
+  return code;
+};
+module.exports = {
+  async create(event) {
+    const item = event.request.body;
+    delete item.code;
+    if (item.grade !== "Khối 6" && item.grade !== "Khối 10")
+      event.throw(500, `Khối ${item.grade} không khả dụng`);
+    item.code = await generateCode();
+    return await strapi.services["active-code"].create(
+      sanitizeEntity(
+        {
+          code: item.code,
+          grade: item.grade,
+        },
+        {
+          model: strapi.models["active-code"],
+        }
+      )
+    );
+  },
+  async validate(event) {
+    const { code } = event.request.body;
+    const existingCode = await strapi.services["active-code"].findOne({
+      code: code,
+    });
+    if (!existingCode) event.throw(500, "Mã kích hoạt không tồn tại");
+    if (!isCodeValid(code)) event.throw(500, "Mã kích hoạt không hợp lệ");
+    if (existingCode.grade !== "Khối 6" && existingCode.grade !== "Khối 10")
+      event.throw(500, "Mã kích hoạt không hợp lệ");
+    if (
+      existingCode.status === "active" ||
+      existingCode.activeDate ||
+      existingCode.department
+    )
+      event.throw(
+        500,
+        `Mã kích hoạt đã được sử dụng lúc ${moment(
+          existingCode.activeDate
+        ).format("DD/MM/YYYY hh:mm:ss")}`
+      );
+    return true;
+  },
+};

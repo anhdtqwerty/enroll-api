@@ -58,7 +58,7 @@
     },
     {
       "method": "POST",
-      "path": "/cvs",
+      "path": "/cvs/:activeCode",
       "handler": "cv.create",
       "config": {
         "policies": []

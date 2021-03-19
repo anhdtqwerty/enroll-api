@@ -8,7 +8,7 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "test": "cross-env NODE_ENV=test mocha --timeout 10000 ./tests/cvs/index.js --exit || true"
+    "test": "cross-env NODE_ENV=test mocha --timeout 10000 ./tests/test-handler.js --exit || true"
   },
   "dependencies": {
     "chai": "^4.3.3",

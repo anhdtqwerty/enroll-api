@@ -33,6 +33,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/active-codes/validate",
+      "handler": "active-code.validate",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/active-codes/:id",
       "handler": "active-code.update",

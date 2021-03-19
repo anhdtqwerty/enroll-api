@@ -23,4 +23,11 @@ module.exports = {
   generateRegisterOTP() {
     return ("" + Math.random()).substring(2, 8);
   },
+  generateDocumentCode() {
+    return ("" + Math.random()).substring(2, 10);
+  },
+  isCodeValid(code) {
+    const patt = new RegExp("(?<!\\d)\\d{8}(?!\\d)");
+    return patt.test(code);
+  },
 };
