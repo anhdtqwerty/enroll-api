@@ -113,6 +113,7 @@ module.exports = {
         });
         newCV = await strapi.services.cv.create({
           code: code,
+          type: activeCode.grade,
           activeCode: activeCode.id,
           parent: user.id,
           status: "created",
