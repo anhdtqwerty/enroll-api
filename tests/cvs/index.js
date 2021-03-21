@@ -8,6 +8,7 @@ chai.use(chaiHttp);
 
 let app;
 let user;
+let activeCode;
 
 module.exports = {
   execute: () => {
@@ -126,7 +127,7 @@ module.exports = {
       // });
       this.timeout(20000);
       it("create cv", async () => {
-        const activeCode = await strapi.services["active-code"].create({
+        activeCode = await strapi.services["active-code"].create({
           code: "11111111",
           grade: "Khối 6",
         });
@@ -135,6 +136,31 @@ module.exports = {
           .post(`/cvs/${activeCode.code}`)
           .send({
             userPhone: user.username,
+          });
+        const result = response.body;
+        expect(response).to.have.status(200);
+        expect(response).to.have.property("body");
+      });
+      it("update cv", async () => {
+        const response = await chai
+          .request(app.server)
+          .put(`/cvs/${activeCode.code}`)
+          .send({
+            userPhone: user.username,
+            department: "Cơ sở 1",
+            submitType: "complete-step",
+          });
+        const result = response.body;
+        console.log(result);
+        expect(response).to.have.status(200);
+        expect(response).to.have.property("body");
+      });
+      it("check system time", async () => {
+        const response = await chai
+          .request(app.server)
+          .post("/checkSystemTime")
+          .send({
+            grade: "Khối 6",
           });
         const result = response.body;
         console.log(result);

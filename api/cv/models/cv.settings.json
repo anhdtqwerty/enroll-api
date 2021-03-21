@@ -109,6 +109,10 @@
     },
     "code": {
       "type": "uid"
+    },
+    "isDraft": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

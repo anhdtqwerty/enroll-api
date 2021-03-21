@@ -98,11 +98,10 @@ module.exports = {
     }
   },
   async create(event) {
-    const item = event.request.body;
-    const code = event.params.activeCode;
-    if (!item.userPhone)
-      event.throw(500, "Xin vui lòng đăng nhập để tạo hồ sơ");
-    const user = await strapi.services.cv.isUserValid(item.userPhone);
+    const { userPhone } = event.request.body;
+    const code = event.params.code;
+    if (!userPhone) event.throw(500, "Xin vui lòng đăng nhập để tạo hồ sơ");
+    const user = await strapi.services.cv.isUserValid(userPhone);
     if (!user.isConfirmedOTP)
       event.throw(500, "Xin vui lòng kích hoạt tài khoản trước");
     if (strapi.services["active-code"].checkActiveCode(code)) {
@@ -138,5 +137,45 @@ module.exports = {
       }
     }
     event.throw(500, "Tạo hồ sơ mới không thành công! Xin vui lòng thử lại");
+  },
+  async update(event) {
+    const { submitType, userPhone, ...item } = event.request.body;
+    const code = event.params.code;
+    if (!userPhone) event.throw(500, "Xin vui lòng đăng nhập để tạo hồ sơ");
+    const user = await strapi.services.cv.isUserValid(userPhone);
+    if (!user.isConfirmedOTP)
+      event.throw(500, "Xin vui lòng kích hoạt tài khoản trước");
+    if (submitType != "save-draft" && submitType != "complete-step")
+      event.throw(500, "Kiểu cập nhật hồ sơ không khả dụng");
+    if (item.step) delete item.step;
+    const existingCV = await strapi.services.cv.findOne({
+      code: code,
+    });
+    if (!existingCV) event.throw(500, "Hồ sơ không tồn tại");
+    if (existingCV.parent.id !== user.id)
+      event.throw(500, "Không có quyền để chỉnh sửa hồ sơ này");
+    try {
+      if (submitType === "complete-step") item.step = existingCV.step + 1;
+      else if (submitType === "save-draft") item.isDraft = true;
+      let updatedCV = await strapi.services.cv.update(
+        {
+          id: existingCV.id,
+          code,
+        },
+        {
+          ...item,
+        }
+      );
+      delete updatedCV.parent.password;
+      return updatedCV;
+    } catch (e) {
+      event.throw(500, "Cập nhật hồ sơ không thành công! Xin vui lòng thử lại");
+    }
+  },
+  async checkSystemTime(event) {
+    const { grade } = event.request.body;
+    if (grade !== "Khối 6" && grade !== "Khối 10")
+      event.throw(500, "Khối không khả dụng");
+    return strapi.services.cv.checkSystemTime(grade);
   },
 };

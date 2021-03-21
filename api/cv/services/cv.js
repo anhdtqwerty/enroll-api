@@ -14,6 +14,7 @@ const {
   getSMSfee,
 } = require("../controllers/cvHelper.js");
 
+moment.locale("vi");
 const soapUrl = "http://ams.tinnhanthuonghieu.vn:8009/bulkapi?wsdl";
 const headers = {
   "user-agent": "LTV-Enrollment",
@@ -23,21 +24,32 @@ const headers = {
 const FIXED_OTP = "270996";
 const CONTENT_OTP_SMS =
   "Ma OTP cua ban la {{otp}}. OTP cua ban co hieu luc trong 5 phut";
+const CHOOSE_DEPARTMENT = "01/03/2021 00:00:00";
+const FILL_INFO = "01/03/2021 00:00:00";
+const REGISTER_EXPECTATION = "01/03/2021 00:00:00";
+const STUDY_RESULT_GRADE6 = "01/04/2021 00:00:00";
+const STUDY_RESULT_GRADE10 = "01/04/2021 00:00:00";
+const ENTRY_EXAM_RESULT_GRADE6 = "01/05/2021 00:00:00";
+const ENTRY_EXAM_RESULT_GRADE10 = "01/05/2021 00:00:00";
 
+const isNowAfterDatetime = (comparingDate) => {
+  return !moment(comparingDate, "DD/MM/YYYY 00:00:00")
+    .locale("vi")
+    .isAfter(new Date().toISOString());
+};
+const getBalance = async () => {
+  const balanceXML = getBalanceXML();
+  const { response } = await soapRequest({
+    url: soapUrl,
+    headers,
+    xml: balanceXML,
+    timeout: 1000,
+  });
+  const parser = new DomParser();
+  const doc = parser.parseFromString(response.body, "text/xml");
+  return doc.getElementsByTagName("balance")[0].textContent;
+};
 module.exports = {
-  getBalance: async () => {
-    const balanceXML = getBalanceXML();
-    const { response } = await soapRequest({
-      url: soapUrl,
-      headers,
-      xml: balanceXML,
-      timeout: 1000,
-    });
-    const parser = new DomParser();
-    const doc = parser.parseFromString(response.body, "text/xml");
-    return doc.getElementsByTagName("balance")[0].textContent;
-  },
-
   sendSMS: async (userPhone, msgContent, otp) => {
     const balance = await getBalance();
     const fee = getSMSfee(userPhone, msgContent);
@@ -133,5 +145,20 @@ module.exports = {
         throw new Error(`Invalid request type ${requestType}`);
     }
     return data;
+  },
+
+  checkSystemTime: (grade) => {
+    let result = {};
+    result["choose-department"] = isNowAfterDatetime(CHOOSE_DEPARTMENT);
+    result["fill-info"] = isNowAfterDatetime(FILL_INFO);
+    if (grade === "Khối 6") {
+      result["study-result"] = isNowAfterDatetime(STUDY_RESULT_GRADE6);
+      result["exam-result"] = isNowAfterDatetime(ENTRY_EXAM_RESULT_GRADE6);
+    } else if (grade === "Khối 10") {
+      result["register-expectation"] = isNowAfterDatetime(REGISTER_EXPECTATION);
+      result["study-result"] = isNowAfterDatetime(STUDY_RESULT_GRADE10);
+      result["exam-result"] = isNowAfterDatetime(ENTRY_EXAM_RESULT_GRADE10);
+    }
+    return result;
   },
 };
