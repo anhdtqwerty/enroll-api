@@ -11,28 +11,28 @@
     "draftAndPublish": false
   },
   "attributes": {
-    "dadName": {
+    "parentName": {
       "type": "string"
     },
-    "dadResidentID": {
+    "parentResidentID": {
       "type": "string"
     },
-    "dadPhone": {
+    "parentPhone": {
       "type": "string"
     },
-    "dadJobs": {
+    "parentJob": {
       "type": "string"
     },
-    "dadAddress": {
+    "parentAddress": {
       "type": "string"
     },
-    "momName": {
+    "otherParentName": {
       "type": "string"
     },
-    "momJobs": {
+    "otherParentJob": {
       "type": "string"
     },
-    "momPhone": {
+    "otherParentPhone": {
       "type": "string"
     },
     "avatar": {
@@ -113,6 +113,12 @@
     "isDraft": {
       "type": "boolean",
       "default": false
+    },
+    "otherParentResidentID": {
+      "type": "string"
+    },
+    "otherParentAddress": {
+      "type": "string"
     }
   }
 }
