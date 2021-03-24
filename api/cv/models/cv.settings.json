@@ -58,9 +58,6 @@
     "studentId": {
       "type": "string"
     },
-    "password": {
-      "type": "string"
-    },
     "school": {
       "type": "string"
     },
