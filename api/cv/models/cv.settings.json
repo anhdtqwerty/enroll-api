@@ -116,6 +116,9 @@
     },
     "otherParentAddress": {
       "type": "string"
+    },
+    "expectation3": {
+      "type": "string"
     }
   }
 }
