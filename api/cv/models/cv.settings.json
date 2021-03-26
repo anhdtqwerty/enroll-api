@@ -76,12 +76,6 @@
     "type": {
       "type": "string"
     },
-    "expectation1": {
-      "type": "string"
-    },
-    "expectation2": {
-      "type": "string"
-    },
     "parent": {
       "plugin": "users-permissions",
       "model": "user",
@@ -117,8 +111,14 @@
     "otherParentAddress": {
       "type": "string"
     },
+    "expectation1": {
+      "type": "json"
+    },
+    "expectation2": {
+      "type": "json"
+    },
     "expectation3": {
-      "type": "string"
+      "type": "json"
     }
   }
 }
