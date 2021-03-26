@@ -155,7 +155,7 @@ module.exports = {
     if (existingCV.parent.id !== user.id)
       event.throw(500, "Không có quyền để chỉnh sửa hồ sơ này");
     try {
-      if (submitType === "complete-step" && existingCV.step < 4)
+      if (submitType === "complete-step" && existingCV.step < 5)
         item.step = existingCV.step + 1;
       else if (submitType === "save-draft") item.isDraft = true;
       let updatedCV = await strapi.services.cv.update(
