@@ -65,22 +65,22 @@ module.exports = {
             done();
           });
       });
-      it("confirm register otp", (done) => {
-        chai
-          .request(app.server)
-          .post(`/confirm-register`)
-          .send({
-            userPhone: "0973728668",
-            otp: "270996",
-          })
-          .end((error, response) => {
-            const result = response.body;
-            console.log(result);
-            expect(response).to.have.status(200);
-            expect(response).to.have.property("body");
-            done();
-          });
-      });
+      // it("confirm register otp", (done) => {
+      //   chai
+      //     .request(app.server)
+      //     .post(`/confirm-register`)
+      //     .send({
+      //       userPhone: "0973728668",
+      //       otp: "270996",
+      //     })
+      //     .end((error, response) => {
+      //       const result = response.body;
+      //       console.log(result);
+      //       expect(response).to.have.status(200);
+      //       expect(response).to.have.property("body");
+      //       done();
+      //     });
+      // });
       // it("request reset password otp", (done) => {
       //   chai
       //     .request(app.server)
@@ -125,30 +125,42 @@ module.exports = {
       //       done();
       //     });
       // });
-      this.timeout(20000);
-      it("create cv", async () => {
-        activeCode = await strapi.services["active-code"].create({
-          code: "11111111",
-          grade: "Khối 6",
-        });
+      //   this.timeout(20000);
+      //   it("create cv", async () => {
+      //     activeCode = await strapi.services["active-code"].create({
+      //       code: "11111111",
+      //       grade: "Khối 6",
+      //     });
+      //     const response = await chai
+      //       .request(app.server)
+      //       .post(`/cvs/${activeCode.code}`)
+      //       .send({
+      //         userPhone: user.username,
+      //       });
+      //     const result = response.body;
+      //     expect(response).to.have.status(200);
+      //     expect(response).to.have.property("body");
+      //   });
+      //   it("update cv", async () => {
+      //     const response = await chai
+      //       .request(app.server)
+      //       .put(`/cvs/${activeCode.code}`)
+      //       .send({
+      //         userPhone: user.username,
+      //         department: "Cơ sở 1",
+      //         submitType: "complete-step",
+      //       });
+      //     const result = response.body;
+      //     console.log(result);
+      //     expect(response).to.have.status(200);
+      //     expect(response).to.have.property("body");
+      //   });
+      it("check document system time", async () => {
         const response = await chai
           .request(app.server)
-          .post(`/cvs/${activeCode.code}`)
+          .post("/checkDocumentSystemTime")
           .send({
-            userPhone: user.username,
-          });
-        const result = response.body;
-        expect(response).to.have.status(200);
-        expect(response).to.have.property("body");
-      });
-      it("update cv", async () => {
-        const response = await chai
-          .request(app.server)
-          .put(`/cvs/${activeCode.code}`)
-          .send({
-            userPhone: user.username,
-            department: "Cơ sở 1",
-            submitType: "complete-step",
+            grade: "Khối 6",
           });
         const result = response.body;
         console.log(result);
@@ -158,10 +170,8 @@ module.exports = {
       it("check system time", async () => {
         const response = await chai
           .request(app.server)
-          .post("/checkSystemTime")
-          .send({
-            grade: "Khối 6",
-          });
+          .get("/checkSystemTime")
+          .send({});
         const result = response.body;
         console.log(result);
         expect(response).to.have.status(200);

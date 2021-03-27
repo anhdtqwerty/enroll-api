@@ -59,8 +59,8 @@
       "configurable": false
     },
     "cvs": {
-      "via": "parent",
-      "collection": "cv"
+      "collection": "cv",
+      "via": "parent"
     },
     "confirmRegisterOTP": {
       "type": "string"
@@ -84,6 +84,12 @@
     "isConfirmedReset": {
       "type": "boolean",
       "default": false
+    },
+    "name": {
+      "type": "string"
+    },
+    "department": {
+      "type": "string"
     }
   }
 }

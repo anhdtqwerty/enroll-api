@@ -24,15 +24,19 @@ const headers = {
 const FIXED_OTP = "270996";
 const CONTENT_OTP_SMS =
   "Ma OTP cua ban la {{otp}}. OTP cua ban co hieu luc trong 5 phut";
+
+const OPEN_DOCUMENT = "01/04/2021 00:00:00";
 const CHOOSE_DEPARTMENT = "01/03/2021 00:00:00";
 const FILL_INFO = "01/03/2021 00:00:00";
 const REGISTER_EXPECTATION = "01/03/2021 00:00:00";
-const STUDY_RESULT_GRADE6 = "01/04/2021 00:00:00";
-const STUDY_RESULT_GRADE10 = "01/04/2021 00:00:00";
+
 const ENTRY_EXAM_RESULT_GRADE6 = "01/05/2021 00:00:00";
-const ENTRY_EXAM_RESULT_GRADE10 = "01/05/2021 00:00:00";
+const STUDY_RESULT_GRADE6 = "01/04/2021 00:00:00";
 const CLOSE_FILL_INFO_GRADE6 = "30/05/2021 00:00:00";
 const CLOSE_FILL_DOCUMENT_GRADE6 = "30/05/2021 00:00:00";
+
+const ENTRY_EXAM_RESULT_GRADE10 = "01/05/2021 00:00:00";
+const STUDY_RESULT_GRADE10 = "01/04/2021 00:00:00";
 const CLOSE_FILL_INFO_GRADE10 = "30/05/2021 00:00:00";
 const CLOSE_FILL_DOCUMENT_GRADE10 = "30/05/2021 00:00:00";
 
@@ -151,9 +155,9 @@ module.exports = {
     return data;
   },
 
-  checkSystemTime: (grade) => {
-    let result,
-      times = {};
+  checkDocumentSystemTime: (grade) => {
+    let result = {};
+    let times = {};
     result["choose-department"] = isNowAfterDatetime(CHOOSE_DEPARTMENT);
     result["fill-info"] = isNowAfterDatetime(FILL_INFO);
     times["choose-department"] = CHOOSE_DEPARTMENT;
@@ -184,8 +188,19 @@ module.exports = {
       times["close-fill-document"] = CLOSE_FILL_DOCUMENT_GRADE10;
     }
     return {
-      checkSystemTime: result,
-      systemTime: times,
+      checkDocumentSystemTime: result,
+      documentSystemTime: times,
+    };
+  },
+
+  checkSystemTime: () => {
+    return {
+      checkSystemTime: {
+        "open-document": isNowAfterDatetime(OPEN_DOCUMENT),
+      },
+      systemTime: {
+        "open-document": OPEN_DOCUMENT,
+      },
     };
   },
 };

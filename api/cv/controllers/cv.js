@@ -16,6 +16,8 @@ module.exports = {
   async requestOTP(event) {
     let { userPhone, requestType } = event.request.body;
     const user = await strapi.services.cv.isUserValid(userPhone);
+    console.log(user);
+    console.log(user.role);
     if (requestType === "register" && user.isConfirmedOTP)
       event.throw(500, `Tài khoản ${userPhone} đã được kích hoạt`);
     const otp = generateOTP();
@@ -161,6 +163,13 @@ module.exports = {
       )
         item.step = existingCV.step + 1;
     } else if (submitType === "save-draft") item.isDraft = true;
+    else if (submitType === "update-exam-result") {
+      if (user.role.type !== "admin")
+        event.throw(
+          500,
+          "Chỉ admin mới có quyền thay đổi kết quả thi của học sinh"
+        );
+    } else event.throw(500, "Cập nhật hồ sơ không khả dụng");
     try {
       let updatedCV = await strapi.services.cv.update(
         {
@@ -177,10 +186,13 @@ module.exports = {
       event.throw(500, "Cập nhật hồ sơ không thành công! Xin vui lòng thử lại");
     }
   },
-  async checkSystemTime(event) {
+  async checkDocumentSystemTime(event) {
     const { grade } = event.request.body;
     if (grade !== "Khối 6" && grade !== "Khối 10")
       event.throw(500, "Khối không khả dụng");
-    return strapi.services.cv.checkSystemTime(grade);
+    return strapi.services.cv.checkDocumentSystemTime(grade);
+  },
+  async checkSystemTime(event) {
+    return strapi.services.cv.checkSystemTime();
   },
 };

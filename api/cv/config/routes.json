@@ -82,6 +82,14 @@
     },
     {
       "method": "POST",
+      "path": "/checkDocumentSystemTime",
+      "handler": "cv.checkDocumentSystemTime",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/checkSystemTime",
       "handler": "cv.checkSystemTime",
       "config": {

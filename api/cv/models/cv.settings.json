@@ -77,9 +77,9 @@
       "type": "string"
     },
     "parent": {
+      "via": "cvs",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "cvs"
+      "model": "user"
     },
     "approver": {
       "plugin": "users-permissions",
