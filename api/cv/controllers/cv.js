@@ -16,8 +16,6 @@ module.exports = {
   async requestOTP(event) {
     let { userPhone, requestType } = event.request.body;
     const user = await strapi.services.cv.isUserValid(userPhone);
-    console.log(user);
-    console.log(user.role);
     if (requestType === "register" && user.isConfirmedOTP)
       event.throw(500, `Tài khoản ${userPhone} đã được kích hoạt`);
     const otp = generateOTP();
@@ -30,7 +28,8 @@ module.exports = {
     let msgContent = strapi.services.cv.replaceContentOTP(otp);
     try {
       await strapi.services.cv.updateUser(user, query);
-      return await strapi.services.cv.sendSMS(userPhone, msgContent, otp);
+      return "thanh cong";
+      // return await strapi.services.cv.sendSMS(userPhone, msgContent, otp);
     } catch (error) {
       event.throw(500, error);
     }
@@ -147,7 +146,11 @@ module.exports = {
     const user = await strapi.services.cv.isUserValid(userPhone);
     if (!user.isConfirmedOTP)
       event.throw(500, "Xin vui lòng kích hoạt tài khoản trước");
-    if (submitType != "save-draft" && submitType != "complete-step")
+    if (
+      submitType != "save-draft" &&
+      submitType != "complete-step" &&
+      submitType != "update-exam-result"
+    )
       event.throw(500, "Kiểu cập nhật hồ sơ không khả dụng");
     if (item.step) delete item.step;
     const existingCV = await strapi.services.cv.findOne({
