@@ -31,6 +31,10 @@ const STUDY_RESULT_GRADE6 = "01/04/2021 00:00:00";
 const STUDY_RESULT_GRADE10 = "01/04/2021 00:00:00";
 const ENTRY_EXAM_RESULT_GRADE6 = "01/05/2021 00:00:00";
 const ENTRY_EXAM_RESULT_GRADE10 = "01/05/2021 00:00:00";
+const CLOSE_FILL_INFO_GRADE6 = "30/05/2021 00:00:00";
+const CLOSE_FILL_DOCUMENT_GRADE6 = "30/05/2021 00:00:00";
+const CLOSE_FILL_INFO_GRADE10 = "30/05/2021 00:00:00";
+const CLOSE_FILL_DOCUMENT_GRADE10 = "30/05/2021 00:00:00";
 
 const isNowAfterDatetime = (comparingDate) => {
   return !moment(comparingDate, "DD/MM/YYYY 00:00:00")
@@ -148,17 +152,40 @@ module.exports = {
   },
 
   checkSystemTime: (grade) => {
-    let result = {};
+    let result,
+      times = {};
     result["choose-department"] = isNowAfterDatetime(CHOOSE_DEPARTMENT);
     result["fill-info"] = isNowAfterDatetime(FILL_INFO);
+    times["choose-department"] = CHOOSE_DEPARTMENT;
+    times["fill-info"] = FILL_INFO;
     if (grade === "Khối 6") {
       result["study-result"] = isNowAfterDatetime(STUDY_RESULT_GRADE6);
       result["exam-result"] = isNowAfterDatetime(ENTRY_EXAM_RESULT_GRADE6);
+      result["close-fill-info"] = isNowAfterDatetime(CLOSE_FILL_INFO_GRADE6);
+      result["close-fill-document"] = isNowAfterDatetime(
+        CLOSE_FILL_DOCUMENT_GRADE6
+      );
+      times["study-result"] = STUDY_RESULT_GRADE6;
+      times["exam-result"] = ENTRY_EXAM_RESULT_GRADE6;
+      times["close-fill-info"] = CLOSE_FILL_INFO_GRADE6;
+      times["close-fill-document"] = CLOSE_FILL_DOCUMENT_GRADE6;
     } else if (grade === "Khối 10") {
       result["register-expectation"] = isNowAfterDatetime(REGISTER_EXPECTATION);
-      result["study-result"] = isNowAfterDatetime(STUDY_RESULT_GRADE10);
       result["exam-result"] = isNowAfterDatetime(ENTRY_EXAM_RESULT_GRADE10);
+      result["study-result"] = isNowAfterDatetime(STUDY_RESULT_GRADE10);
+      result["close-fill-info"] = isNowAfterDatetime(CLOSE_FILL_INFO_GRADE10);
+      result["close-fill-document"] = isNowAfterDatetime(
+        CLOSE_FILL_DOCUMENT_GRADE10
+      );
+      times["exam-result"] = ENTRY_EXAM_RESULT_GRADE10;
+      times["register-expectation"] = REGISTER_EXPECTATION;
+      times["study-result"] = STUDY_RESULT_GRADE10;
+      times["close-fill-info"] = CLOSE_FILL_INFO_GRADE10;
+      times["close-fill-document"] = CLOSE_FILL_DOCUMENT_GRADE10;
     }
-    return result;
+    return {
+      checkSystemTime: result,
+      systemTime: times,
+    };
   },
 };
