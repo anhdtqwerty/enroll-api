@@ -77,9 +77,9 @@
       "type": "string"
     },
     "parent": {
-      "via": "cvs",
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "cvs"
     },
     "approver": {
       "plugin": "users-permissions",
@@ -119,11 +119,6 @@
     },
     "expectation3": {
       "type": "json"
-    },
-    "PrintNum": {
-      "default": 0,
-      "type": "integer",
-      "min": 0
     }
   }
 }

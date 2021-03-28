@@ -59,8 +59,8 @@
       "configurable": false
     },
     "cvs": {
-      "collection": "cv",
-      "via": "parent"
+      "via": "parent",
+      "collection": "cv"
     },
     "confirmRegisterOTP": {
       "type": "string"
