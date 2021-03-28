@@ -27,8 +27,8 @@ module.exports = {
     return await strapi.services["active-code"].create(
       sanitizeEntity(
         {
+          ...item,
           code: item.code,
-          grade: item.grade,
         },
         {
           model: strapi.models["active-code"],
