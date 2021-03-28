@@ -90,6 +90,11 @@
     },
     "department": {
       "type": "string"
+    },
+    "SMSNum": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
     }
   }
 }

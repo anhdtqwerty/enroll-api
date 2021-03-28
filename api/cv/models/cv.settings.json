@@ -119,6 +119,11 @@
     },
     "expectation3": {
       "type": "json"
+    },
+    "PrintNum": {
+      "default": 0,
+      "type": "integer",
+      "min": 0
     }
   }
 }

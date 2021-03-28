@@ -25,12 +25,23 @@ module.exports = {
       otpExpireTime,
       requestType
     );
+    query.SMSNum = user.SMSNum + 1;
     let msgContent = strapi.services.cv.replaceContentOTP(otp);
     try {
+      const smsResult = await strapi.services.cv.sendSMS(
+        userPhone,
+        msgContent,
+        otp
+      );
       await strapi.services.cv.updateUser(user, query);
-      return "thanh cong";
-      // return await strapi.services.cv.sendSMS(userPhone, msgContent, otp);
+      return smsResult;
     } catch (error) {
+      await strapi.services.cv.updateUser(user, {
+        logs: {
+          name: "Send SMS Error",
+          ...error,
+        },
+      });
       event.throw(500, error);
     }
   },
