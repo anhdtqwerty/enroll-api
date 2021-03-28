@@ -168,7 +168,7 @@ module.exports = {
       code: code,
     });
     if (!existingCV) event.throw(500, "Hồ sơ không tồn tại");
-    if (existingCV.parent.id !== user.id)
+    if (existingCV.parent.id !== user.id && user.role.type !== "admin")
       event.throw(500, "Không có quyền để chỉnh sửa hồ sơ này");
     if (submitType === "complete-step") {
       if (
