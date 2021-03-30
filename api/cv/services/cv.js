@@ -8,12 +8,12 @@ const { clearUnicode } = require("../../utility.js");
 const moment = require("moment");
 const soapRequest = require("easy-soap-request");
 const DomParser = require("dom-parser");
+const cron = require("node-cron");
 const {
   getSMSXML,
   getBalanceXML,
   getSMSfee,
 } = require("../controllers/cvHelper.js");
-
 moment.locale("vi");
 const soapUrl = "http://ams.tinnhanthuonghieu.vn:8009/bulkapi?wsdl";
 const headers = {
@@ -40,6 +40,8 @@ const STUDY_RESULT_GRADE10 = "01/04/2021 00:00:00";
 const CLOSE_FILL_INFO_GRADE10 = "30/05/2021 00:00:00";
 const CLOSE_FILL_DOCUMENT_GRADE10 = "30/05/2021 00:00:00";
 
+let resetHourlySMSTask;
+
 const isNowAfterDatetime = (comparingDate) => {
   return !moment(comparingDate, "DD/MM/YYYY 00:00:00")
     .locale("vi")
@@ -57,7 +59,39 @@ const getBalance = async () => {
   const doc = parser.parseFromString(response.body, "text/xml");
   return doc.getElementsByTagName("balance")[0].textContent;
 };
+
 module.exports = {
+  clearUserHourlyLimitOTP: async () => {
+    console.log(
+      `*** ${moment().format(
+        "DD/MM/YYYY"
+      )} - Start Reset Users'Hourly SMS Limitation`
+    );
+    const users = await strapi.plugins[
+      "users-permissions"
+    ].services.user.fetchAll();
+    const promises = users.map(async (user) => {
+      return await strapi
+        .query("user", "users-permissions")
+        .update({ id: user.id }, { hourlySMSNum: 0 });
+    });
+    await Promise.all(promises);
+    console.log(
+      `*** ${moment().format(
+        "DD/MM/YYYY"
+      )} - Done Start Reset Users'Hourly SMS Limitation`
+    );
+  },
+  startResetHourlySMS: async () => {
+    resetHourlySMSTask = cron.schedule("*/30 * * * * *", async () => {
+      clearUserHourlyLimitOTP();
+    });
+    resetHourlySMSTask.start();
+  },
+  stopResetHourlySMS: async () => {
+    resetHourlySMSTask.stop();
+  },
+
   sendSMS: async (userPhone, msgContent, otp) => {
     const balance = await getBalance();
     const fee = getSMSfee(userPhone, msgContent);
