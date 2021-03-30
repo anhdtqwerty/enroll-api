@@ -63,21 +63,22 @@ const getBalance = async () => {
 const clearUserHourlyLimitOTP = async () => {
   console.log(
     `*** ${moment().format(
-      "DD/MM/YYYY"
+      "DD/MM/YYYY hh:mm:ss"
     )} - Start Reset Users'Hourly SMS Limitation`
   );
   const users = await strapi.plugins[
     "users-permissions"
   ].services.user.fetchAll();
+  console.log(users);
   const promises = users.map((user) => {
     return strapi
       .query("user", "users-permissions")
       .update({ id: user.id }, { SMSNum: 0 });
   });
-  await Promise.all(promises);
+  console.log(await Promise.all(promises));
   console.log(
     `*** ${moment().format(
-      "DD/MM/YYYY"
+      "DD/MM/YYYY hh:mm:ss"
     )} - Done Start Reset Users'Hourly SMS Limitation`
   );
 };
