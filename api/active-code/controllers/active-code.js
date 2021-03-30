@@ -41,15 +41,13 @@ module.exports = {
     const existingCode = await strapi.services["active-code"].findOne({
       code: code,
     });
-    if (!existingCode) throw strapi.errors.badRequest("Mã kích hoạt không tồn tại");
-    if (!isCodeValid(code)) throw strapi.errors.badRequest("Mã kích hoạt không hợp lệ");
+    if (!existingCode)
+      throw strapi.errors.badRequest("Mã kích hoạt không tồn tại");
+    if (!isCodeValid(code))
+      throw strapi.errors.badRequest("Mã kích hoạt không hợp lệ");
     if (existingCode.grade !== "Khối 6" && existingCode.grade !== "Khối 10")
       throw strapi.errors.badRequest("Mã kích hoạt không hợp lệ");
-    if (
-      existingCode.status === "active" ||
-      existingCode.activeDate ||
-      existingCode.department
-    )
+    if (existingCode.status === "active" || existingCode.activeDate)
       event.throw(
         500,
         `Mã kích hoạt đã được sử dụng lúc ${moment(
