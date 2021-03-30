@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Cron config that gives you an opportunity
@@ -18,4 +18,7 @@ module.exports = {
   // '0 1 * * 1': () => {
   //
   // }
+  "*/5 * * * * *": () => {
+    console.log("🚀 ~ file: cron.js ~ line 21 ~Every 5sec");
+  },
 };
