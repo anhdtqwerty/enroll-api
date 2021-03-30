@@ -60,31 +60,33 @@ const getBalance = async () => {
   return doc.getElementsByTagName("balance")[0].textContent;
 };
 
+const clearUserHourlyLimitOTP = async () => {
+  console.log(
+    `*** ${moment().format(
+      "DD/MM/YYYY"
+    )} - Start Reset Users'Hourly SMS Limitation`
+  );
+  const users = await strapi.plugins[
+    "users-permissions"
+  ].services.user.fetchAll();
+  const promises = users.map((user) => {
+    return strapi
+      .query("user", "users-permissions")
+      .update({ id: user.id }, { hourlySMSNum: 0 });
+  });
+  await Promise.all(promises);
+  console.log(
+    `*** ${moment().format(
+      "DD/MM/YYYY"
+    )} - Done Start Reset Users'Hourly SMS Limitation`
+  );
+};
+
 module.exports = {
-  clearUserHourlyLimitOTP: async () => {
-    console.log(
-      `*** ${moment().format(
-        "DD/MM/YYYY"
-      )} - Start Reset Users'Hourly SMS Limitation`
-    );
-    const users = await strapi.plugins[
-      "users-permissions"
-    ].services.user.fetchAll();
-    const promises = users.map(async (user) => {
-      return await strapi
-        .query("user", "users-permissions")
-        .update({ id: user.id }, { hourlySMSNum: 0 });
-    });
-    await Promise.all(promises);
-    console.log(
-      `*** ${moment().format(
-        "DD/MM/YYYY"
-      )} - Done Start Reset Users'Hourly SMS Limitation`
-    );
-  },
+  clearUserHourlyLimitOTP,
   startResetHourlySMS: async () => {
-    resetHourlySMSTask = cron.schedule("*/30 * * * * *", async () => {
-      await clearUserHourlyLimitOTP();
+    resetHourlySMSTask = cron.schedule("*/30 * * * * *", () => {
+      clearUserHourlyLimitOTP();
     });
     resetHourlySMSTask.start();
   },
