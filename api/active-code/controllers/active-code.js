@@ -22,13 +22,13 @@ module.exports = {
     const item = event.request.body;
     delete item.code;
     if (item.grade !== "Khối 6" && item.grade !== "Khối 10")
-      event.throw(500, `Khối ${item.grade} không khả dụng`);
+      throw strapi.errors.badRequest(`Khối ${item.grade} không khả dụng`);
     item.code = await generateCode();
     return await strapi.services["active-code"].create(
       sanitizeEntity(
         {
+          ...item,
           code: item.code,
-          grade: item.grade,
         },
         {
           model: strapi.models["active-code"],
@@ -41,15 +41,13 @@ module.exports = {
     const existingCode = await strapi.services["active-code"].findOne({
       code: code,
     });
-    if (!existingCode) event.throw(500, "Mã kích hoạt không tồn tại");
-    if (!isCodeValid(code)) event.throw(500, "Mã kích hoạt không hợp lệ");
+    if (!existingCode)
+      throw strapi.errors.badRequest("Mã kích hoạt không tồn tại");
+    if (!isCodeValid(code))
+      throw strapi.errors.badRequest("Mã kích hoạt không hợp lệ");
     if (existingCode.grade !== "Khối 6" && existingCode.grade !== "Khối 10")
-      event.throw(500, "Mã kích hoạt không hợp lệ");
-    if (
-      existingCode.status === "active" ||
-      existingCode.activeDate ||
-      existingCode.department
-    )
+      throw strapi.errors.badRequest("Mã kích hoạt không hợp lệ");
+    if (existingCode.status === "active" || existingCode.activeDate)
       event.throw(
         500,
         `Mã kích hoạt đã được sử dụng lúc ${moment(

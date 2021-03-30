@@ -1,4 +1,5 @@
 "use strict";
+var cron = require("node-cron");
 const {
   generateRegisterOTP: generateOTP,
   clearUnicode,
@@ -6,18 +7,41 @@ const {
 } = require("../../utility.js");
 const moment = require("moment");
 const { sanitizeEntity } = require("strapi-utils");
-
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/concepts/controllers.html#core-controllers)
  * to customize this controller
  */
 
 module.exports = {
+  async startHourlySMSTask(event) {
+    try {
+      console.log("Start cron task!");
+      await strapi.services.cv.startResetHourlySMS();
+      return "Start cron task!";
+    } catch (error) {
+      throw strapi.errors.badRequest(error);
+    }
+  },
+  async stopHourlySMSTask(event) {
+    try {
+      console.log("Stop cron task!");
+      await strapi.services.cv.stopResetHourlySMS();
+      return "Stop cron task!";
+    } catch (error) {
+      throw strapi.errors.badRequest(error);
+    }
+  },
   async requestOTP(event) {
     let { userPhone, requestType } = event.request.body;
     const user = await strapi.services.cv.isUserValid(userPhone);
     if (requestType === "register" && user.isConfirmedOTP)
-      event.throw(500, `Tài khoản ${userPhone} đã được kích hoạt`);
+      throw strapi.errors.badRequest(
+        `Tài khoản ${userPhone} đã được kích hoạt`
+      );
+    if (user.hourlySMSNum >= 5)
+      throw strapi.errors.badRequest(
+        `Đã vượt quá 5 tin nhắn/giờ, xin vui lòng thử lại sau!`
+      );
     const otp = generateOTP();
     const otpExpireTime = moment().add(5, "minutes").toISOString();
     const query = strapi.services.cv.updateOTPQuery(
@@ -25,26 +49,42 @@ module.exports = {
       otpExpireTime,
       requestType
     );
+    query.hourlySMSNum = user.hourlySMSNum + 1;
+    query.SMSNum = user.SMSNum + 1;
     let msgContent = strapi.services.cv.replaceContentOTP(otp);
     try {
+      const smsResult = await strapi.services.cv.sendSMS(
+        userPhone,
+        msgContent,
+        otp
+      );
       await strapi.services.cv.updateUser(user, query);
-      return "thanh cong";
-      // return await strapi.services.cv.sendSMS(userPhone, msgContent, otp);
+      return smsResult;
     } catch (error) {
-      event.throw(500, error);
+      await strapi.services.cv.updateUser(user, {
+        logs: {
+          name: "Send SMS Error",
+          ...error,
+        },
+      });
+      throw strapi.errors.badRequest(error);
     }
   },
   async confirmRegister(event) {
     const { userPhone, otp } = event.request.body;
     const user = await strapi.services.cv.isUserValid(userPhone);
     if (user.isConfirmedOTP)
-      event.throw(500, `Tài khoản ${userPhone} đã được kích hoạt`);
+      throw strapi.errors.badRequest(
+        `Tài khoản ${userPhone} đã được kích hoạt`
+      );
     if (!user.confirmRegisterOTP || user.confirmRegisterOTP == "")
-      event.throw(500, `Có lỗi khi gửi OTP. Xin vui lòng thử lại`);
+      throw strapi.errors.badRequest(
+        `Có lỗi khi gửi OTP. Xin vui lòng thử lại`
+      );
     if (!strapi.services.cv.isOTPValid(user, userPhone, otp, "register"))
-      event.throw(500, "Mã OTP không chính xác");
+      throw strapi.errors.badRequest("Mã OTP không chính xác");
     if (strapi.services.cv.isOTPExpired(user.registerOTPExpired, "register"))
-      event.throw(500, "Mã OTP đã hết hạn");
+      throw strapi.errors.badRequest("Mã OTP đã hết hạn");
     try {
       await strapi.services.cv.updateUser(user, {
         isConfirmedOTP: true,
@@ -52,7 +92,7 @@ module.exports = {
       });
       return "Đăng ký thành công!";
     } catch (error) {
-      event.throw(500, error);
+      throw strapi.errors.badRequest(error);
     }
   },
   async confirmResetPassword(event) {
@@ -60,13 +100,15 @@ module.exports = {
     const { otp } = event.request.body;
     const user = await strapi.services.cv.isUserValid(phone);
     if (user.isConfirmedReset)
-      event.throw(500, `Xin vui lòng thử lại đổi mật khẩu`);
+      throw strapi.errors.badRequest(`Xin vui lòng thử lại đổi mật khẩu`);
     if (!user.resetPasswordOTP || user.resetPasswordOTP == "")
-      event.throw(500, `Có lỗi khi gửi OTP. Xin vui lòng thử lại`);
+      throw strapi.errors.badRequest(
+        `Có lỗi khi gửi OTP. Xin vui lòng thử lại`
+      );
     if (!strapi.services.cv.isOTPValid(user, phone, otp, "reset-password"))
-      event.throw(500, "Mã OTP không chính xác");
+      throw strapi.errors.badRequest("Mã OTP không chính xác");
     if (strapi.services.cv.isOTPExpired(user.resetOTPExpired, "reset-password"))
-      event.throw(500, "Mã OTP đã hết hạn");
+      throw strapi.errors.badRequest("Mã OTP đã hết hạn");
     try {
       await strapi.services.cv.updateUser(user, {
         isConfirmedReset: true,
@@ -74,7 +116,7 @@ module.exports = {
       });
       return "Xin vui lòng nhập mật khẩu mới";
     } catch (error) {
-      event.throw(500, error);
+      throw strapi.errors.badRequest(error);
     }
   },
   async changePassword(event) {
@@ -82,12 +124,16 @@ module.exports = {
     const { newPassword, confirmNewPassword } = event.request.body;
     const user = await strapi.services.cv.isUserValid(phone);
     if (newPassword !== confirmNewPassword)
-      event.throw(500, `Mật khẩu (nhập lại) không trùng khớp với mật khẩu`);
+      throw strapi.errors.badRequest(
+        `Mật khẩu (nhập lại) không trùng khớp với mật khẩu`
+      );
     const hashPassword = await strapi.admin.services.auth.hashPassword(
       newPassword
     );
     if (hashPassword === user.password)
-      event.throw(500, `Mật khẩu mới không được trùng với mật khẩu cũ`);
+      throw strapi.errors.badRequest(
+        `Mật khẩu mới không được trùng với mật khẩu cũ`
+      );
     try {
       await strapi.services.cv.updateUser(user, {
         isConfirmedReset: false,
@@ -95,16 +141,17 @@ module.exports = {
       });
       return "Đổi mật khẩu thành công!";
     } catch (error) {
-      event.throw(500, error);
+      throw strapi.errors.badRequest(error);
     }
   },
   async create(event) {
     const { userPhone } = event.request.body;
     const code = event.params.code;
-    if (!userPhone) event.throw(500, "Xin vui lòng đăng nhập để tạo hồ sơ");
+    if (!userPhone)
+      throw strapi.errors.badRequest("Xin vui lòng đăng nhập để tạo hồ sơ");
     const user = await strapi.services.cv.isUserValid(userPhone);
     if (!user.isConfirmedOTP)
-      event.throw(500, "Xin vui lòng kích hoạt tài khoản trước");
+      throw strapi.errors.badRequest("Xin vui lòng kích hoạt tài khoản trước");
     if (strapi.services["active-code"].checkActiveCode(code)) {
       let newCV = {};
       try {
@@ -137,28 +184,31 @@ module.exports = {
         );
       }
     }
-    event.throw(500, "Tạo hồ sơ mới không thành công! Xin vui lòng thử lại");
+    throw strapi.errors.badRequest(
+      "Tạo hồ sơ mới không thành công! Xin vui lòng thử lại"
+    );
   },
   async update(event) {
     const { submitType, userPhone, ...item } = event.request.body;
     const code = event.params.code;
-    if (!userPhone) event.throw(500, "Xin vui lòng đăng nhập để tạo hồ sơ");
+    if (!userPhone)
+      throw strapi.errors.badRequest("Xin vui lòng đăng nhập để tạo hồ sơ");
     const user = await strapi.services.cv.isUserValid(userPhone);
     if (!user.isConfirmedOTP)
-      event.throw(500, "Xin vui lòng kích hoạt tài khoản trước");
+      throw strapi.errors.badRequest("Xin vui lòng kích hoạt tài khoản trước");
     if (
       submitType != "save-draft" &&
       submitType != "complete-step" &&
       submitType != "update-exam-result"
     )
-      event.throw(500, "Kiểu cập nhật hồ sơ không khả dụng");
+      throw strapi.errors.badRequest("Kiểu cập nhật hồ sơ không khả dụng");
     if (item.step) delete item.step;
     const existingCV = await strapi.services.cv.findOne({
       code: code,
     });
-    if (!existingCV) event.throw(500, "Hồ sơ không tồn tại");
-    if (existingCV.parent.id !== user.id)
-      event.throw(500, "Không có quyền để chỉnh sửa hồ sơ này");
+    if (!existingCV) throw strapi.errors.badRequest("Hồ sơ không tồn tại");
+    if (existingCV.parent.id !== user.id && user.role.type !== "admin")
+      throw strapi.errors.badRequest("Không có quyền để chỉnh sửa hồ sơ này");
     if (submitType === "complete-step") {
       if (
         (existingCV.type === "Khối 6" && existingCV.step < 4) ||
@@ -172,7 +222,7 @@ module.exports = {
           500,
           "Chỉ admin mới có quyền thay đổi kết quả thi của học sinh"
         );
-    } else event.throw(500, "Cập nhật hồ sơ không khả dụng");
+    } else throw strapi.errors.badRequest("Cập nhật hồ sơ không khả dụng");
     try {
       let updatedCV = await strapi.services.cv.update(
         {
@@ -186,13 +236,15 @@ module.exports = {
       delete updatedCV.parent.password;
       return updatedCV;
     } catch (e) {
-      event.throw(500, "Cập nhật hồ sơ không thành công! Xin vui lòng thử lại");
+      throw strapi.errors.badRequest(
+        "Cập nhật hồ sơ không thành công! Xin vui lòng thử lại"
+      );
     }
   },
   async checkDocumentSystemTime(event) {
     const { grade } = event.request.body;
     if (grade !== "Khối 6" && grade !== "Khối 10")
-      event.throw(500, "Khối không khả dụng");
+      throw strapi.errors.badRequest("Khối không khả dụng");
     return strapi.services.cv.checkDocumentSystemTime(grade);
   },
   async checkSystemTime(event) {

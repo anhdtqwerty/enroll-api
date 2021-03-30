@@ -95,6 +95,22 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/startHourlySMSTask",
+      "handler": "cv.startHourlySMSTask",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/stopHourlySMSTask",
+      "handler": "cv.stopHourlySMSTask",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

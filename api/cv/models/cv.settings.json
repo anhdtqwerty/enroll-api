@@ -89,8 +89,8 @@
       "type": "string"
     },
     "activeCode": {
-      "model": "active-code",
-      "via": "cv"
+      "via": "cv",
+      "model": "active-code"
     },
     "step": {
       "type": "integer",

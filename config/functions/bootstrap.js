@@ -8,6 +8,7 @@
  *
  * See more details here: https://strapi.io/documentation/3.0.0-beta.x/concepts/configurations.html#bootstrap
  */
+const moment = require("moment");
 const findPublicRole = async () => {
   const result = await strapi
     .query("role", "users-permissions")
@@ -21,7 +22,7 @@ const setDefaultPermissions = async () => {
     .query("permission", "users-permissions")
     .find({ type: "application", role: role.id });
   await Promise.all(
-    permissions.map(p =>
+    permissions.map((p) =>
       strapi
         .query("permission", "users-permissions")
         .update({ id: p.id }, { enabled: true })
@@ -33,7 +34,7 @@ const isFirstRun = async () => {
   const pluginStore = strapi.store({
     environment: strapi.config.environment,
     type: "type",
-    name: "setup"
+    name: "setup",
   });
   const initHasRun = await pluginStore.get({ key: "initHasRun" });
   await pluginStore.set({ key: "initHasRun", value: true });
@@ -44,5 +45,14 @@ module.exports = async () => {
   const shouldSetDefaultPermissions = await isFirstRun();
   if (shouldSetDefaultPermissions) {
     await setDefaultPermissions();
+  }
+  try {
+    await strapi.services.cv.startResetHourlySMS();
+  } catch (error) {
+    console.log(
+      `${moment().format(
+        "DD/MM/YYYY hh:mm:ss"
+      )} - startResetHourlySMS failed! Error: ${error}`
+    );
   }
 };

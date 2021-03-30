@@ -36,6 +36,7 @@ module.exports = {
           .post(`/active-codes`)
           .send({
             grade: "Khối 6",
+
           })
           .end((error, response) => {
             const result = response.body;
@@ -56,7 +57,7 @@ module.exports = {
           .end((error, response) => {
             const result = response.body;
             console.log(result);
-            expect(response).to.have.status(500);
+            expect(response).to.have.status(400);
             expect(response).to.have.property("body");
             done();
           });
