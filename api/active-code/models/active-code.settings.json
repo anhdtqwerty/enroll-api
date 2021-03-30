@@ -44,11 +44,6 @@
     },
     "createdBy": {
       "type": "string"
-    },
-    "hourlySMSNum": {
-      "type": "integer",
-      "default": 0,
-      "min": 0
     }
   }
 }

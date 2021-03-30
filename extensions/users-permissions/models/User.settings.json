@@ -59,8 +59,8 @@
       "configurable": false
     },
     "cvs": {
-      "via": "parent",
-      "collection": "cv"
+      "collection": "cv",
+      "via": "parent"
     },
     "confirmRegisterOTP": {
       "type": "string"
@@ -92,6 +92,11 @@
       "type": "string"
     },
     "SMSNum": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "hourlySMSNum": {
       "type": "integer",
       "default": 0,
       "min": 0
