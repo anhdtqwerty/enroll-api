@@ -84,7 +84,7 @@ module.exports = {
   },
   startResetHourlySMS: async () => {
     resetHourlySMSTask = cron.schedule("*/30 * * * * *", async () => {
-      clearUserHourlyLimitOTP();
+      await clearUserHourlyLimitOTP();
     });
     resetHourlySMSTask.start();
   },
