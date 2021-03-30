@@ -72,7 +72,7 @@ const clearUserHourlyLimitOTP = async () => {
   const promises = users.map((user) => {
     return strapi
       .query("user", "users-permissions")
-      .update({ id: user.id }, { hourlySMSNum: 0 });
+      .update({ id: user.id }, { SMSNum: 0 });
   });
   await Promise.all(promises);
   console.log(
