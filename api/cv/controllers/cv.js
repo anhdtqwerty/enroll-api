@@ -215,6 +215,7 @@ module.exports = {
         (existingCV.type === "Khối 10" && existingCV.step < 5)
       )
         item.step = existingCV.step + 1;
+      item.isDraft = false;
     } else if (submitType === "save-draft") item.isDraft = true;
     else if (submitType === "update-exam-result") {
       if (user.role.type !== "admin")
