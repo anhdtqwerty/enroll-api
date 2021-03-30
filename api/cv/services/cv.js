@@ -85,7 +85,7 @@ const clearUserHourlyLimitOTP = async () => {
 module.exports = {
   clearUserHourlyLimitOTP,
   startResetHourlySMS: async () => {
-    resetHourlySMSTask = cron.schedule("*/1 * * * *", () => {
+    resetHourlySMSTask = cron.schedule("* */1 * * *", () => {
       clearUserHourlyLimitOTP();
     });
     resetHourlySMSTask.start();
