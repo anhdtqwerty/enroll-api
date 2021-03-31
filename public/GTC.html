@@ -1,393 +1,87 @@
 ﻿<!DOCTYPE html>
 <html>
-  <body>
-    <style>
-      @media only screen and (min-width: 400px) {
-        body {
-          padding: 12px;
-        }
-      }
-      .enrollment-inform-content-wrapper,
-      .enrollment-inform-content-wrapper p {
-        font-family: Roboto, Verdana, Geneva, sans-serif !important;
-        font-size: 14px !important;
-        line-height: 21px !important;
-      }
-      .enrollment-inform-content-wrapper h4 {
-        font-size: 16px;
-        line-height: 150%;
-      }
-      .enrollment-inform-content-wrapper a {
-        text-decoration: none;
-        color: #2e4493 !important;
-      }
-      .enrollment-inform-content-wrapper p,
-      .enrollment-inform-content-wrapper ul,
-      .enrollment-inform-content-wrapper table {
-        margin-top: 0px;
-        margin-bottom: 12px;
-      }
-      .enrollment-inform-content-wrapper ul li {
-        margin: 6px 0;
-      }
-      .enrollment-inform-content-wrapper table {
-        min-width: 320px;
-        max-width: 1120px;
-      }
-      .enrollment-inform-content-wrapper table {
-        border-collapse: collapse;
-        border-spacing: 0;
-      }
-      .enrollment-inform-content-wrapper table td {
-        border: 1px solid #5681bb;
-        padding: 6px 6px;
-      }
-      .enrollment-inform-content-wrapper table td.align-content-top {
-        vertical-align: top;
-      }
-      .enrollment-inform-content-wrapper table td.align-content-right {
-        text-align: right;
-      }
-      .enrollment-inform-content-wrapper table td.align-content-center {
-        text-align: center;
-      }
-      .enrollment-inform-content-wrapper table td.background-grey {
-        position: relative;
-        z-index: 1;
-      }
-      .enrollment-inform-content-wrapper table td.background-grey::after {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: #000;
-        opacity: 0.25;
-        z-index: -1;
-      }
-      .enrollment-inform-content-wrapper table td.background-light-grey {
-        position: relative;
-        z-index: 1;
-      }
-      .enrollment-inform-content-wrapper table td.background-light-grey::after {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: #000;
-        opacity: 0.1;
-        z-index: -1;
-      }
-      .enrollment-inform-content-wrapper table td.background-blue {
-        position: relative;
-        z-index: 1;
-        color: #fff;
-      }
-      .enrollment-inform-content-wrapper table td.background-blue::after {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: #2e4493;
-        opacity: 0.95;
-        z-index: -1;
-      }
-      .enrollment-inform-content-wrapper table td.background-light-blue {
-        position: relative;
-        z-index: 1;
-        color: #fff;
-      }
-      .enrollment-inform-content-wrapper table td.background-light-blue::after {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: #2e4493;
-        opacity: 0.95;
-        z-index: -1;
-      }
-      @media only screen and (max-width: 680px) {
-        .enrollment-inform-branding-wrapper {
-          justify-content: center;
-        }
-      }
-      .enrollment-inform-watermark {
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 32 56" enable-background="new 0 0 100 100" xml:space="preserve" height="auto" width="100%" fill="rgb(242,245,252)"><g><path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z"/><path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z"/><path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z"/><path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z"/><path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z"/><path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z"/></g></svg>');
-        background-repeat: repeat-y;
-      }
-    </style>
-    <div
-      class="enrollment-inform-content-wrapper"
-      style="
-        position: relative;
-        overflow: visible;
-        max-width: 1024px;
-        margin: 0 auto;
-      "
-    >
-      <div
-        style="
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-wrap: wrap;
-        "
-      >
-        <div
-          class="enrollment-inform-branding-wrapper"
-          style="display: flex; min-width: 320px"
-        >
-          <div
-            style="
-              display: flex;
-              flex-direction: column;
-              height: 160px;
-              width: 320px;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            <div style="margin-bottom: 6px">
-              <svg
-                width="64"
-                height="52"
-                viewBox="0 0 32 26"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z"
-                  fill="#2E4493"
-                />
-                <path
-                  d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z"
-                  fill="#2E4493"
-                />
-                <path
-                  d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z"
-                  fill="#2E4493"
-                />
-                <path
-                  d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z"
-                  fill="#2E4493"
-                />
-                <path
-                  d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z"
-                  fill="#2E4493"
-                />
-                <path
-                  d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z"
-                  fill="#2E4493"
-                />
-              </svg>
+   <body>
+      <style>
+         @media only screen and (min-width: 400px) {body {padding: 12px;}}.enrollment-inform-content-wrapper, .enrollment-inform-content-wrapper p { font-family: Roboto, Verdana, Geneva, sans-serif !important; font-size: 14px !important; line-height: 21px !important; } .enrollment-inform-content-wrapper h4{ font-size: 16px; line-height: 150%; } .enrollment-inform-content-wrapper a{ text-decoration: none; color: #2E4493 !important; } .enrollment-inform-content-wrapper p,.enrollment-inform-content-wrapper ul,.enrollment-inform-content-wrapper table { margin-top: 0px; margin-bottom: 12px; } .enrollment-inform-content-wrapper ul li { margin: 6px 0; }.enrollment-inform-content-wrapper table { min-width: 320px; max-width: 1120px; }.enrollment-inform-content-wrapper table { border-collapse: collapse;border-spacing: 0; }.enrollment-inform-content-wrapper table td {border: 1px solid #5681bb; padding: 6px 6px;}.enrollment-inform-content-wrapper table td.align-content-top {vertical-align: top;} .enrollment-inform-content-wrapper table td.align-content-right {text-align: right;} .enrollment-inform-content-wrapper table td.align-content-center {text-align: center;}.enrollment-inform-content-wrapper table td.background-grey {position: relative; z-index: 1;} .enrollment-inform-content-wrapper table td.background-grey::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #000; opacity: 0.25 ; z-index: -1;} .enrollment-inform-content-wrapper table td.background-light-grey {position: relative; z-index: 1;} .enrollment-inform-content-wrapper table td.background-light-grey::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #000; opacity: 0.1 ; z-index: -1;} .enrollment-inform-content-wrapper table td.background-blue {position: relative; z-index: 1; color: #fff;} .enrollment-inform-content-wrapper table td.background-blue::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #2E4493; opacity: 0.95 ; z-index: -1;} .enrollment-inform-content-wrapper table td.background-light-blue {position: relative; z-index: 1; color: #fff;} .enrollment-inform-content-wrapper table td.background-light-blue::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #2E4493; opacity: 0.95 ; z-index: -1;} @media only screen and (max-width: 680px) {.enrollment-inform-branding-wrapper { justify-content: center;}} .enrollment-inform-watermark {background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 32 56" enable-background="new 0 0 100 100" xml:space="preserve" height="auto" width="100%" fill="rgb(242,245,252)"><g><path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z"/><path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z"/><path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z"/><path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z"/><path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z"/><path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z"/></g></svg>'); background-repeat: repeat-y;}
+      </style>
+      <div class="enrollment-inform-content-wrapper" style="position: relative; overflow: visible; max-width: 1024px; margin: 0 auto;">
+      	<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <div class="enrollment-inform-branding-wrapper" style="display: flex; min-width: 320px; ">
+               <div style="display: flex; flex-direction: column; height: 160px; width: 320px;align-items: center; justify-content: center;">
+                  <div style="margin-bottom: 6px;">
+                     <svg width="64" height="52" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z" fill="#2E4493"/>
+                        <path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z" fill="#2E4493"/>
+                        <path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z" fill="#2E4493"/>
+                        <path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z" fill="#2E4493"/>
+                        <path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z" fill="#2E4493"/>
+                        <path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z" fill="#2E4493"/>
+                     </svg>
+                  </div>
+                  <h5 style="margin: 0; font-size: 100%;">TRƯỜNG THCS & THPT</h5>
+                  <h4 style="margin: 0; font-size: 150%;">LƯƠNG THẾ VINH</h4>
+               </div>
             </div>
-            <h5 style="margin: 0; font-size: 100%">TRƯỜNG THCS & THPT</h5>
-            <h4 style="margin: 0; font-size: 150%">LƯƠNG THẾ VINH</h4>
-          </div>
-        </div>
-      </div>
-      <h4 style="color: #2e4493; margin-bottom: 6px">
-        <strong>BẠN ĐƯỢC GÌ KHI GIA NHẬP LƯƠNG THẾ VINH</strong>
-      </h4>
-      <ul>
-        <li>Một niềm tin tươi sáng vào tương lai.</li>
-        <li>Có khả năng tư duy độc lập và phản biện.</li>
-        <li>
-          Được học chương trình giảng dạy nâng cao theo phương châm “Dạy thật,
-          học thật”.
-        </li>
-        <li>
-          Được tham gia vào các hoạt động Đoàn Đội, hoạt động ngoại khóa, các
-          câu lạc bộ bổ ích, phong phú; tạo điều kiện cọ sát thực tế để phát
-          triển năng lực của mình.
-        </li>
-        <li>
-          Được tiếp xúc với các cơ hội học bổng từ các trường đối tác nước
-          ngoài.
-        </li>
-      </ul>
+         </div>
+         <h4 style="color:#2E4493; margin-bottom: 6px;"><strong>BẠN ĐƯỢC GÌ KHI GIA NHẬP LƯƠNG THẾ VINH</strong></h4>
+         <ul>
+            <li>Một niềm tin tươi sáng vào tương lai.</li>
+            <li>Có khả năng tư duy độc lập và phản biện.</li>
+            <li>Được học chương trình giảng dạy nâng cao theo phương châm “Dạy thật, học thật”.</li>
+            <li>Được tham gia vào các hoạt động Đoàn Đội, hoạt động ngoại khóa, các câu lạc bộ bổ ích, phong phú; tạo điều kiện cọ sát thực tế để phát triển năng lực của mình.</li>
+            <li>Được tiếp xúc với các cơ hội học bổng từ các trường đối tác nước ngoài.</li>
+         </ul>
 
-      <h4 style="color: #2e4493; margin-bottom: 6px">
-        <strong>MỤC TIÊU GIÁO DỤC</strong>
-      </h4>
-      <ul>
-        <li>
-          Mục tiêu giáo dục của nhà trường là giúp học sinh phát triển toàn diện
-          về mặt đạo đức, trí tuệ, thể chất và thẩm mỹ. Hướng tới đào tạo học
-          sinh có khả năng tư duy độc lập, thích ứng nhiều điều kiện môi trường
-          sống, và có trách nhiệm đóng góp tích cực cho xã hội.
-        </li>
-      </ul>
 
-      <h4 style="color: #2e4493; margin-bottom: 6px">
-        <strong>TRUYỀN THỐNG DẠY VÀ HỌC</strong>
-      </h4>
-      <ul>
-        <li>
-          Trường có đội ngũ thày cô giáo tâm huyết với nghề, thân thiện, gắn bó
-          với học sinh, có kiến thức chuyên sâu, phương pháp linh hoạt, chủ động
-          và sáng tạo.
-        </li>
-        <li>
-          Trường tuyển chọn học sinh một cách kĩ lưỡng, công khai và minh bạch.
-          Mọi học sinh chăm, ngoan đều có cơ hội gia nhập vào đại gia đình Lương
-          Thế Vinh.
-        </li>
-        <li>
-          Học sinh Lương Thế Vinh có ý thức học tập tốt, có mục tiêu rõ ràng:
-          vào được trường Đại học mình mong muốn. Họ cương quyết chống lại những
-          thói hư, tật xấu và tệ nạn xã hội để phấn đấu trở thành người công dân
-          tốt.
-        </li>
-      </ul>
+         <h4 style="color:#2E4493; margin-bottom: 6px;"><strong>MỤC TIÊU GIÁO DỤC</strong></h4>
+         <ul>
+            <li>Mục tiêu giáo dục của nhà trường là giúp học sinh phát triển toàn diện về mặt đạo đức, trí tuệ, thể chất và thẩm mỹ. Hướng tới đào tạo học sinh có khả năng tư duy độc lập, thích ứng nhiều điều kiện môi trường sống, và có trách nhiệm đóng góp tích cực cho xã hội.</li>
+         </ul>
 
-      <h4 style="color: #2e4493; margin-bottom: 6px">
-        <strong>THÔNG ĐIỆP GỬI HỌC SINH</strong>
-      </h4>
-      <ul>
-        <li>
-          Học không phải chỉ để bố mẹ vui lòng và thày cô không quở trách. Học
-          trước hết là để cho chính mình. Học để biết, học để làm, học để hòa
-          nhập với cộng đồng, học để có chất lượng sống cao hơn cho chính mình
-          và xã hội.
-        </li>
-        <li>
-          Học không có nghĩa là tiếp thu một cách máy móc những điều thày cô nói
-          và sách báo viết, rồi để nói lại và viết lại đúng như thế. Cần phải
-          biết học một cách thông minh và sáng tạo. Hãy suy nghĩ nhiều hơn và tự
-          hỏi: “Tại sao lại như thế? Liệu mình có thể làm tốt hơn?”.
-        </li>
-        <li>
-          Sẽ không đạt được thành công nào trong học tập nếu không chuyên cần và
-          khổ luyện. Hãy dành tuổi thanh xuân – giai đoạn đẹp nhất trong cuộc
-          đời – cho học tập!
-        </li>
-        <li>
-          Hãy luôn phân biệt rõ ràng giữa cái đúng – cái sai, cái thiện – cái
-          ác, cái đẹp – cái xấu. Trở thành kẻ đồng lõa với cái xấu, cái ác, cái
-          sai là đánh mất nhân cách của chính mình.
-        </li>
-      </ul>
+         <h4 style="color:#2E4493; margin-bottom: 6px;"><strong>TRUYỀN THỐNG DẠY VÀ HỌC</strong></h4>
+         <ul>
+            <li>Trường có đội ngũ thày cô giáo tâm huyết với nghề, thân thiện, gắn bó với học sinh, có kiến thức chuyên sâu, phương pháp linh hoạt, chủ động và sáng tạo.</li>
+            <li>Trường tuyển chọn học sinh một cách kĩ lưỡng, công khai và minh bạch. Mọi học sinh chăm, ngoan đều có cơ hội gia nhập vào đại gia đình Lương Thế Vinh.</li>
+            <li>Học sinh Lương Thế Vinh có ý thức học tập tốt, có mục tiêu rõ ràng: vào được trường Đại học mình mong muốn. Họ cương quyết chống lại những thói hư, tật xấu và tệ nạn xã hội để phấn đấu trở thành người công dân tốt.</li>
+         </ul>
 
-      <h4 style="color: #2e4493; margin-bottom: 6px">
-        <strong
-          >NHỮNG CÂU NÓI NỔI TIẾNG CỦA THẦY VĂN NHƯ CƯƠNG – NGƯỜI SÁNG LẬP RA
-          TRƯỜNG LƯƠNG THẾ VINH</strong
-        >
-      </h4>
-      <ul>
-        <li>
-          “Biển học là mênh mông, trong đó sách vở tuy quan trọng nhưng chỉ là
-          vùng biển gần bờ mà thôi”.
-        </li>
-        <li>
-          “Tất cả mọi biện pháp muốn thành công, đều phụ thuộc vào cái tâm thực
-          hiện nó”.
-        </li>
-        <li>
-          “Các em có thể trở thành những người lao động chân chính, những nhà kỹ
-          thuật có chuyên môn giỏi, những nhà nghiên cứu thành công, những doanh
-          nghiệp tầm cỡ, những nhà lãnh đạo xuất sắc… nhưng trước hết phải là
-          những người tử tế”.
-        </li>
-        <li>
-          “Công việc gì có thể làm ngày hôm nay thì đừng để đến ngày mai”.
-        </li>
-        <li>
-          “Tự học là phương pháp tốt nhất để phát huy trí tuệ, để nắm vững kiến
-          thức và linh hoạt áp dụng. Còn học thêm là con đường ngắn nhất làm cho
-          trí tuệ trở thành “thiểu năng”.
-        </li>
-        <li>
-          “Hãy trung thực đừng dối trá, hãy vị tha đừng vị kỷ, hãy hòa đồng đừng
-          đố kỵ, hãy cao thượng đừng thấp hèn, hãy độc lập suy nghĩ đừng adua
-          bầy đàn, hãy nói lời thanh cao đừng buông lời tục tĩu”.
-        </li>
-      </ul>
+         <h4 style="color:#2E4493; margin-bottom: 6px;"><strong>THÔNG ĐIỆP GỬI HỌC SINH</strong></h4>
+         <ul>
+            <li>Học không phải chỉ để bố mẹ vui lòng và thày cô không quở trách. Học trước hết là để cho chính mình. Học để biết, học để làm, học để hòa nhập với cộng đồng, học để có chất lượng sống cao hơn cho chính mình và xã hội.</li>
+            <li>Học không có nghĩa là tiếp thu một cách máy móc những điều thày cô nói và sách báo viết, rồi để nói lại và viết lại đúng như thế. Cần phải biết học một cách thông minh và sáng tạo. Hãy suy nghĩ nhiều hơn và tự hỏi: “Tại sao lại như thế? Liệu mình có thể làm tốt hơn?”.</li>
+            <li>Sẽ không đạt được thành công nào trong học tập nếu không chuyên cần và khổ luyện. Hãy dành tuổi thanh xuân – giai đoạn đẹp nhất trong cuộc đời – cho học tập!</li>
+            <li>Hãy luôn phân biệt rõ ràng giữa cái đúng – cái sai, cái thiện – cái ác, cái đẹp – cái xấu. Trở thành kẻ đồng lõa với cái xấu, cái ác, cái sai là đánh mất nhân cách của chính mình.</li>
+         </ul>
 
-      <div style="display: inline-block; width: 100%; margin: 36px 0">
-        <!--h3 style="display: inline-block; float: right; margin: 0 48px; font-size: 200%; line-height: 150%; color:#2E4493; font-style: italic; letter-spacing: 1px;">
+         <h4 style="color:#2E4493; margin-bottom: 6px;"><strong>NHỮNG CÂU NÓI NỔI TIẾNG CỦA THẦY VĂN NHƯ CƯƠNG – NGƯỜI SÁNG LẬP RA TRƯỜNG LƯƠNG THẾ VINH</strong></h4>
+         <ul>
+            <li>“Biển học là mênh mông, trong đó sách vở tuy quan trọng nhưng chỉ là vùng biển gần bờ mà thôi”.</li>
+            <li>“Tất cả mọi biện pháp muốn thành công, đều phụ thuộc vào cái tâm thực hiện nó”.</li>
+            <li>“Các em có thể trở thành những người lao động chân chính, những nhà kỹ thuật có chuyên môn giỏi, những nhà nghiên cứu thành công, những doanh nghiệp tầm cỡ, những nhà lãnh đạo xuất sắc… nhưng trước hết phải là những người tử tế”.</li>
+            <li>“Công việc gì có thể làm ngày hôm nay thì đừng để đến ngày mai”.</li>
+            <li>“Tự học là phương pháp tốt nhất để phát huy trí tuệ, để nắm vững kiến thức và linh hoạt áp dụng. Còn học thêm là con đường ngắn nhất làm cho trí tuệ trở thành “thiểu năng”.</li>
+            <li>“Hãy trung thực đừng dối trá, hãy vị tha đừng vị kỷ, hãy hòa đồng đừng đố kỵ, hãy cao thượng đừng thấp hèn, hãy độc lập suy nghĩ đừng adua bầy đàn, hãy nói lời thanh cao đừng buông lời tục tĩu”.</li>
+         </ul>
+
+         <div style="display: inline-block; width: 100%; margin: 36px 0;">
+            <!--h3 style="display: inline-block; float: right; margin: 0 48px; font-size: 200%; line-height: 150%; color:#2E4493; font-style: italic; letter-spacing: 1px;">
                <span>CÓ CHÍ</span><br/>
                <span> &nbsp; &nbsp;THÌ NÊN</span>
             </h3-->
-        <img
-          style="float: right; width: 360px; height: auto"
-          src="./images/sologan.png"
-        />
+            <img style="float: right; width: 360px; height: auto;" src="images/slogan01.png"/>
+         </div>
+         <div style="position: absolute; width: 576px; height: 280px; overflow: hidden; bottom: -60px; left: -390px; z-index: -1;">
+            <svg width="576" height="468" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z" fill="#2E4493"/>
+               <path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z" fill="#2E4493"/>
+               <path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z" fill="#2E4493"/>
+               <path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z" fill="#2E4493"/>
+               <path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z" fill="#2E4493"/>
+               <path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z" fill="#2E4493"/>
+            </svg>
+         </div>
+         <div class="enrollment-inform-watermark" style="height: calc(100% - 240px); width: 80%; max-width: 400px; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); z-index: -1; display: flex; justify-content: center; align-items: center; margin-top: 180px; opacity: 0.7;">
+         </div>
       </div>
-      <div
-        style="
-          position: absolute;
-          width: 576px;
-          height: 280px;
-          overflow: hidden;
-          bottom: -60px;
-          left: -390px;
-          z-index: -1;
-        "
-      >
-        <svg
-          width="576"
-          height="468"
-          viewBox="0 0 32 26"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z"
-            fill="#2E4493"
-          />
-          <path
-            d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z"
-            fill="#2E4493"
-          />
-          <path
-            d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z"
-            fill="#2E4493"
-          />
-          <path
-            d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z"
-            fill="#2E4493"
-          />
-          <path
-            d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z"
-            fill="#2E4493"
-          />
-          <path
-            d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z"
-            fill="#2E4493"
-          />
-        </svg>
-      </div>
-      <div
-        class="enrollment-inform-watermark"
-        style="
-          height: calc(100% - 240px);
-          width: 80%;
-          max-width: 400px;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translateX(-50%) translateY(-50%);
-          z-index: -1;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-top: 180px;
-          opacity: 0.7;
-        "
-      ></div>
-    </div>
-  </body>
+   </body>
 </html>
