@@ -1,365 +1,92 @@
 ﻿<!DOCTYPE html>
 <html>
-  <body>
-    <style>
-      @media only screen and (min-width: 400px) {
-        body {
-          padding: 12px;
-        }
-      }
-      .enrollment-inform-content-wrapper,
-      .enrollment-inform-content-wrapper p {
-        font-family: Roboto, Verdana, Geneva, sans-serif !important;
-        font-size: 14px !important;
-        line-height: 21px !important;
-      }
-      .enrollment-inform-content-wrapper h4 {
-        font-size: 16px;
-        line-height: 150%;
-      }
-      .enrollment-inform-content-wrapper a {
-        text-decoration: none;
-        color: #2e4493 !important;
-      }
-      .enrollment-inform-content-wrapper p,
-      .enrollment-inform-content-wrapper ul,
-      .enrollment-inform-content-wrapper table {
-        margin-top: 0px;
-        margin-bottom: 12px;
-      }
-      .enrollment-inform-content-wrapper ul li {
-        margin: 6px 0;
-      }
-      .enrollment-inform-content-wrapper table {
-        min-width: 320px;
-        max-width: 1120px;
-      }
-      .enrollment-inform-content-wrapper table {
-        border-collapse: collapse;
-        border-spacing: 0;
-      }
-      .enrollment-inform-content-wrapper table td {
-        border: 1px solid #5681bb;
-        padding: 6px 6px;
-      }
-      .enrollment-inform-content-wrapper table td.align-content-top {
-        vertical-align: top;
-      }
-      .enrollment-inform-content-wrapper table td.align-content-right {
-        text-align: right;
-      }
-      .enrollment-inform-content-wrapper table td.align-content-center {
-        text-align: center;
-      }
-      .enrollment-inform-content-wrapper table td.background-grey {
-        position: relative;
-        z-index: 1;
-      }
-      .enrollment-inform-content-wrapper table td.background-grey::after {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: #000;
-        opacity: 0.25;
-        z-index: -1;
-      }
-      .enrollment-inform-content-wrapper table td.background-light-grey {
-        position: relative;
-        z-index: 1;
-      }
-      .enrollment-inform-content-wrapper table td.background-light-grey::after {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: #000;
-        opacity: 0.1;
-        z-index: -1;
-      }
-      .enrollment-inform-content-wrapper table td.background-blue {
-        position: relative;
-        z-index: 1;
-        color: #fff;
-      }
-      .enrollment-inform-content-wrapper table td.background-blue::after {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: #2e4493;
-        opacity: 0.95;
-        z-index: -1;
-      }
-      .enrollment-inform-content-wrapper table td.background-light-blue {
-        position: relative;
-        z-index: 1;
-        color: #fff;
-      }
-      .enrollment-inform-content-wrapper table td.background-light-blue::after {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: #2e4493;
-        opacity: 0.95;
-        z-index: -1;
-      }
-      @media only screen and (max-width: 680px) {
-        .enrollment-inform-branding-wrapper {
-          justify-content: center;
-        }
-      }
-      .enrollment-inform-watermark {
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 32 56" enable-background="new 0 0 100 100" xml:space="preserve" height="auto" width="100%" fill="rgb(242,245,252)"><g><path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z"/><path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z"/><path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z"/><path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z"/><path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z"/><path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z"/></g></svg>');
-        background-repeat: repeat-y;
-      }
-    </style>
-    <div
-      class="enrollment-inform-content-wrapper"
-      style="
-        position: relative;
-        overflow: hidden;
-        max-width: 1024px;
-        margin: 0 auto;
-      "
-    >
-      <h4 style="text-align: center; font-size: 150%">
-        <strong>HƯỚNG DẪN MUA VÀ SỬ DỤNG <br />MÃ KÍCH HOẠT </strong>
-      </h4>
-      &nbsp;
+   <body>
+      <style>
+         @media only screen and (min-width: 400px) {body {padding: 12px;}}.enrollment-inform-content-wrapper, .enrollment-inform-content-wrapper p { font-family: Roboto, Verdana, Geneva, sans-serif !important; font-size: 14px !important; line-height: 21px !important; } .enrollment-inform-content-wrapper h4{ font-size: 16px; line-height: 150%; } .enrollment-inform-content-wrapper a{ text-decoration: none; color: #2E4493 !important; } .enrollment-inform-content-wrapper p,.enrollment-inform-content-wrapper ul,.enrollment-inform-content-wrapper table { margin-top: 0px; margin-bottom: 12px; } .enrollment-inform-content-wrapper ul li { margin: 6px 0; }.enrollment-inform-content-wrapper table { min-width: 320px; max-width: 1120px; }.enrollment-inform-content-wrapper table { border-collapse: collapse;border-spacing: 0; }.enrollment-inform-content-wrapper table td {border: 1px solid #5681bb; padding: 6px 6px;}.enrollment-inform-content-wrapper table td.align-content-top {vertical-align: top;} .enrollment-inform-content-wrapper table td.align-content-right {text-align: right;} .enrollment-inform-content-wrapper table td.align-content-center {text-align: center;}.enrollment-inform-content-wrapper table td.background-grey {position: relative; z-index: 1;} .enrollment-inform-content-wrapper table td.background-grey::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #000; opacity: 0.25 ; z-index: -1;} .enrollment-inform-content-wrapper table td.background-light-grey {position: relative; z-index: 1;} .enrollment-inform-content-wrapper table td.background-light-grey::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #000; opacity: 0.1 ; z-index: -1;} .enrollment-inform-content-wrapper table td.background-blue {position: relative; z-index: 1; color: #fff;} .enrollment-inform-content-wrapper table td.background-blue::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #2E4493; opacity: 0.95 ; z-index: -1;} .enrollment-inform-content-wrapper table td.background-light-blue {position: relative; z-index: 1; color: #fff;} .enrollment-inform-content-wrapper table td.background-light-blue::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #2E4493; opacity: 0.95 ; z-index: -1;} @media only screen and (max-width: 680px) {.enrollment-inform-branding-wrapper { justify-content: center;}} .enrollment-inform-watermark {background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 32 56" enable-background="new 0 0 100 100" xml:space="preserve" height="auto" width="100%" fill="rgb(242,245,252)"><g><path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z"/><path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z"/><path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z"/><path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z"/><path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z"/><path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z"/></g></svg>'); background-repeat: repeat-y;}
+      </style>
+      <div class="enrollment-inform-content-wrapper" style="position: relative; overflow: visible; max-width: 1024px; margin: 0 auto;">
+      	<h4 style="text-align: center; font-size: 150%;"><strong>HƯỚNG DẪN MUA VÀ SỬ DỤNG <br/>MÃ KÍCH HOẠT </strong></h4>
+&nbsp;
 
-      <p>
-        <strong style="color: #2e4493">BƯỚC 1: </strong>Quý phụ huynh vui lòng
-        mua mã kích hoạt trực tiếp tại trường.
-      </p>
-      <p>
-        Nhà trường sẽ tuyển sinh vào lớp 6 và lớp 10 năm học 2021 – 2022 tại 2
-        cơ sở
-      </p>
-      <ul>
-        <li>
-          Cơ Sở A: Số 35 Đinh Núp, Trung Hòa, Cầu Giấy, Hà Nội.<br />
-          &nbsp; &nbsp; SĐT: <a href="tel:02422155985">024 22155985</a> -
-          <a href="tel:02466638338">024 66638338</a>
-        </li>
-        <li>
-          Cơ Sở I: Thôn Yên Xá, xã Tân Triều, Thanh Trì, Hà Nội.<br />
-          &nbsp; &nbsp; SĐT: <a href="tel:02435682603">024 35682603</a>
-        </li>
-      </ul>
-      &nbsp;
+<p><strong style="color:#2E4493">BƯỚC 1: </strong>Quý phụ huynh vui lòng mua mã kích hoạt trực tiếp tại trường.</p>
+<p>Nhà trường sẽ tuyển sinh vào lớp 6 và lớp 10 năm học 2021 – 2022 tại 2 cơ sở</p>
+<ul>
+ 	<li>Cơ Sở A: Số 35 Đinh Núp, Trung Hòa, Cầu Giấy, Hà Nội.<br/>
+ 		&nbsp; &nbsp; SĐT: <a href="tel:02422155985">024 22155985</a> - <a href="tel:02466638338">024 66638338</a>
+ 	</li>
+ 	<li>Cơ Sở I: Thôn Yên Xá, xã Tân Triều, Thanh Trì, Hà Nội.<br/>
+ 		&nbsp; &nbsp; SĐT: <a href="tel:02435682603">024 35682603</a>
+ 	</li>
+</ul>
+&nbsp;
 
-      <p>
-        <strong style="color: #2e4493">BƯỚC 2: </strong>Sau khi thanh toán thành
-        công, quý phụ huynh sẽ nhận được 1 hóa đơn kèm mã số dưới dạng như sau
-      </p>
-      <div style="text-align: center">
-        <div
-          style="
-            display: inline-block;
-            padding: 12px;
-            min-width: 320px;
-            border: 1px solid #ccc;
-            background: #fff;
-          "
-        >
-          <div
-            style="
-              display: inline-flex;
-              align-items: center;
-              margin-right: 24px;
-            "
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              version="1.1"
-              id="Layer_1"
-              x="0px"
-              y="0px"
-              viewBox="0 0 32 26"
-              enable-background="new 0 0 100 100"
-              xml:space="preserve"
-              height="41px"
-              width="50px"
-              fill="rgb(46,68,147)"
-            >
-              <g>
-                <path
-                  d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z"
-                />
-                <path
-                  d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z"
-                />
-                <path
-                  d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z"
-                />
-                <path
-                  d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z"
-                />
-                <path
-                  d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z"
-                />
-                <path
-                  d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z"
-                />
-              </g>
+<p><strong style="color:#2E4493">BƯỚC 2: </strong>Sau khi thanh toán thành công, quý phụ huynh sẽ nhận được 1 hóa đơn kèm mã số dưới dạng như sau</p>
+<div style="text-align: center;">
+<div style="display: inline-block; padding: 24px; min-width: 320px; border: 1px solid #ccc; background: #fff;">
+	<div style="margin-top: 12px;">
+		<div>
+		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 32 26" enable-background="new 0 0 100 100" xml:space="preserve" height="41px" width="50px" fill="rgb(46,68,147)"><g><path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z"/><path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z"/><path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z"/><path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z"/><path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z"/><path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z"/></g></svg>
+		</div>
+		<div style="margin-top: 6px;">
+		<span style="font-size: 14px; margin-left: 8px; text-transform: uppercase;"><strong>Trường THCS & THPT <br/>Lương Thế Vinh</strong></span>
+		</div>
+	</div>
+	<div style="text-align: center; margin-top: 36px;"><span style="font-size: 14px;"><strong>MÃ KÍCH HOẠT</strong></span></div>
+	<div style="text-align: center;"><span style="font-size: 14px;">Hồ sơ tuyển sinh năm 2021 - 2022</span></div>
+	<div style="text-align: center; margin-top: 36px;"><span style="font-size: 24px;">XXXXXXXX</span></div>
+	<div style="text-align: center; margin-top: 36px;"><span style="font-size: 16px; text-transform: uppercase;">Khối 6</span></div>
+	<div style="display: inline-block; float: right; margin-top: 36px;">
+	<div style="text-align: right;"><span style="font-size: 14px;">Ngày xuất mã</span></div>
+	<div style="text-align: right;"><span style="font-size: 14px;">dd/mm/yyyy</span></div>
+	</div>
+	<div style="display: inline-block; float: left; margin-top: 36px;">
+	<div style="text-align: left;"><span style="font-size: 14px;">Người xuất mã</span></div>
+	<div style="text-align: left;"><span style="font-size: 14px;">Nguyễn Văn A</span></div>
+	</div>
+</div>
+</div>
+&nbsp;
+
+<p><strong style="color:#2E4493">BƯỚC 3: </strong>Quý phụ huynh truy cập vào hệ thống tuyển sinh online của trường tại website: <a href="http://tuyensinh.luongthevinh.com.vn/">tuyensinh.luongthevinh.com.vn</a></p>
+&nbsp;
+
+<p><strong style="color:#2E4493">BƯỚC 4: </strong>Phụ huynh chọn “Đăng ký ngay” trên góc phải màn hình nếu chưa có tài khoản, sau đó thao tác theo hướng dẫn trên hệ thống. Phụ huynh cũng có thể chọn “Đăng nhập” và điền thông tin tài khoản nếu đã đăng kí thành công trước đó.</p>
+<img style="display: block; width: 400px; max-width: 100%; height: auto; margin: 0 auto; margin-bottom: 24px; border: 1px solid #ccc;" src="images/HD00.jpg"/>
+&nbsp;
+
+<p><strong style="color:#2E4493">BƯỚC 5: </strong>Sau khi đăng kí / đăng nhập xong, một cửa sổ hỗ trợ quản lý hồ sơ sẽ hiện ra. (Quý phụ huynh có thể bấm chọn mục "Hồ sơ tuyển sinh" nếu chưa thấy hiện cửa sổ này.) Tại cửa sổ, quý phụ huynh vui lòng nhập mã trên hóa đơn vào phần “Mã kích hoạt” và ấn “Xác nhận”.</p>
+<img style="display: block; width: 600px; max-width: 100%; height: auto; margin: 0 auto; margin-bottom: 24px; border: 1px solid #ccc;" src="images/HD01.jpg"/>
+&nbsp;
+
+<p><strong style="color:#2E4493">BƯỚC 6: </strong>Hồ sơ mới sẽ được kích hoạt và sẽ hiển thị bên cạnh. (Quý phụ huynh có thể làm mới lại trang nếu chưa thấy hiện hồ sơ.)</p>
+<img style="display: block; width: 600px; max-width: 100%; height: auto; margin: 0 auto; margin-bottom: 24px; border: 1px solid #ccc;" src="images/HD02.jpg"/>
+&nbsp;
+
+<p><strong style="color:#2E4493">BƯỚC 7: </strong>Chúc mừng quý phụ huynh đã mở hồ sơ thành công. Mời phụ huynh bắt đầu khai thông tin bằng cách ấn vào chữ “Vào khai”.</p>
+
+&nbsp;
+<div style="text-align: center;">
+<p style="display: inline-block; max-width: calc(100% - 48px); color:#2E4493; text-align: center; border: 1px solid #2E4493; padding: 24px; border-radius: 24px;">Quý phụ huynh vui lòng gọi vào hotline của nhà trường để được hướng dẫn chi tiết nhất.<br/> Xin cảm ơn quý phụ huynh đã tin tưởng vào hệ thống giáo dục Lương Thế Vinh!</p>
+</div>
+		<div style="display: inline-block; width: 100%; margin: 36px 0;">
+            <!--h3 style="display: inline-block; float: right; margin: 0 48px; font-size: 200%; line-height: 150%; color:#2E4493; font-style: italic; letter-spacing: 1px;">
+               <span>CÓ CHÍ</span><br/>
+               <span> &nbsp; &nbsp;THÌ NÊN</span>
+            </h3-->
+            <img style="float: right; width: 360px; height: auto;" src="images/slogan01.png"/>
+         </div>
+         <div style="position: absolute; width: 576px; height: 280px; overflow: hidden; bottom: -60px; left: -390px; z-index: -1;">
+            <svg width="576" height="468" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z" fill="#2E4493"/>
+               <path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z" fill="#2E4493"/>
+               <path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z" fill="#2E4493"/>
+               <path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z" fill="#2E4493"/>
+               <path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z" fill="#2E4493"/>
+               <path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z" fill="#2E4493"/>
             </svg>
-            <span style="font-size: 14px; margin-left: 8px"
-              >Trường THCS & THPT Lương Thế Vinh</span
-            >
-          </div>
-          <div style="text-align: center; margin-top: 48px">
-            <span style="font-size: 14px">MÃ KÍCH HOẠT</span>
-          </div>
-          <div style="text-align: center; margin-top: 6px">
-            <span style="font-size: 24px">XXXXXXXX</span>
-          </div>
-          <div style="display: inline-block; float: right; margin-top: 48px">
-            <div style="text-align: right">
-              <span style="font-size: 14px">Ngày xuất</span>
-            </div>
-            <div style="text-align: right">
-              <span style="font-size: 14px">dd/mm/yyyy</span>
-            </div>
-          </div>
-          <div style="display: inline-block; float: left; margin-top: 48px">
-            <div style="text-align: left">
-              <span style="font-size: 14px">Người xuất</span>
-            </div>
-            <div style="text-align: left">
-              <span style="font-size: 14px">Nguyễn Văn A</span>
-            </div>
-          </div>
-        </div>
+         </div>
+         <div class="enrollment-inform-watermark" style="height: calc(100% - 320px); width: 80%; max-width: 400px; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); z-index: -1; display: flex; justify-content: center; align-items: center; margin-top: 220px; opacity: 0.7;">
+         </div>
       </div>
-      &nbsp;
-
-      <p>
-        <strong style="color: #2e4493">BƯỚC 3: </strong>Quý phụ huynh truy cập
-        vào hệ thống tuyển sinh online của trường tại website:
-        <a href="http://tuyensinh.luongthevinh.com.vn/"
-          >tuyensinh.luongthevinh.com.vn</a
-        >
-      </p>
-      &nbsp;
-
-      <p>
-        <strong style="color: #2e4493">BƯỚC 4: </strong>Phụ huynh chọn “Đăng ký
-        ngay” trên góc phải màn hình nếu chưa có tài khoản, sau đó thao tác theo
-        hướng dẫn trên hệ thống. Phụ huynh cũng có thể chọn “Đăng nhập” và điền
-        thông tin tài khoản nếu đã đăng kí thành công trước đó.
-      </p>
-      <img
-        style="
-          display: block;
-          width: 400px;
-          max-width: 100%;
-          height: auto;
-          margin: 0 auto;
-          margin-bottom: 24px;
-          border: 1px solid #ccc;
-        "
-        src="./images/hd1.jpg"
-      />
-      &nbsp;
-
-      <p>
-        <strong style="color: #2e4493">BƯỚC 5: </strong>Sau khi đăng kí / đăng
-        nhập xong, một cửa sổ hỗ trợ quản lý hồ sơ sẽ hiện ra. (Quý phụ huynh có
-        thể bấm chọn mục "Hồ sơ tuyển sinh" nếu chưa thấy hiện cửa sổ này.) Tại
-        cửa sổ, quý phụ huynh vui lòng nhập mã trên hóa đơn vào phần “Mã kích
-        hoạt” và ấn “Xác nhận”.
-      </p>
-      <img
-        style="
-          display: block;
-          width: 600px;
-          max-width: 100%;
-          height: auto;
-          margin: 0 auto;
-          margin-bottom: 24px;
-          border: 1px solid #ccc;
-        "
-        src="./images/hd2.jpg"
-      />
-      &nbsp;
-
-      <p>
-        <strong style="color: #2e4493">BƯỚC 6: </strong>Hồ sơ mới sẽ được kích
-        hoạt và sẽ hiển thị bên cạnh. (Quý phụ huynh có thể làm mới lại trang
-        nếu chưa thấy hiện hồ sơ.)
-      </p>
-      <img
-        style="
-          display: block;
-          width: 600px;
-          max-width: 100%;
-          height: auto;
-          margin: 0 auto;
-          margin-bottom: 24px;
-          border: 1px solid #ccc;
-        "
-        src="./images/hd3.jpg"
-      />
-      &nbsp;
-
-      <p>
-        <strong style="color: #2e4493">BƯỚC 7: </strong>Chúc mừng quý phụ huynh
-        đã mở hồ sơ thành công. Mời phụ huynh bắt đầu khai thông tin bằng cách
-        ấn vào chữ “Vào khai”.
-      </p>
-
-      &nbsp;
-      <div style="text-align: center">
-        <p
-          style="
-            display: inline-block;
-            max-width: calc(100% - 48px);
-            color: #2e4493;
-            text-align: center;
-            border: 1px solid #2e4493;
-            padding: 24px;
-            border-radius: 24px;
-          "
-        >
-          Quý phụ huynh vui lòng gọi vào hotline của nhà trường để được hướng
-          dẫn chi tiết nhất.<br />
-          Xin cảm ơn quý phụ huynh đã tin tưởng vào hệ thống giáo dục Lương Thế
-          Vinh!
-        </p>
-      </div>
-      <div
-        class="enrollment-inform-watermark"
-        style="
-          height: 100%;
-          width: 80%;
-          max-width: 400px;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translateX(-50%) translateY(-50%);
-          z-index: -1;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-top: 220px;
-          opacity: 0.7;
-        "
-      ></div>
-    </div>
-  </body>
+   </body>
 </html>
