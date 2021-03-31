@@ -164,6 +164,7 @@ module.exports = {
           activeCode: activeCode.id,
           parent: user.id,
           status: "created",
+          department: activeCode.department || "unset",
         });
         activeCode = await strapi.services["active-code"].update(
           { id: activeCode.id, code },
