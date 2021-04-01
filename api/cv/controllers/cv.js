@@ -62,7 +62,7 @@ module.exports = {
       return smsResult;
     } catch (error) {
       await strapi.services.cv.updateUser(user, {
-        logs: {
+        log: {
           name: "Send SMS Error",
           ...error,
         },
