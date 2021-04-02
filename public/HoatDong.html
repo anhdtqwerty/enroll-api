@@ -1,0 +1,592 @@
+﻿<!DOCTYPE html>
+<html>
+   <body>
+      <style>
+         @media only screen and (min-width: 400px) {body {padding: 12px;}}.enrollment-inform-content-wrapper, .enrollment-inform-content-wrapper p { font-family: Roboto, Verdana, Geneva, sans-serif !important; font-size: 14px !important; line-height: 21px !important; } .enrollment-inform-content-wrapper h4{ font-size: 16px; line-height: 150%; } .enrollment-inform-content-wrapper a{ text-decoration: none; color: #2E4493 !important; } .enrollment-inform-content-wrapper p,.enrollment-inform-content-wrapper ul,.enrollment-inform-content-wrapper table { margin-top: 0px; margin-bottom: 12px; } .enrollment-inform-content-wrapper ul li { margin: 6px 0; }.enrollment-inform-content-wrapper table { min-width: 320px; max-width: 1120px; }.enrollment-inform-content-wrapper table { border-collapse: collapse;border-spacing: 0; }.enrollment-inform-content-wrapper table td {border: 1px solid #5681bb; padding: 6px 6px;}.enrollment-inform-content-wrapper table td.align-content-top {vertical-align: top;} .enrollment-inform-content-wrapper table td.align-content-right {text-align: right;} .enrollment-inform-content-wrapper table td.align-content-center {text-align: center;}.enrollment-inform-content-wrapper table td.background-grey {position: relative; z-index: 1;} .enrollment-inform-content-wrapper table td.background-grey::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #000; opacity: 0.25 ; z-index: -1;} .enrollment-inform-content-wrapper table td.background-light-grey {position: relative; z-index: 1;} .enrollment-inform-content-wrapper table td.background-light-grey::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #000; opacity: 0.1 ; z-index: -1;} .enrollment-inform-content-wrapper table td.background-blue {position: relative; z-index: 1; color: #fff;} .enrollment-inform-content-wrapper table td.background-blue::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #2E4493; opacity: 0.95 ; z-index: -1;} .enrollment-inform-content-wrapper table td.background-light-blue {position: relative; z-index: 1; color: #fff;} .enrollment-inform-content-wrapper table td.background-light-blue::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #2E4493; opacity: 0.95 ; z-index: -1;} @media only screen and (max-width: 680px) {.enrollment-inform-branding-wrapper { justify-content: center;}} .simple-slider-wrapper { max-width: 680px; margin: 0 auto; } .enrollment-inform-watermark {background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 32 56" enable-background="new 0 0 100 100" xml:space="preserve" height="auto" width="100%" fill="rgb(242,245,252)"><g><path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z"/><path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z"/><path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z"/><path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z"/><path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z"/><path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z"/></g></svg>'); background-repeat: repeat-y;}
+
+
+.simple-slider-wrapper {
+  width: 100%;
+  margin: 24px auto 48px auto;
+  position: relative;
+  background:#333;
+}
+.control_prev,
+.control_next {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99999;
+  width:48px;
+  height: 48px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.control_prev {
+  left: 12px;
+}
+.control_next {
+  right: 12px;
+}
+.control_prev span:before,
+.control_next span:before {
+  content: "";
+  width: 48px;
+  height: 48px;
+  position: absolute;
+}
+.control_prev span:before {
+  background: url('img/arrow-left.png') no-repeat;
+  top: 0;
+  right: 0;
+}
+.control_next span:before {
+  background: url('img/arrow-right.png') no-repeat;
+  top: 0;
+  left: 0;
+}
+.simple-slider-overflow-hidden {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.simple-slider {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  overflow: hidden;
+  position: relative;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+}
+.simple-slider-element {
+  display: flex;
+  flex: 0 0 auto;
+  width: 100%;
+  padding-top: 66.66%;
+  position: relative;
+  overflow: hidden;
+  margin: 0 !important;
+}
+
+.slide-image {
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+      </style>
+      <div class="enrollment-inform-content-wrapper" style="position: relative; overflow: visible; max-width: 1024px; margin: 0 auto;">
+      	<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <div class="enrollment-inform-branding-wrapper" style="display: flex; min-width: 320px; ">
+               <div style="display: flex; flex-direction: column; height: 160px; width: 320px;align-items: center; justify-content: center;">
+                  <div style="margin-bottom: 6px;">
+                     <svg width="64" height="52" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z" fill="#2E4493"/>
+                        <path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z" fill="#2E4493"/>
+                        <path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z" fill="#2E4493"/>
+                        <path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z" fill="#2E4493"/>
+                        <path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z" fill="#2E4493"/>
+                        <path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z" fill="#2E4493"/>
+                     </svg>
+                  </div>
+                  <h5 style="margin: 0; font-size: 100%;">TRƯỜNG THCS & THPT</h5>
+                  <h4 style="margin: 0; font-size: 150%;">LƯƠNG THẾ VINH</h4>
+               </div>
+            </div>
+         </div>
+         <h4 style="color:#2E4493; margin-bottom: 6px; text-transform: uppercase; text-align: center;"><strong>1. Kỷ niệm 30 năm thành lập trường</strong></h4>
+
+         <div class="simple-slider-wrapper">
+          <div class="control_prev"><span></span></div>
+          <div class="control_next"><span></span></div>
+          <div class="simple-slider-overflow-hidden">
+            <ul class="simple-slider">
+              <li class="simple-slider-element 1">
+                <image class="slide-image" src="photo/1/1.jpg"/>
+              </li>
+              <li class="simple-slider-element 2">
+                <image class="slide-image" src="photo/1/2.jpg"/>
+              </li>
+              <li class="simple-slider-element 3">
+                <image class="slide-image" src="photo/1/3.jpg"/>
+              </li>
+              <li class="simple-slider-element 4">
+                <image class="slide-image" src="photo/1/4.jpg"/>
+              </li>
+              <li class="simple-slider-element 5">
+                <image class="slide-image" src="photo/1/5.jpg"/>
+              </li>
+              <li class="simple-slider-element 6">
+                <image class="slide-image" src="photo/1/6.jpg"/>
+              </li>
+              <li class="simple-slider-element 7">
+                <image class="slide-image" src="photo/1/7.jpg"/>
+              </li>
+              <li class="simple-slider-element 8">
+                <image class="slide-image" src="photo/1/8.jpg"/>
+              </li>
+              <li class="simple-slider-element 9">
+                <image class="slide-image" src="photo/1/9.jpg"/>
+              </li>
+              <li class="simple-slider-element 10">
+                <image class="slide-image" src="photo/1/10.jpg"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+         
+
+         <h4 style="color:#2E4493; margin-bottom: 6px; text-transform: uppercase; text-align: center;"><strong>2. Sự kiện, văn nghệ</strong></h4>
+
+         <div class="simple-slider-wrapper">
+          <div class="control_prev"><span></span></div>
+          <div class="control_next"><span></span></div>
+          <div class="simple-slider-overflow-hidden">
+            <ul class="simple-slider">
+              <li class="simple-slider-element 1">
+                <image class="slide-image" src="photo/2/1.jpg"/>
+              </li>
+              <li class="simple-slider-element 2">
+                <image class="slide-image" src="photo/2/2.jpg"/>
+              </li>
+              <li class="simple-slider-element 3">
+                <image class="slide-image" src="photo/2/3.jpg"/>
+              </li>
+              <li class="simple-slider-element 4">
+                <image class="slide-image" src="photo/2/4.jpg"/>
+              </li>
+              <li class="simple-slider-element 5">
+                <image class="slide-image" src="photo/2/5.jpg"/>
+              </li>
+              <li class="simple-slider-element 6">
+                <image class="slide-image" src="photo/2/6.jpg"/>
+              </li>
+              <li class="simple-slider-element 7">
+                <image class="slide-image" src="photo/2/7.jpg"/>
+              </li>
+              <li class="simple-slider-element 8">
+                <image class="slide-image" src="photo/2/8.jpg"/>
+              </li>
+              <li class="simple-slider-element 9">
+                <image class="slide-image" src="photo/2/9.jpg"/>
+              </li>
+              <li class="simple-slider-element 10">
+                <image class="slide-image" src="photo/2/10.jpg"/>
+              </li>
+              <li class="simple-slider-element 11">
+                <image class="slide-image" src="photo/2/11.jpg"/>
+              </li>
+              <li class="simple-slider-element 12">
+                <image class="slide-image" src="photo/2/12.jpg"/>
+              </li>
+              <li class="simple-slider-element 13">
+                <image class="slide-image" src="photo/2/13.jpg"/>
+              </li>
+              <li class="simple-slider-element 14">
+                <image class="slide-image" src="photo/2/14.jpg"/>
+              </li>
+              <li class="simple-slider-element 15">
+                <image class="slide-image" src="photo/2/15.jpg"/>
+              </li>
+              <li class="simple-slider-element 16">
+                <image class="slide-image" src="photo/2/16.jpg"/>
+              </li>
+              <li class="simple-slider-element 17">
+                <image class="slide-image" src="photo/2/17.jpg"/>
+              </li>
+              <li class="simple-slider-element 18">
+                <image class="slide-image" src="photo/2/18.jpg"/>
+              </li>
+              <li class="simple-slider-element 19">
+                <image class="slide-image" src="photo/2/19.jpg"/>
+              </li>
+              <li class="simple-slider-element 20">
+                <image class="slide-image" src="photo/2/20.jpg"/>
+              </li>
+              <li class="simple-slider-element 21">
+                <image class="slide-image" src="photo/2/21.jpg"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+         <h4 style="color:#2E4493; margin-bottom: 6px; text-transform: uppercase; text-align: center;"><strong>3. Tập quân sự</strong></h4>
+         
+         <div class="simple-slider-wrapper">
+          <div class="control_prev"><span></span></div>
+          <div class="control_next"><span></span></div>
+          <div class="simple-slider-overflow-hidden">
+            <ul class="simple-slider">
+              <li class="simple-slider-element 1">
+                <image class="slide-image" src="photo/3/1.jpg"/>
+              </li>
+              <li class="simple-slider-element 2">
+                <image class="slide-image" src="photo/3/2.jpg"/>
+              </li>
+              <li class="simple-slider-element 3">
+                <image class="slide-image" src="photo/3/3.jpg"/>
+              </li>
+              <li class="simple-slider-element 4">
+                <image class="slide-image" src="photo/3/4.jpg"/>
+              </li>
+              <li class="simple-slider-element 5">
+                <image class="slide-image" src="photo/3/5.jpg"/>
+              </li>
+              <li class="simple-slider-element 6">
+                <image class="slide-image" src="photo/3/6.jpg"/>
+              </li>
+              <li class="simple-slider-element 7">
+                <image class="slide-image" src="photo/3/7.jpg"/>
+              </li>
+              <li class="simple-slider-element 8">
+                <image class="slide-image" src="photo/3/8.jpg"/>
+              </li>
+              <li class="simple-slider-element 9">
+                <image class="slide-image" src="photo/3/9.jpg"/>
+              </li>
+              <li class="simple-slider-element 10">
+                <image class="slide-image" src="photo/3/10.jpg"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+         <h4 style="color:#2E4493; margin-bottom: 6px; text-transform: uppercase; text-align: center;"><strong>4. Tết sẻ chia</strong></h4>
+        <div class="simple-slider-wrapper">
+          <div class="control_prev"><span></span></div>
+          <div class="control_next"><span></span></div>
+          <div class="simple-slider-overflow-hidden">
+            <ul class="simple-slider">
+              <li class="simple-slider-element 1">
+                <image class="slide-image" src="photo/4/1.jpg"/>
+              </li>
+              <li class="simple-slider-element 2">
+                <image class="slide-image" src="photo/4/2.jpg"/>
+              </li>
+              <li class="simple-slider-element 3">
+                <image class="slide-image" src="photo/4/3.jpg"/>
+              </li>
+              <li class="simple-slider-element 4">
+                <image class="slide-image" src="photo/4/4.jpg"/>
+              </li>
+              <li class="simple-slider-element 5">
+                <image class="slide-image" src="photo/4/5.jpg"/>
+              </li>
+              <li class="simple-slider-element 6">
+                <image class="slide-image" src="photo/4/6.jpg"/>
+              </li>
+              <li class="simple-slider-element 7">
+                <image class="slide-image" src="photo/4/7.jpg"/>
+              </li>
+              <li class="simple-slider-element 8">
+                <image class="slide-image" src="photo/4/8.jpg"/>
+              </li>
+              <li class="simple-slider-element 9">
+                <image class="slide-image" src="photo/4/9.jpg"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+         <h4 style="color:#2E4493; margin-bottom: 6px; text-transform: uppercase; text-align: center;"><strong>5. Hoạt động tham quan, dã ngoại</strong></h4>
+         <div class="simple-slider-wrapper">
+          <div class="control_prev"><span></span></div>
+          <div class="control_next"><span></span></div>
+          <div class="simple-slider-overflow-hidden">
+            <ul class="simple-slider">
+              <li class="simple-slider-element 1">
+                <image class="slide-image" src="photo/5/1.jpg"/>
+              </li>
+              <li class="simple-slider-element 2">
+                <image class="slide-image" src="photo/5/2.jpg"/>
+              </li>
+              <li class="simple-slider-element 3">
+                <image class="slide-image" src="photo/5/3.jpg"/>
+              </li>
+              <li class="simple-slider-element 4">
+                <image class="slide-image" src="photo/5/4.jpg"/>
+              </li>
+              <li class="simple-slider-element 5">
+                <image class="slide-image" src="photo/5/5.jpg"/>
+              </li>
+              <li class="simple-slider-element 6">
+                <image class="slide-image" src="photo/5/6.jpg"/>
+              </li>
+              <li class="simple-slider-element 7">
+                <image class="slide-image" src="photo/5/7.jpg"/>
+              </li>
+              <li class="simple-slider-element 8">
+                <image class="slide-image" src="photo/5/8.jpg"/>
+              </li>
+              <li class="simple-slider-element 9">
+                <image class="slide-image" src="photo/5/9.jpg"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+         <h4 style="color:#2E4493; margin-bottom: 6px; text-transform: uppercase; text-align: center;"><strong>6. Hoạt động thể thao</strong></h4>
+         <div class="simple-slider-wrapper">
+          <div class="control_prev"><span></span></div>
+          <div class="control_next"><span></span></div>
+          <div class="simple-slider-overflow-hidden">
+            <ul class="simple-slider">
+              <li class="simple-slider-element 1">
+                <image class="slide-image" src="photo/6/1.jpg"/>
+              </li>
+              <li class="simple-slider-element 2">
+                <image class="slide-image" src="photo/6/2.jpg"/>
+              </li>
+              <li class="simple-slider-element 3">
+                <image class="slide-image" src="photo/6/3.jpg"/>
+              </li>
+              <li class="simple-slider-element 4">
+                <image class="slide-image" src="photo/6/4.jpg"/>
+              </li>
+              <li class="simple-slider-element 5">
+                <image class="slide-image" src="photo/6/5.jpg"/>
+              </li>
+              <li class="simple-slider-element 6">
+                <image class="slide-image" src="photo/6/6.jpg"/>
+              </li>
+              <li class="simple-slider-element 7">
+                <image class="slide-image" src="photo/6/7.jpg"/>
+              </li>
+              <li class="simple-slider-element 8">
+                <image class="slide-image" src="photo/6/8.jpg"/>
+              </li>
+              <li class="simple-slider-element 9">
+                <image class="slide-image" src="photo/6/9.jpg"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+         <h4 style="color:#2E4493; margin-bottom: 6px; text-transform: uppercase; text-align: center;"><strong>7. Khách mời nghệ sỹ</strong></h4>
+         <div class="simple-slider-wrapper">
+          <div class="control_prev"><span></span></div>
+          <div class="control_next"><span></span></div>
+          <div class="simple-slider-overflow-hidden">
+            <ul class="simple-slider">
+              <li class="simple-slider-element 1">
+                <image class="slide-image" src="photo/7/1.jpg"/>
+              </li>
+              <li class="simple-slider-element 2">
+                <image class="slide-image" src="photo/7/2.jpg"/>
+              </li>
+              <li class="simple-slider-element 3">
+                <image class="slide-image" src="photo/7/3.jpg"/>
+              </li>
+              <li class="simple-slider-element 4">
+                <image class="slide-image" src="photo/7/4.jpg"/>
+              </li>
+              <li class="simple-slider-element 5">
+                <image class="slide-image" src="photo/7/5.jpg"/>
+              </li>
+              <li class="simple-slider-element 6">
+                <image class="slide-image" src="photo/7/6.jpg"/>
+              </li>
+              <li class="simple-slider-element 7">
+                <image class="slide-image" src="photo/7/7.jpg"/>
+              </li>
+              <li class="simple-slider-element 8">
+                <image class="slide-image" src="photo/7/8.jpg"/>
+              </li>
+              <li class="simple-slider-element 9">
+                <image class="slide-image" src="photo/7/9.jpg"/>
+              </li>
+              <li class="simple-slider-element 10">
+                <image class="slide-image" src="photo/7/10.jpg"/>
+              </li>
+              <li class="simple-slider-element 11">
+                <image class="slide-image" src="photo/7/11.jpg"/>
+              </li>
+              <li class="simple-slider-element 12">
+                <image class="slide-image" src="photo/7/12.jpg"/>
+              </li>
+              <li class="simple-slider-element 13">
+                <image class="slide-image" src="photo/7/13.jpg"/>
+              </li>
+              <li class="simple-slider-element 14">
+                <image class="slide-image" src="photo/7/14.jpg"/>
+              </li>
+              <li class="simple-slider-element 15">
+                <image class="slide-image" src="photo/7/15.jpg"/>
+              </li>
+              <li class="simple-slider-element 16">
+                <image class="slide-image" src="photo/7/16.jpg"/>
+              </li>
+              <li class="simple-slider-element 17">
+                <image class="slide-image" src="photo/7/17.jpg"/>
+              </li>
+              <li class="simple-slider-element 18">
+                <image class="slide-image" src="photo/7/18.jpg"/>
+              </li>
+              <li class="simple-slider-element 19">
+                <image class="slide-image" src="photo/7/19.jpg"/>
+              </li>
+              <li class="simple-slider-element 20">
+                <image class="slide-image" src="photo/7/20.jpg"/>
+              </li>
+              <li class="simple-slider-element 21">
+                <image class="slide-image" src="photo/7/21.jpg"/>
+              </li>
+              <li class="simple-slider-element 22">
+                <image class="slide-image" src="photo/7/22.jpg"/>
+              </li>
+              <li class="simple-slider-element 23">
+                <image class="slide-image" src="photo/7/23.jpg"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+         <h4 style="color:#2E4493; margin-bottom: 6px; text-transform: uppercase; text-align: center;"><strong>8. Hoạt động từ thiện</strong></h4>
+         <div class="simple-slider-wrapper">
+          <div class="control_prev"><span></span></div>
+          <div class="control_next"><span></span></div>
+          <div class="simple-slider-overflow-hidden">
+            <ul class="simple-slider">
+              <li class="simple-slider-element 1">
+                <image class="slide-image" src="photo/8/1.jpg"/>
+              </li>
+              <li class="simple-slider-element 2">
+                <image class="slide-image" src="photo/8/2.jpg"/>
+              </li>
+              <li class="simple-slider-element 3">
+                <image class="slide-image" src="photo/8/3.jpg"/>
+              </li>
+              <li class="simple-slider-element 4">
+                <image class="slide-image" src="photo/8/4.jpg"/>
+              </li>
+              <li class="simple-slider-element 5">
+                <image class="slide-image" src="photo/8/5.jpg"/>
+              </li>
+              <li class="simple-slider-element 6">
+                <image class="slide-image" src="photo/8/6.jpg"/>
+              </li>
+              <li class="simple-slider-element 7">
+                <image class="slide-image" src="photo/8/7.jpg"/>
+              </li>
+              <li class="simple-slider-element 8">
+                <image class="slide-image" src="photo/8/8.jpg"/>
+              </li>
+              <li class="simple-slider-element 9">
+                <image class="slide-image" src="photo/8/9.jpg"/>
+              </li>
+              <li class="simple-slider-element 10">
+                <image class="slide-image" src="photo/8/10.jpg"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+         <div style="display: inline-block; width: 100%; margin: 36px 0;">
+            <!--h3 style="display: inline-block; float: right; margin: 0 48px; font-size: 200%; line-height: 150%; color:#2E4493; font-style: italic; letter-spacing: 1px;">
+               <span>CÓ CHÍ</span><br/>
+               <span> &nbsp; &nbsp;THÌ NÊN</span>
+            </h3-->
+            <img style="float: right; width: 360px; height: auto;" src="slogan01.png"/>
+         </div>
+         <div style="position: absolute; width: 576px; height: 280px; overflow: hidden; bottom: -60px; left: -390px; z-index: -1;">
+            <svg width="576" height="468" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z" fill="#2E4493"/>
+               <path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z" fill="#2E4493"/>
+               <path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z" fill="#2E4493"/>
+               <path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z" fill="#2E4493"/>
+               <path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z" fill="#2E4493"/>
+               <path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z" fill="#2E4493"/>
+            </svg>
+         </div>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+      <script>
+        jQuery(document).ready(function($) {
+
+    $('.simple-slider-wrapper').each(function() {
+        const this_slider = $(this);
+        
+        const slides = this_slider.find('ul li');
+        const control_prev = this_slider.find('.control_prev');
+        const control_next = this_slider.find('.control_next');
+
+        function slider_init() {
+            if (slides.length > 1) {
+                control_prev.css('display', 'block');
+                control_next.css("display", "block");
+            }
+        }
+        slider_init();
+
+        function moveRight() {
+            // move last child to beginning of list and set list position to -100%
+            this_slider.find('ul li:last-child').prependTo(this_slider.find('ul'));
+            slides.css('left', '-100%');
+            // move all list elements to right
+            slides.stop().animate({ left: 0 }, 500);
+        };
+
+        function moveLeft() {
+            // move all list elements to left
+            const arr = [ slides.stop().animate({ left: '-100%' }, 500).promise() ]
+            // after animation end move first child to end of list and set list position to 0
+            $.when.apply($, arr).then(function() {
+                this_slider.find('ul li:first-child').appendTo(this_slider.find('ul'));
+                slides.css('left', 0);
+            });
+        };
+
+        control_prev.on("click", function () {
+            if (slides.length > 1) {
+                moveRight();
+            }
+        });
+
+        control_next.on("click", function () {
+            if (slides.length > 1) {
+                moveLeft();
+            }
+        });
+
+        // autoplay
+        function setAutoplay() {
+            let is_slider_on = true;
+            let autoplay = setInterval(function () {
+                if (slides.length > 1) {
+                    moveLeft();
+                }
+            }, 3000);
+
+            this_slider.on('mouseenter', function() {
+                clearInterval(autoplay);
+                is_slider_on = false;
+            });
+
+            this_slider.on('mouseleave', function() {
+                if (!is_slider_on) {
+                    autoplay = setInterval(function () {
+                        moveLeft();
+                    }, 3000);
+                  is_slider_on = true;
+                }
+            });
+        }
+        setAutoplay();
+    });
+
+});
+      </script>
+      
+
+   </body>
+</html>
