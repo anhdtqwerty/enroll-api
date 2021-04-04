@@ -25,7 +25,7 @@ const FIXED_OTP = "270996";
 const CONTENT_OTP_SMS =
   "Ma OTP cua ban la {{otp}}. OTP cua ban co hieu luc trong 5 phut";
 
-const OPEN_DOCUMENT = "05/04/2021 00:00:00";
+const OPEN_DOCUMENT = "04/04/2021 00:00:00";
 const CHOOSE_DEPARTMENT = "01/03/2021 00:00:00";
 const FILL_INFO = "01/03/2021 00:00:00";
 const REGISTER_EXPECTATION = "01/03/2021 00:00:00";
