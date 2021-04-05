@@ -49,7 +49,6 @@ module.exports = {
       throw strapi.errors.badRequest("Mã kích hoạt không hợp lệ");
     if (existingCode.status === "active" || existingCode.activeDate)
       throw strapi.errors.badRequest(
-        500,
         `Mã kích hoạt đã được sử dụng lúc ${moment(
           existingCode.activeDate
         ).format("DD/MM/YYYY hh:mm:ss")} bởi số điện thoại ${
