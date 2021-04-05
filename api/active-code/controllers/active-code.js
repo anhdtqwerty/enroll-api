@@ -49,11 +49,7 @@ module.exports = {
       throw strapi.errors.badRequest("Mã kích hoạt không hợp lệ");
     if (existingCode.status === "active" || existingCode.activeDate)
       throw strapi.errors.badRequest(
-        `Mã kích hoạt đã được sử dụng lúc ${moment(
-          existingCode.activeDate
-        ).format("DD/MM/YYYY hh:mm:ss")} bởi số điện thoại ${
-          existingCode.userPhone || "của Phụ huynh học sinh khác"
-        }`
+        `Mã kích hoạt ${existingCode.code} đã được sử dụng`
       );
     return true;
   },
