@@ -48,11 +48,8 @@ module.exports = {
     if (existingCode.grade !== "Khối 6" && existingCode.grade !== "Khối 10")
       throw strapi.errors.badRequest("Mã kích hoạt không hợp lệ");
     if (existingCode.status === "active" || existingCode.activeDate)
-      event.throw(
-        500,
-        `Mã kích hoạt đã được sử dụng lúc ${moment(
-          existingCode.activeDate
-        ).format("DD/MM/YYYY hh:mm:ss")}`
+      throw strapi.errors.badRequest(
+        `Mã kích hoạt ${existingCode.code} đã được sử dụng`
       );
     return true;
   },
