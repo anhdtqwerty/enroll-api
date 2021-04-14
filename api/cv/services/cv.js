@@ -44,11 +44,10 @@ const CLOSE_CREATE_DOCUMENT_GRADE10 = "10/06/2021 00:00:00";
 const CLOSE_SUBMIT_DOCUMENT_GRADE10 = "14/06/2021 00:00:00";
 const ENTRY_EXAM_RESULT_GRADE10 = "11/06/2021 15:00:00";
 const DISPLAY_EXAM_RESULT_GRADE10 = "16/06/2021 14:00:00";
-
 let resetHourlySMSTask;
 
 const isNowAfterDatetime = (comparingDate) => {
-  return !moment(comparingDate, "DD/MM/YYYY 00:00:00")
+  return !moment(comparingDate, "DD/MM/YYYY HH:mm:ss")
     .locale("vi")
     .isAfter(new Date().toISOString());
 };
@@ -68,7 +67,7 @@ const getBalance = async () => {
 const clearUserHourlyLimitOTP = async () => {
   console.log(
     `*** ${moment().format(
-      "DD/MM/YYYY hh:mm:ss"
+      "DD/MM/YYYY HH:mm:ss"
     )} - Start Reset Users'Hourly SMS Limitation`
   );
   const users = await strapi.plugins[
@@ -82,7 +81,7 @@ const clearUserHourlyLimitOTP = async () => {
   await Promise.all(promises);
   console.log(
     `*** ${moment().format(
-      "DD/MM/YYYY hh:mm:ss"
+      "DD/MM/YYYY HH:mm:ss"
     )} - Done Start Reset Users'Hourly SMS Limitation`
   );
 };

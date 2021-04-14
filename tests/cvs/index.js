@@ -31,24 +31,24 @@ module.exports = {
         }
         done();
       });
-      it("create an user", (done) => {
-        chai
-          .request(app.server)
-          .post("/auth/local/register")
-          .send({
-            email: "tungunity96@gmail.com",
-            password: "123123",
-            username: "0973728668",
-          })
-          .end((error, response) => {
-            const result = response.body;
-            user = result.user;
-            expect(response).to.have.status(200);
-            expect(response).to.have.property("body");
-            expect(result.user.email).to.equal("tungunity96@gmail.com");
-            done();
-          });
-      });
+      // it("create an user", (done) => {
+      //   chai
+      //     .request(app.server)
+      //     .post("/auth/local/register")
+      //     .send({
+      //       email: "tungunity96@gmail.com",
+      //       password: "123123",
+      //       username: "0973728668",
+      //     })
+      //     .end((error, response) => {
+      //       const result = response.body;
+      //       user = result.user;
+      //       expect(response).to.have.status(200);
+      //       expect(response).to.have.property("body");
+      //       expect(result.user.email).to.equal("tungunity96@gmail.com");
+      //       done();
+      //     });
+      // });
       // it("request register otp", (done) => {
       //   chai
       //     .request(app.server)
@@ -156,28 +156,28 @@ module.exports = {
       //   expect(response).to.have.property("body");
       //   expect(result.ltvExamResult.examMath).to.equal(1);
       // });
-      // it("check document system time", async () => {
-      //   const response = await chai
-      //     .request(app.server)
-      //     .post("/checkDocumentSystemTime")
-      //     .send({
-      //       grade: "Khối 6",
-      //     });
-      //   const result = response.body;
-      //   console.log(result);
-      //   expect(response).to.have.status(200);
-      //   expect(response).to.have.property("body");
-      // });
-      // it("check system time", async () => {
-      //   const response = await chai
-      //     .request(app.server)
-      //     .get("/checkSystemTime")
-      //     .send({});
-      //   const result = response.body;
-      //   console.log(result);
-      //   expect(response).to.have.status(200);
-      //   expect(response).to.have.property("body");
-      // });
+      it("check document system time", async () => {
+        const response = await chai
+          .request(app.server)
+          .post("/checkDocumentSystemTime")
+          .send({
+            grade: "Khối 6",
+          });
+        const result = response.body;
+        console.log(result);
+        expect(response).to.have.status(200);
+        expect(response).to.have.property("body");
+      });
+      it("check system time", async () => {
+        const response = await chai
+          .request(app.server)
+          .get("/checkSystemTime")
+          .send({});
+        const result = response.body;
+        console.log(result);
+        expect(response).to.have.status(200);
+        expect(response).to.have.property("body");
+      });
       // it("start hourly sms task", async () => {
       //   try {
       //     await strapi.services.cv.startResetHourlySMS();
@@ -185,14 +185,14 @@ module.exports = {
       //     console.error(error);
       //   }
       // });
-      it("test hourly sms task", async () => {
-        try {
-          await new Promise((resolve) => setTimeout(resolve, 10000));
-          // await strapi.services.cv.clearUserHourlyLimitOTP();
-        } catch (error) {
-          console.error(error);
-        }
-      });
+      // it("test hourly sms task", async () => {
+      //   try {
+      //     await new Promise((resolve) => setTimeout(resolve, 10000));
+      //     // await strapi.services.cv.clearUserHourlyLimitOTP();
+      //   } catch (error) {
+      //     console.error(error);
+      //   }
+      // });
     });
   },
 };
