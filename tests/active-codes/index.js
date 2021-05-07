@@ -36,7 +36,6 @@ module.exports = {
           .post(`/active-codes`)
           .send({
             grade: "Khối 6",
-
           })
           .end((error, response) => {
             const result = response.body;
@@ -47,31 +46,39 @@ module.exports = {
             done();
           });
       });
-      it("validate active code fail", (done) => {
+      // it("validate active code fail", (done) => {
+      //   chai
+      //     .request(app.server)
+      //     .post(`/active-codes/validate`)
+      //     .send({
+      //       code: "00000000",
+      //     })
+      //     .end((error, response) => {
+      //       const result = response.body;
+      //       console.log(result);
+      //       expect(response).to.have.status(400);
+      //       expect(response).to.have.property("body");
+      //       done();
+      //     });
+      // });
+      it("validate active code", (done) => {
         chai
           .request(app.server)
-          .post(`/active-codes/validate`)
-          .send({
-            code: "00000000",
-          })
-          .end((error, response) => {
+          .put(`/active-codes/disable-code/${activeCode.code}`)
+          .end(async (error, response) => {
             const result = response.body;
             console.log(result);
-            expect(response).to.have.status(400);
+            expect(response).to.have.status(200);
             expect(response).to.have.property("body");
             done();
           });
       });
-      it("validate active code success", (done) => {
+      it("validate active code", (done) => {
         chai
           .request(app.server)
-          .post(`/active-codes/validate`)
-          .send({
-            code: activeCode.code,
-          })
-          .end((error, response) => {
+          .put(`/active-codes/enable-code/${activeCode.code}`)
+          .end(async (error, response) => {
             const result = response.body;
-            console.log(result);
             expect(response).to.have.status(200);
             expect(response).to.have.property("body");
             done();

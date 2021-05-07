@@ -49,6 +49,22 @@
       }
     },
     {
+      "method": "PUT",
+      "path": "/active-codes/disable-code/:code",
+      "handler": "active-code.disableActiveCode",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/active-codes/enable-code/:code",
+      "handler": "active-code.enableActiveCode",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/active-codes/:id",
       "handler": "active-code.delete",
