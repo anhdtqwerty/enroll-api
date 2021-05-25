@@ -67,7 +67,6 @@ module.exports = {
           .put(`/active-codes/disable-code/${activeCode.code}`)
           .end(async (error, response) => {
             const result = response.body;
-            console.log(result);
             expect(response).to.have.status(200);
             expect(response).to.have.property("body");
             done();

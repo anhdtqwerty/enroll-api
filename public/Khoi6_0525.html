@@ -1,0 +1,592 @@
+﻿<!DOCTYPE html>
+<html>
+   <body>
+      <style>
+         @media only screen and (min-width: 400px) {body {padding: 12px;}}.enrollment-inform-content-wrapper, .enrollment-inform-content-wrapper p { font-family: Roboto, Verdana, Geneva, sans-serif !important; font-size: 14px !important; line-height: 21px !important; } .enrollment-inform-content-wrapper h4{ font-size: 20px; line-height: 150%; } .enrollment-inform-content-wrapper a{ text-decoration: none; color: #2E4493 !important; } .enrollment-inform-content-wrapper p,.enrollment-inform-content-wrapper ul,.enrollment-inform-content-wrapper table { margin-top: 0px; margin-bottom: 12px; }.enrollment-inform-content-wrapper table { min-width: 320px; max-width: 1120px; }.enrollment-inform-content-wrapper table { border-collapse: collapse;border-spacing: 0; }.enrollment-inform-content-wrapper table td {border: 1px solid #5681bb; padding: 6px 6px;}.enrollment-inform-content-wrapper table td.align-content-top {vertical-align: top;} .enrollment-inform-content-wrapper table td.align-content-right {text-align: right;} .enrollment-inform-content-wrapper table td.align-content-center {text-align: center;}.enrollment-inform-content-wrapper table td.background-grey {position: relative; z-index: 1;} .enrollment-inform-content-wrapper table td.background-grey::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #000; opacity: 0.25 ; z-index: -1;} .enrollment-inform-content-wrapper table td.background-light-grey {position: relative; z-index: 1;} .enrollment-inform-content-wrapper table td.background-light-grey::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #000; opacity: 0.1 ; z-index: -1;} .enrollment-inform-content-wrapper table td.background-blue {position: relative; z-index: 1; color: #fff;} .enrollment-inform-content-wrapper table td.background-blue::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #2E4493; opacity: 0.95 ; z-index: -1;} .enrollment-inform-content-wrapper table td.background-light-blue {position: relative; z-index: 1; color: #fff;} .enrollment-inform-content-wrapper table td.background-light-blue::after {content: " "; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: #2E4493; opacity: 0.95 ; z-index: -1;} @media only screen and (max-width: 680px) {.enrollment-inform-branding-wrapper { justify-content: center;}} .enrollment-inform-watermark {background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 32 64" enable-background="new 0 0 100 100" xml:space="preserve" height="auto" width="100%" fill="rgb(242,245,252)"><g><path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z"/><path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z"/><path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z"/><path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z"/><path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z"/><path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z"/></g></svg>'); background-repeat: repeat-y;}
+      </style>
+      <div class="enrollment-inform-content-wrapper" style="position: relative; overflow: hidden; max-width: 1024px; margin: 0 auto;">
+      	<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <div class="enrollment-inform-branding-wrapper" style="display: flex; min-width: 320px; ">
+               <div style="display: flex; flex-direction: column; height: 160px; width: 320px;align-items: center; justify-content: center;">
+                  <div style="margin-bottom: 6px;">
+                     <svg width="64" height="52" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z" fill="#2E4493"/>
+                        <path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z" fill="#2E4493"/>
+                        <path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z" fill="#2E4493"/>
+                        <path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z" fill="#2E4493"/>
+                        <path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z" fill="#2E4493"/>
+                        <path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z" fill="#2E4493"/>
+                     </svg>
+                  </div>
+                  <h5 style="margin: 0; font-size: 100%;">TRƯỜNG THCS&amp;THPT</h5>
+                  <h4 style="margin: 0; font-size: 150%;">LƯƠNG THẾ VINH</h4>
+               </div>
+            </div>
+         </div>
+         <h4 style="text-align: center;"><strong>THÔNG BÁO VỀ NHỮNG THAY ĐỔI TRONG</strong><br/><strong>TUYỂN SINH VÀO LỚP 6 NĂM HỌC 2021 – 2022</strong></h4>
+         &nbsp;
+         <p><span style="color:#2E4493"><strong>I. GIỚI THIỆU CHUNG VỀ TRƯỜNG</strong></span></p>
+         <ul>
+            <li>
+               Trường THCS&amp;THPT Lương Thế Vinh là trường chất lượng cao, thuộc top đầu các trường THCS&amp;THPT của TP Hà Nội. Năm học 2021-2022, trường tuyển sinh tại 2 địa điểm:
+               <ul>
+                  <li><span style="display: inline-block; width: 58px;">Cơ sở A</span> : Số 35 Đinh Núp, Phường Trung Hòa, Quận Cầu Giấy, Hà Nội</li>
+                  <li><span style="display: inline-block; width: 58px;">Cơ sở I</span> : Yên Xá, Tân Triều, Thanh Trì, Hà Nội</li>
+               </ul>
+            </li>
+            <li>
+               Chương trình giáo dục của nhà trường:
+               <ul>
+                  <li>Trường đào tạo học sinh từ lớp 6 đến lớp 12 theo chương trình hiện hành của Bộ GD&amp;ĐT, kết hợp với chương trình giáo dục của nhà trường.</li>
+                  <li>Mỗi năm học của trường gồm <strong>11</strong> <strong>tháng,</strong> nghỉ hè vào tháng 6 hàng năm.</li>
+               </ul>
+            </li>
+         </ul>
+         &nbsp;
+         <p><span style="color:#2E4493"><strong>II. MÔ HÌNH LỚP HỌC</strong></span></p>
+         <p style="text-indent: 20px;">Có 4 mô hình lớp học, được thể hiện theo bảng dưới đây:</p>
+         <table>
+            <tbody>
+               <tr>
+                  <td class="background-blue"><strong>Mô hình lớp học</strong></td>
+                  <td class="background-light-blue"><strong>Lớp Chất lượng cao
+                     (CLC)</strong>
+                  </td>
+                  <td class="background-light-blue"><strong>Lớp Chọn chất lượng cao
+                     (CCLC)</strong>
+                  </td>
+                  <td class="background-light-blue"><strong>Lớp Năng khiếu Tiếng Anh
+                     (NKA)</strong>
+                  </td>
+                  <td class="background-light-blue"><strong>Lớp Năng khiếu Toán
+                     (NKT)</strong>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="background-blue"><strong>Tên ký hiệu</strong></td>
+                  <td>A / V</td>
+                  <td>A0 / V0</td>
+                  <td>CA / N</td>
+                  <td>CT / T</td>
+               </tr>
+               <tr>
+                  <td rowspan="3" class="background-blue"><strong>Chương trình</strong></td>
+                  <td class="align-content-top">Chương trình của Bộ GD&amp;ĐT</td>
+                  <td class="align-content-top">Chương trình của Bộ GD&amp;ĐT</td>
+                  <td class="align-content-top">Chương trình của Bộ GD&amp;ĐT</td>
+                  <td class="align-content-top">Chương trình của Bộ GD&amp;ĐT</td>
+               </tr>
+               <tr>
+                  <td colspan="4" class="background-light-blue align-content-center"><strong>Kết hợp chương trình giáo dục của nhà trường</strong></td>
+               </tr>
+               <tr>
+                  <td class="align-content-top">
+                     Tăng Toán <strong>3</strong> tiết / tuần
+                     <br/><br/>
+                     Tăng Văn <strong>3</strong> tiết / tuần
+                     <br/><br/>
+                     Tăng Anh <strong>3</strong> tiết / tuần
+                  </td>
+                  <td class="align-content-top">
+                     Tăng Toán <strong>4</strong> tiết / tuần
+                     <br/><br/>
+                     Tăng Văn <strong>4</strong> tiết / tuần
+                     <br/><br/>
+                     Tăng Anh <strong>4</strong> tiết / tuần
+                  </td>
+                  <td class="align-content-top">
+                     Tăng Toán <strong>3</strong> tiết / tuần
+                     <br/><br/>
+                     Tăng Văn <strong>3</strong> tiết / tuần
+                     <br/><br/>
+                     Tăng Anh <strong>5</strong> tiết / tuần
+                  </td>
+                  <td class="align-content-top">
+                     Tăng Toán <strong>5</strong> tiết / tuần
+                     <br/><br/>
+                     Tăng Văn <strong>3</strong> tiết / tuần
+                     <br/><br/>
+                     Tăng Anh <strong>3</strong> tiết / tuần
+                  </td>
+               </tr>
+               <tr>
+                  <td class="background-blue"><strong>Tiếng Anh giáo viên nước ngoài</strong></td>
+                  <td><strong>2</strong> tiết / tuần</td>
+                  <td><strong>2</strong> tiết / tuần</td>
+                  <td><strong>2</strong> tiết / tuần</td>
+                  <td><strong>2</strong> tiết / tuần</td>
+               </tr>
+            </tbody>
+         </table>
+         &nbsp;
+         <p><span style="color:#2E4493"><strong>III. HƯỚNG DẪN TUYỂN SINH</strong></span></p>
+         <p><strong><em>1. Đối tượng tuyển sinh:</em></strong></p>
+         <ul>
+            <li>Hoàn thành chương trình bậc Tiểu học theo quy định Bộ GD&amp;ĐT.</li>
+            <li>Đúng độ tuổi quy định học sinh vào lớp 6 (Sinh năm 2010; 11 tuổi) hoặc các trường hợp học trước tuổi theo quy định của Sở GD&amp;ĐT Hà Nội.</li>
+            <li>Có hồ sơ hợp lệ theo quy định của Sở GD&amp;ĐT Hà Nội.</li>
+            <li>Chấp nhận các quy định nhập học của nhà trường.</li>
+         </ul>
+         <p><strong><em>2. Chỉ tiêu tuyển sinh:</em></strong></p>
+         <ul>
+            <li><span style="display: inline-block; width: 138px;">Cơ Sở A - Cầu Giấy</span> : <strong>280 học sinh</strong>.</li>
+            <li><span style="display: inline-block; width: 138px;">Cơ Sở I - Tân Triều</span> : <strong>280 học sinh</strong>.</li>
+         </ul>
+         <p><strong><em>3. Phương thức tuyển sinh:</em></strong></p>
+         <ul>
+            <li><strong>Khảo sát đánh giá năng lực, kết hợp xét học bạ.</strong></p>
+            </li>
+         </ul>
+         <p><strong><em>4. Cách thức tính điểm:</em></strong></p>
+         <ul>
+            <li>Căn cứ vào kết quả 03 bài kiểm tra đánh giá khảo sát năng lực học sinh và kết quả học bạ 5 năm Tiểu học.</li>
+         </ul>
+         <table>
+            <tbody>
+               <tr>
+                  <td class="background-light-blue"><strong>Căn cứ</strong></td>
+                  <td class="background-light-blue"><strong>Hình thức</strong></td>
+                  <td class="background-light-blue"><strong>Thời gian bài khảo sát</strong></td>
+                  <td class="background-light-blue"><strong>Điểm tối đa</strong></td>
+               </tr>
+               <tr>
+                  <td><span style="color: #FF665A;">Bài khảo sát đánh giá năng lực tổng hợp (KSTH). Bài KSTH sẽ bao gồm nội dung 3 môn Toán, Văn và Tiếng Anh</span></td>
+                  <td><span style="color: #FF665A;">Trắc nghiệm khách quan.</span></td>
+                  <td class="align-content-right"><span style="color: #FF665A;">60 phút</span></td>
+                  <td class="align-content-right"><span style="color: #FF665A;">100 điểm</span></td>
+               </tr>
+               <tr>
+                  <td><span style="color: #FF665A;">Điểm học bạ</span></td>
+                  <td colspan="2"><span style="color: #FF665A;">Tổng điểm thi cuối năm môn Toán, Tiếng Việt trong 5 năm học. Riêng lớp 5 lấy điểm tổng kết học kỳ I.</span></td>
+                  <td class="align-content-right"><span style="color: #FF665A;">100 điểm</span></td>
+               </tr>
+            </tbody>
+         </table>
+         <p style="text-indent: 20px;"><em>* Nội dung Bài khảo sát đánh giá năng lực thuộc chương trình giáo dục tiểu học, chủ yếu nằm trong chương trình lớp 5 hiện hành của Bộ GD&amp;ĐT, đảm bảo yêu cầu bốn cấp độ nhận thức: nhận biết, thông hiểu, vận dụng và vận dụng cấp độ cao.</em></p>
+         <table style="margin-left: auto; margin-right: auto; border-collapse: separate !important;">
+            <tbody>
+               <tr>
+                  <td style="padding: 12px; border-color: #FF665A; border-radius: 4px;"><span style="color: #FF665A;"><strong>Điểm xét tuyển = Điểm KSTH + Điểm học bạ + Điểm ưu tiên.</strong></span></td>
+               </tr>
+            </tbody>
+         </table>
+         <p><strong><em>5. Các diện ưu tiên:</em></strong></p>
+         <table>
+            <tbody>
+               <tr>
+                  <td class="background-light-blue"><strong>STT</strong></td>
+                  <td class="background-light-blue"><strong>DIỆN ƯU TIÊN</strong></td>
+                  <td class="background-light-blue align-content-center"><strong>ĐIỂM CỘNG</strong></td>
+                  <td class="background-light-blue"><strong>GIẤY TỜ CẦN THIẾT</strong></td>
+                  <td class="background-light-blue"><strong>LƯU Ý</strong></td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">1</td>
+                  <td>Có bố mẹ hoặc anh chị đã hoặc đang theo học tại trường Lương Thế Vinh</td>
+                  <td class="align-content-center"><span style="color: #FF665A;">7 điểm</span></td>
+                  <td>Có hộ khẩu chứng minh quan hệ thân thuộc<br/><br/>
+                     Các giấy tờ chứng minh học sinh Lương Thế Vinh (học bạ photo, bằng photo…)
+                  </td>
+                  <td rowspan="4">Trường hợp học sinh thuộc nhiều diện ưu tiên sẽ chỉ được xét một diện ưu tiên có điểm cao nhất.<br/>
+                  Phụ huynh mang các giấy tờ chứng minh điểm ưu tiên khi nhập học cho con.</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">2</td>
+                  <td>Là con, em ruột của giáo viên đang công tác tại trường Lương Thế Vinh</td>
+                  <td class="align-content-center"><span style="color: #FF665A;">7 điểm</span></td>
+                  <td></td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">3</td>
+                  <td>Thuộc gia đình có công với cách mạng; gia đình thương binh, liệt sĩ</td>
+                  <td class="align-content-center"><span style="color: #FF665A;">7 điểm</span></td>
+                  <td>Có các giấy tờ chứng minh</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">4</td>
+                  <td>Là con cán bộ Y tế, Bộ đội, Công an tham gia phòng chống dịch Covid - 19</td>
+                  <td class="align-content-center"><span style="color: #FF665A;">10 điểm</span></td>
+                  <td>Có các giấy tờ chứng minh</td>
+               </tr>
+            </tbody>
+         </table>
+         <p><strong><em>6. Điều kiện trúng tuyển vào trường THCS&amp;THPT Lương Thế Vinh:</em></strong></p>
+         <p style="text-indent: 20px;">Học sinh đảm bảo 2 yêu cầu sau:</p>
+         <ul>
+            <li>Điểm xét tuyển ≥ điểm chuẩn mà trường công bố.</li>
+            <li>Đủ điều kiện theo mục 1 (Đối tượng tuyển sinh).</li>
+         </ul>
+         <p><strong><em>7. Học bổng:</em></strong></p>
+         <table>
+            <tbody>
+               <tr>
+                  <td class="background-light-blue"><strong>STT</strong></td>
+                  <td class="background-light-blue"><strong>Mức độ học bổng</strong></td>
+                  <td class="background-light-blue"><strong>Tiêu chí</strong></td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">1</td>
+                  <td><strong>100% học phí năm học đầu tiên</strong></td>
+                  <td>Thủ khoa kỳ kiểm tra khảo sát đánh giá năng lực vào lớp 6</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">2</td>
+                  <td><strong>100% học phí năm học đầu tiên</strong></td>
+                  <td>Thủ khoa kỳ sát hạch phân loại lớp</td>
+               </tr>
+            </tbody>
+         </table>
+         &nbsp;
+         <p><span style="color:#2E4493"><strong>IV. THỜI GIAN, ĐỊA ĐIỂM TỔ CHỨC KIỂM TRA THỬ, KIỂM TRA CHÍNH THỨC VÀ XÉT TUYỂN</strong></span></p>
+         <p><strong><em>1. Kỳ kiểm tra thử hướng dẫn làm bài trên hệ thống thi online:</em></strong></p>
+         <p style="text-indent: 20px;"><span style="color: #FF665A;">Thời gian: Kỳ kiểm tra thử sẽ kéo dài từ ngày 02/06/2021 đến ngày 11/06/2022.</span></p>
+         <p style="text-indent: 20px;"><span style="color: #FF665A;">Hình thức tổ chức:</span></p>
+         <ul>
+            <li><span style="color: #FF665A;">Toàn bộ học sinh dự tuyển vào lớp 6 năm 2021-2022 sẽ được tham gia 02 lần kiểm tra thử do nhà trường tổ chức.</span></li>
+            <li><span style="color: #FF665A;">Phụ huynh sẽ nhận được lịch các lần kiểm tra của con mình trên hệ thống thi và qua tin nhắn vào ngày 30/05/2021.</span></li>
+         </ul>
+         <p style="text-indent: 20px;"><span style="color: #FF665A;">Mục đích chính: Kỳ kiểm tra thử do nhà trường tổ chức không chú trọng vào nội dung bài kiểm tra, thay vào đó, nhà trường sẽ đồng hành cùng phụ huynh và học sinh làm quen với các thao tác cần thiết cho một kỳ kiểm tra chính thức đạt yêu cầu, mong muốn từ cả hai phía. Vì vậy kính mong sự đồng thuận và giúp đỡ từ phía phụ huynh học sinh.</span></p>
+
+         <p><strong><em>2. Thời gian tổ chức kỳ "Khảo sát đánh giá năng lực vào lớp 6 năm 2021-2022":</em></strong></p>
+         <table>
+            <tr>
+               <td colspan="2" class="align-content-center"><strong><span style="color: #FF665A;">Chủ nhật, ngày 13/06/2021</span></strong></td>
+            </tr>
+            <tr>
+               <td>
+                  <span style="color: #FF665A;">08:30</span>
+               </td>
+               <td>
+                  <span style="color: #FF665A;">Tập trung tại phòng thi trực tuyến.</span>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <span style="color: #FF665A;">08:45</span>
+               </td>
+               <td>
+                  <span style="color: #FF665A;">Phổ biến quy chế thi.</span>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <span style="color: #FF665A;">09:00</span>
+               </td>
+               <td>
+                  <span style="color: #FF665A;">Bắt đầu làm bài thi.</span>
+               </td>
+            </tr>
+         </table>
+         <ul>
+            <li><span style="color: #FF665A;">Cha mẹ vui lòng chuẩn bị thiết bị cho con bao gồm:</span>
+            <ul>
+            	<li><span style="color: #FF665A;">01 máy tính xách tay hoặc máy tính bàn, hoạt động ổn định. Máy tính được cài sẵn trình duyệt Chrome và phần mềm Zoom.</span></li>
+            	<li><span style="color: #FF665A;">01 camera chất lượng tốt kết nối với máy tính. Nhà trường sẽ tổ chức để các giám thị giám sát quá trình làm bài của học sinh thông qua camera. Nếu phụ huynh có thể chuẩn bị máy tính xách tay có sẵn camera và camera đó hoạt động tốt, ổn định, phụ huynh không cần phải trang bị thêm camera ngoài.</span></li>
+            	<li><span style="color: #FF665A;">Đường truyền mạng ổn định, tránh việc mất kết nối mạng khi đang làm bài kiểm tra.</span></li>
+            </ul>
+         	<li><span style="color: #FF665A;">Cha mẹ lưu ý cho con vào phòng thi đúng giờ quy định để thầy cô giám thị điểm danh.</span></li>
+         	<li><span style="color: #FF665A;">Hướng dẫn chi tiết sẽ được thông báo đến số điện thoại đăng ký hồ sơ của phụ huynh dự kiến vào ngày 01/06/2021. Phụ huynh vui lòng để ý tin nhắn trong thời gian này.</span></li>
+         </ul>
+         <p><strong><em>3. Thời gian xét tuyển:</em></strong></p>
+         <table>
+            <tr>
+               <td>
+                  <span style="color: #FF665A;">Kỳ kiểm tra thử vào lớp 6</span>
+               </td>
+               <td>
+                  <span style="color: #FF665A;">Từ Thứ 4, Ngày 02/06/2021 đến Thứ sáu, Ngày 11/06/2021</span>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <span style="color: #FF665A;">Hoàn thành hồ sơ tuyển sinh online</span>
+               </td>
+               <td>
+                  <span style="color: #FF665A;">Thứ 2, Ngày 07/06/2021</span>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <span style="color: #FF665A;">Khảo sát đánh giá năng lực vào lớp 6</span>
+               </td>
+               <td>
+                  <span style="color: #FF665A;">Chủ nhật, Ngày 13/06/2021</span>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <span style="color: #FF665A;">Công bố kết quả</span>
+               </td>
+               <td>
+                  <span style="color: #FF665A;">Thứ 3, Ngày 15/06/2021</span>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <span style="color: #FF665A;">Nhận hồ sơ nhập học</span>
+               </td>
+               <td>
+                  <span style="color: #FF665A;">Thứ 5, Ngày 17/06/2021</span>
+               </td>
+            </tr>
+         </table>
+         <p><strong><em>4. Địa điểm tuyển sinh:</em></strong></p>
+         <p style="text-indent: 20px;">Chọn một trong hai cơ sở:</p>
+         <ul>
+            <li style="margin-bottom: 12px;">Cơ sở A: Số 35 Đinh Núp, Phường Trung Hòa, Quận Cầu Giấy, Hà Nội<br/>SĐT: <a href="tel:02466638338">0246.663.8338</a> hoặc <a href="tel:02422155985">0242.215.5985</a></li>
+            <li>Cơ sở 1: Yên Xá, Tân Triều, Thanh Trì, Hà Nội<br/>SĐT: <a href="tel:02435682603">0243.568.2603</a></li>
+         </ul>
+         &nbsp;
+         <p><span style="color:#2E4493"><strong>V. HỒ SƠ NHẬP HỌC</strong></span></p>
+         <ol>
+            <li>Học bạ tiểu học (bản gốc).</li>
+            <li>Giấy khai sinh (bản sao công chứng).</li>
+            <li>Giấy tờ ưu tiên (bản gốc).</li>
+         </ol>
+         &nbsp;
+         <p><span style="color:#2E4493"><strong>VI. CÁC KHOẢN THU KHI NHẬP HỌC</strong></span></p>
+         <table>
+            <tbody>
+               <tr>
+                  <td class="align-content-center" style="min-width: 30px;">1</td>
+                  <td>Lệ phí tuyển sinh và duyệt hồ sơ</td>
+                  <td class="align-content-right">8,000,000 vnđ</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">2</td>
+                  <td>Học phí tháng đầu tiên</td>
+                  <td class="align-content-right">3,500,000 vnđ</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">3</td>
+                  <td>Phí phát triển trường năm đầu</td>
+                  <td class="align-content-right">2,500,000 vnđ</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center" rowspan="2">4</td>
+                  <td>Đồng phục mùa hè:<br/>
+                     <ul style="margin-bottom: 0;">
+                     	<li>2 bộ sơ mi</li> 
+                     	<li>1 bộ soóc</li>
+                     </ul>
+                  </td>
+                  <td class="align-content-right">1,000,000 vnđ</td>
+               </tr>
+               <tr>
+            		<td>Đồng phục mùa đông:<br/>
+            			<ul style="margin-bottom: 0;">
+                  		<li>1 áo khoác</li>
+                  		<li>1 áo gile</li>
+                  		<li>1 áo hoodie</li>
+            			</ul>
+            		</td>
+            		<td class="align-content-right">[Sẽ thông báo sau]</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">5</td>
+                  <td>Tiền vở<br/>
+                     (20 quyển 96T, 5 quyển 200T, 1 túi kiểm tra)
+                  </td>
+                  <td class="align-content-right">270,000 vnđ</td>
+               </tr>
+            </tbody>
+         </table>
+         <ul>
+         	<li><em>Cha mẹ học sinh đóng các khoản thu trên ngay khi làm thủ tục nhập học cho con mình.</em></li>
+            <li><em>Cha mẹ học sinh cân nhắc kỹ trước khi nộp hồ sơ vào trường. Khi đã nộp hồ sơ, nếu cha mẹ muốn rút hồ sơ của con mình để chuyển trường khác, cha mẹ học sinh sẽ chỉ nhận lại phí mục 2, 3, 4, 5.</em></li>
+            <li><em>Lệ phí tuyển sinh và duyệt hồ sơ sẽ được chuyển thành “Phí phát triển trường” của 03 (ba) năm tiếp theo (lớp 7, lớp 8 và lớp 9) đối với những học sinh theo học tại trường.</em></li>
+         </ul>
+         &nbsp;
+         <p><span style="color:#2E4493"><strong>VII. THỐNG KÊ SƠ BỘ CÁC KHOẢN THU</strong></span></p>
+         <table>
+            <tbody>
+               <tr>
+                  <td class="background-light-blue"><strong>STT</strong></td>
+                  <td class="background-light-blue"><strong>Tên khoản</strong></td>
+                  <td class="background-light-blue"><strong>Số tiền hàng tháng</strong></td>
+                  <td class="background-light-blue"><strong>Ghi chú</strong></td>
+               </tr>
+               <tr>
+                  <td colspan="4" class="background-blue"><strong>Chi phí giáo dục cơ bản (Áp dụng cho tất cả các lớp)
+                     </strong>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">1</td>
+                  <td>Học phí</td>
+                  <td rowspan="7" class="align-content-right">3,500,000 vnđ / tháng</td>
+                  <td rowspan="7">Học 2 buổi / ngày<br>Thu theo tháng</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">2</td>
+                  <td>An ninh</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">3</td>
+                  <td>Vệ sinh</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">4</td>
+                  <td>Điện sinh hoạt</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">5</td>
+                  <td>Nước uống</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">6</td>
+                  <td>Hệ thống LTV online</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">7</td>
+                  <td>Hoạt động Đoàn đội</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">8</td>
+                  <td>Hỗ trợ CSVC bán trú</td>
+                  <td class="align-content-right">2,000,000 vnđ / năm</td>
+                  <td>Thu theo năm</td>
+               </tr>
+               <tr>
+               		<td class="align-content-center">9</td>
+                   <td>Điều hòa + Bảo trì điều hòa máy tính (4 năm)</td>
+                   <td class="align-content-right">2,000,000 vnđ / 4 năm</td>
+                   <td>Thu vào đầu HK II</td>
+               </tr>
+               <tr>
+                  <td colspan="4" class="background-blue"><strong>Chi phí giáo dục lớp nguyện vọng</strong></td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">1</td>
+                  <td>Lớp chọn Chất lượng cao</td>
+                  <td class="align-content-right">Phí Giáo dục cơ bản + 300,000 vnđ / tháng</td>
+                  <td>Thu theo tháng</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">2</td>
+                  <td>Lớp Năng khiếu Anh</td>
+                  <td class="align-content-right">Phí Giáo dục cơ bản + 500,000 vnđ / tháng</td>
+                  <td>Thu theo tháng</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">3</td>
+                  <td>Lớp Năng khiếu Toán</td>
+                  <td class="align-content-right">Phí Giáo dục cơ bản + 500,000 vnđ / tháng</td>
+                  <td>Thu theo tháng</td>
+               </tr>
+               <tr>
+                  <td colspan="4" class="background-blue"><strong>Chi phí dịch vụ (Thu hộ, chi hộ)
+                     </strong>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">1</td>
+                  <td>Xe tuyến</td>
+                  <td class="align-content-right">1,300,000 – 1,800,000 vnđ / tháng</td>
+                  <td>Tùy theo khoảng cách <br/>Thu theo quý</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">2</td>
+                  <td>Sổ liên lạc điện tử</td>
+                  <td class="align-content-right">100,000 vnđ / tháng</td>
+                  <td>Thu theo học kỳ</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">3</td>
+                  <td>Tiếng Anh do giáo viên nước ngoài giảng dạy</td>
+                  <td class="align-content-right">800,000 – 1,100,000 vnđ / tháng</td>
+                  <td>Thu theo học kỳ</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">4</td>
+                  <td>Ăn trưa</td>
+                  <td class="align-content-right">40,000 vnđ / bữa</td>
+                  <td>Thu theo tháng; đối trừ hàng tháng</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">5</td>
+                  <td>BHYT &amp; BHTT<br/>
+                     (Năm học 2021 – 2022)
+                  </td>
+                  <td class="align-content-right">Sẽ thông báo sau</td>
+                  <td>Theo quy định của Bộ Y tế và Bộ Giáo dục cho năm học 2021 - 2022</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">6</td>
+                  <td>Ngoại khóa</td>
+                  <td colspan="2">Theo chương trình cụ thể</td>
+               </tr>
+               <tr>
+                  <td class="align-content-center">7</td>
+                   <td>Câu lạc bộ ngoài giờ</td>
+                  <td colspan="2">Theo nhu cầu của phụ huynh và học sinh</td>
+               </tr>
+            </tbody>
+         </table>
+         <ul>
+            <li>Cha mẹ học sinh có thể đóng học phí theo tháng (từ ngày 01 – 05 hàng tháng), theo học kỳ hoặc cả năm học.<br/>
+               Lưu ý: Khi giá cả thị trường biến động hoặc mức lương tối thiểu của Nhà nước thay đổi, trường có thể tăng học phí (không quá 10% / năm học).
+            </li>
+         </ul>
+         &nbsp;<br/>
+         &nbsp;
+         <p style="text-align: center; color:#2E4493"><strong>VỀ NHỮNG THAY ĐỔI TRONG THÔNG TIN TUYỂN SINH</strong></p>
+         <ul>
+            <li>Như quý phụ huynh đã biết, tình hình dịch bệnh COVID-19 đang có những diễn biến phức tạp và ảnh hưởng nhiều tới các hoạt động xã hội nói chung cũng như mùa tuyển sinh 2021-2011 trên toàn quốc nói riêng. Nhà trường với mong muốn hướng tới một kì tuyển sinh thành công, tạo điều kiện tốt nhất để quý phụ huynh học sinh có thể yên tâm tham gia, đã đưa ra những thay đổi đối với kỳ "Khảo sát đánh giá năng lực vào lớp 6 năm 2021-2022" cũng như cách thức tính điểm xét tuyển.</li>
+            <li>Những nội dung phía trên là thông tin chính thức và mới nhất về kì tuyển sinh 2021-2022. Phụ huynh có thể tham khảo thông báo cũ của nhà trường <a href="./Khoi6.html">tại đây</a></li>
+            <li>Kính mong quý phụ huynh xem xét cẩn thận và đồng hành với nhà trường trong kì tuyển sinh.</li>
+         </ul>
+         &nbsp;<br/>
+         &nbsp;
+         <p style="text-align: center; color:#2E4493"><strong>LỜI NHẮN GỬI TỚI PHỤ HUYNH HỌC SINH</strong></p>
+         <ul>
+            <li>Trước khi gửi con mình vào trường, cha mẹ học sinh cần tìm hiểu kỹ cách tổ chức dạy và học, phương thức quản lý học sinh, thời gian học, mức học phí phải đóng,… để quyết định việc cho con mình theo học.</li>
+            <li>Nhà trường xin hoan nghênh mọi ý kiến đóng góp từ cha mẹ học sinh. Nhà trường sẽ tiếp nhận và phúc đáp những ý kiến đóng góp thông qua các cuộc họp cha mẹ học sinh, văn bản hoặc trực tiếp gặp Hiệu trưởng (với điều kiện phải có tên, địa chỉ rõ ràng và chính xác).</li>
+         </ul>
+         <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
+            <div class="enrollment-inform-branding-wrapper" style="display: flex; flex: 1; min-width: 320px; ">
+               <div style="display: flex; flex-direction: column; height: 160px; width: 320px;align-items: center; justify-content: center;">
+                  <div style="margin-bottom: 6px;">
+                     <svg width="64" height="52" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.9347 0C19.0472 0 19.116 0.123419 19.056 0.218165L17.311 3.0194L7.74755 18.3632C7.72131 18.4056 7.67506 18.4306 7.62631 18.4306H4.85389C4.74139 18.4306 4.67264 18.3071 4.73264 18.2124L15.0798 1.61193C15.7023 0.609615 16.8023 0 17.9848 0H18.9347Z" fill="#2E4493"/>
+                        <path d="M14.5203 0.0663169L3.08816 18.4109C3.08066 18.4233 3.06691 18.4308 3.05191 18.4308H0.0432459C0.00949689 18.4308 -0.0117525 18.3934 0.00699697 18.3647L10.093 2.18314C10.9379 0.82553 12.4266 0.000244141 14.0291 0.000244141H14.4841C14.5178 0.000244141 14.5391 0.0376438 14.5203 0.0663169Z" fill="#2E4493"/>
+                        <path d="M29.5545 25.2533C29.5308 25.3069 29.457 25.3131 29.4245 25.2645L27.5008 22.4321L16.7211 6.50359C16.7036 6.47866 16.7036 6.44624 16.7211 6.42007L18.1911 4.21972C18.2211 4.17608 18.2848 4.17484 18.3148 4.21972L29.7433 21.0371C30.3782 21.9733 30.4845 23.1701 30.0232 24.2036L29.5545 25.2533Z" fill="#2E4493"/>
+                        <path d="M31.3057 21.0387L19.0611 2.79391C19.0436 2.76898 19.0436 2.73532 19.0586 2.70914L20.391 0.462667C20.421 0.412801 20.4923 0.410308 20.526 0.458927L31.197 16.1805C32.1019 17.5144 32.2532 19.2199 31.5944 20.6909L31.4445 21.0263C31.4195 21.0836 31.3407 21.0911 31.3057 21.0387Z" fill="#2E4493"/>
+                        <path d="M27.7544 26.0005H5.51251C5.45751 26.0005 5.40626 25.9743 5.37376 25.9307L3.90006 23.941C3.81631 23.8276 3.89756 23.6667 4.0388 23.6667H26.2806C26.3356 23.6667 26.3869 23.6929 26.4194 23.7366L27.8931 25.7262C27.9768 25.8397 27.8956 26.0005 27.7544 26.0005Z" fill="#2E4493"/>
+                        <path d="M25.162 22.4996H2.9202C2.8652 22.4996 2.81395 22.4734 2.78145 22.4298L0.975253 19.9913C0.891506 19.8779 0.972753 19.717 1.114 19.717H23.3558C23.4108 19.717 23.4621 19.7432 23.4946 19.7869L25.3008 22.2253C25.3845 22.3388 25.3033 22.4996 25.162 22.4996Z" fill="#2E4493"/>
+                     </svg>
+                  </div>
+                  <h5 style="margin: 0; font-size: 100%;">TRƯỜNG THCS&amp;THPT</h5>
+                  <h4 style="margin: 0; font-size: 150%;">LƯƠNG THẾ VINH</h4>
+               </div>
+            </div>
+            <div style="flex: 1; min-width: 320px; max-width: 400px;">
+               <div style="display: inline-block; float: right; width: 400px; max-width: 100%">
+               	  <h5 style="margin: 0; font-size: 100%; text-align: right; ">BAN TUYỂN SINH</h5>
+                  <p style="text-align: right;"><strong>Thông tin liên hệ</strong><br/>
+                     <span style="display: block; width: 2000px; max-width: 100%; border-bottom: 1px solid #999; margin: 4px 0;"></span>
+                     Cơ Sở A: Số 35 Đinh Núp, Trung Hòa, Cầu Giấy, Hà Nội<br/> 
+                     SĐT: <a href="tel:02422155985">0242.215.5985</a> – <a href="tel:02466638338">0246.663.8338</a><br/>
+                     <span style="display: block; width: 2000px; max-width: 100%; border-bottom: 1px solid #999; margin: 4px 0;"></span>
+                     Cơ Sở I: Yên Xá, Tân Triều, Thanh Trì, Hà Nội<br/>
+                     SĐT: <a href="tel:02435682603">0243.568.2603</a><br/>
+                     <span style="display: block; width: 2000px; max-width: 100%; border-bottom: 1px solid #999; margin: 4px 0;"></span>
+                     Website: <a href="http://luongthevinh.com.vn/home/">luongthevinh.com.vn</a><br/>
+                     Fanpage: <a href="https://www.facebook.com/LTVHN">facebook.com/LTVHN</a><br/>
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div style="display: inline-block; width: 100%; margin: 36px 0; text-align: center;">
+            <!--h3 style="display: inline-block; float: right; margin: 0 48px; font-size: 200%; line-height: 150%; color:#2E4493; font-style: italic; letter-spacing: 1px;">
+               <span>CÓ CHÍ</span><br/>
+               <span> &nbsp; &nbsp;THÌ NÊN</span>
+            </h3-->
+            <img style="width: 360px; height: auto;" src="images/slogan01.png"/>
+         </div>
+
+         <div class="enrollment-inform-watermark" style="height: 100%; width: 80%; max-width: 400px; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); z-index: -1; display: flex; justify-content: center; align-items: center; margin-top: 360px; opacity: 0.7;">
+         </div>
+      </div>
+   </body>
+</html>
