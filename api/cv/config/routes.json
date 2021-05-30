@@ -58,7 +58,7 @@
     },
     {
       "method": "GET",
-      "path": "/cvs/:code",
+      "path": "/cvs/find/:code",
       "handler": "cv.findOneByCode",
       "config": {
         "policies": []
