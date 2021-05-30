@@ -13,6 +13,13 @@ const { sanitizeEntity } = require("strapi-utils");
  */
 
 module.exports = {
+  async findOneByCode(event) {
+    const code = event.params.code;
+    const CV = await strapi.services.cv.find({ code });
+    if (!CV || CV.length == 0)
+      throw strapi.errors.badRequest(`CV with code ${code} does not exists!`);
+    return CV[0];
+  },
   async startHourlySMSTask(event) {
     try {
       console.log("Start cron task!");

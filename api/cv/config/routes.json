@@ -57,6 +57,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/cvs/:code",
+      "handler": "cv.findOneByCode",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/cvs/:code",
       "handler": "cv.create",
