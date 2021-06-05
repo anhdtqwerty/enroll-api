@@ -11,6 +11,7 @@
     "test": "cross-env NODE_ENV=test mocha --timeout 10000 ./tests/test-handler.js --exit || true"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "chai": "^4.3.3",
     "chai-http": "^4.3.0",
     "cross-env": "^7.0.3",
