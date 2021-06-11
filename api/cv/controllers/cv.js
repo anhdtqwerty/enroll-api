@@ -46,9 +46,7 @@ module.exports = {
         `Tài khoản ${userPhone} đã được kích hoạt`
       );
     if (user.hourlySMSNum >= 5)
-      throw strapi.errors.badRequest(
-        `Đã vượt quá 5 tin nhắn/giờ, xin vui lòng thử lại sau!`
-      );
+      return `Đã vượt quá 5 tin nhắn/giờ, xin vui lòng thử lại với mã OTP đã được gửi đến số điện thoại ${userPhone}!`;
     const otp = generateOTP();
     const otpExpireTime = moment().add(5, "minutes").toISOString();
     const query = strapi.services.cv.updateOTPQuery(
