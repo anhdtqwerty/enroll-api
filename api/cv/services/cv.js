@@ -57,7 +57,7 @@ const getBalance = async () => {
     url: soapUrl,
     headers,
     xml: balanceXML,
-    timeout: 1000,
+    timeout: 30000,
   });
   const parser = new DomParser();
   const doc = parser.parseFromString(response.body, "text/xml");
@@ -114,7 +114,7 @@ module.exports = {
       url: soapUrl,
       headers,
       xml: smsXML,
-      timeout: 5000,
+      timeout: 30000,
     });
     if (response.statusCode !== 200)
       throw new Error(
