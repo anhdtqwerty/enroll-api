@@ -70,12 +70,13 @@ module.exports = {
       await strapi.services.cv.updateUser(user, query);
       return smsResult;
     } catch (error) {
-      await strapi.services.cv.updateUser(user, {
-        log: {
-          name: "Send SMS Error",
-          ...error,
-        },
-      });
+      if (user)
+        await strapi.services.cv.updateUser(user, {
+          log: {
+            name: "Send SMS Error",
+            ...error,
+          },
+        });
       throw strapi.errors.badRequest(error);
     }
   },
