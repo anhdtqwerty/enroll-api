@@ -41,7 +41,11 @@ module.exports = {
   async requestOTP(event) {
     let { userPhone, requestType } = event.request.body;
     try {
-      const user = await strapi.services.cv.isUserValid(userPhone);
+      const user = await strapi
+        .query("user", "users-permissions")
+        .findOne({ username: userPhone });
+      if (!user)
+        throw strapi.errors.badRequest(`Tài khoản ${userPhone} không tồn tại`);
       if (requestType === "register" && user.isConfirmedOTP)
         throw strapi.errors.badRequest(
           `Tài khoản ${userPhone} đã được kích hoạt`
