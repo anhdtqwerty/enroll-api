@@ -46,9 +46,10 @@ const ENTRY_EXAM_RESULT_GRADE10 = "11/06/2022 15:00:00"; //open
 const DISPLAY_EXAM_RESULT_GRADE10 = "16/06/2022 14:00:00"; //open
 let resetHourlySMSTask;
 
+//Tren server gio GMT
 const isNowAfterDatetime = (comparingDate) => {
   return !moment(comparingDate, "DD/MM/YYYY HH:mm:ss")
-    .locale("vi")
+    .add(7, "hours")
     .isAfter(new Date().toISOString());
 };
 const getBalance = async () => {
