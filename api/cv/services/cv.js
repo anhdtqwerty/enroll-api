@@ -102,6 +102,8 @@ module.exports = {
   sendSMS: async (userPhone, msgContent, otp) => {
     const balance = await getBalance();
     const fee = getSMSfee(userPhone, msgContent);
+    console.log(balance);
+    console.log(fee);
     if (balance < fee) {
       throw new Error(
         `Gửi SMS hiện tại không khả dụng, xin vui lòng thử lại sau`
@@ -121,6 +123,7 @@ module.exports = {
     const parser = new DomParser();
     const doc = parser.parseFromString(response.body, "text/xml");
     const responseMessage = doc.getElementsByTagName("message")[0].textContent;
+    console.error(response);
     const responseResult = doc.getElementsByTagName("result")[0].textContent;
     if (responseResult === "0") throw new Error(`Error ${responseMessage}`);
     return `Gửi tin nhắn thành công đến số điện thoại ${userPhone}`;
