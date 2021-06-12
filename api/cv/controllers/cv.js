@@ -40,24 +40,24 @@ module.exports = {
   },
   async requestOTP(event) {
     let { userPhone, requestType } = event.request.body;
-    const user = await strapi.services.cv.isUserValid(userPhone);
-    if (requestType === "register" && user.isConfirmedOTP)
-      throw strapi.errors.badRequest(
-        `Tài khoản ${userPhone} đã được kích hoạt`
-      );
-    if (user.hourlySMSNum >= 5)
-      return `Đã vượt quá 5 tin nhắn/giờ, xin vui lòng thử lại với mã OTP đã được gửi đến số điện thoại ${userPhone}!`;
-    const otp = generateOTP();
-    const otpExpireTime = moment().add(5, "minutes").toISOString();
-    const query = strapi.services.cv.updateOTPQuery(
-      otp,
-      otpExpireTime,
-      requestType
-    );
-    query.hourlySMSNum = user.hourlySMSNum + 1;
-    query.SMSNum = user.SMSNum + 1;
-    let msgContent = strapi.services.cv.replaceContentOTP(otp);
     try {
+      const user = await strapi.services.cv.isUserValid(userPhone);
+      if (requestType === "register" && user.isConfirmedOTP)
+        throw strapi.errors.badRequest(
+          `Tài khoản ${userPhone} đã được kích hoạt`
+        );
+      if (user.hourlySMSNum >= 5)
+        return `Đã vượt quá 5 tin nhắn/giờ, xin vui lòng thử lại với mã OTP đã được gửi đến số điện thoại ${userPhone}!`;
+      const otp = generateOTP();
+      const otpExpireTime = moment().add(5, "minutes").toISOString();
+      const query = strapi.services.cv.updateOTPQuery(
+        otp,
+        otpExpireTime,
+        requestType
+      );
+      query.hourlySMSNum = user.hourlySMSNum + 1;
+      query.SMSNum = user.SMSNum + 1;
+      let msgContent = strapi.services.cv.replaceContentOTP(otp);
       const smsResult = await strapi.services.cv.sendSMS(
         userPhone,
         msgContent,
