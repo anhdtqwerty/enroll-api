@@ -49,7 +49,7 @@ let resetHourlySMSTask;
 //Tren server gio GMT
 const isNowAfterDatetime = (comparingDate) => {
   return !moment(comparingDate, "DD/MM/YYYY HH:mm:ss").isAfter(
-    moment().utc().toISOString()
+    moment().utc().add(7, "hours").toISOString()
   );
 };
 const getBalance = async () => {
@@ -265,7 +265,10 @@ module.exports = {
     result["grade10-document"] = isNowAfterDatetime(
       CLOSE_SUBMIT_DOCUMENT_GRADE10
     );
-    times["current-time"] = moment().format("DD/MM/YYYY HH:mm:ss");
+    times["current-time"] = moment()
+      .utc()
+      .add(7, "hours")
+      .format("DD/MM/YYYY HH:mm:ss");
     times["open-document"] = OPEN_DOCUMENT;
     times["grade6-close-create"] = CLOSE_CREATE_DOCUMENT_GRADE6;
     times["grade6-close-document"] = CLOSE_SUBMIT_DOCUMENT_GRADE6;
