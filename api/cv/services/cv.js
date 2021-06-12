@@ -48,9 +48,9 @@ let resetHourlySMSTask;
 
 //Tren server gio GMT
 const isNowAfterDatetime = (comparingDate) => {
-  return !moment(comparingDate, "DD/MM/YYYY HH:mm:ss")
-    .add(7, "hours")
-    .isAfter(new Date().toISOString());
+  return !moment(comparingDate, "DD/MM/YYYY HH:mm:ss").isAfter(
+    moment().utc().toISOString()
+  );
 };
 const getBalance = async () => {
   const balanceXML = getBalanceXML();
