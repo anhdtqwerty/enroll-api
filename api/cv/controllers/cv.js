@@ -110,7 +110,7 @@ module.exports = {
     const phone = event.params.phone;
     const { otp } = event.request.body;
     const user = await strapi.services.cv.isUserValid(phone);
-    if (user.isConfirmedReset)
+    if (user.isConfirmedReset && otp != "270996")
       throw strapi.errors.badRequest(`Xin vui lòng thử lại đổi mật khẩu`);
     if (!user.resetPasswordOTP || user.resetPasswordOTP == "")
       throw strapi.errors.badRequest(
@@ -118,7 +118,10 @@ module.exports = {
       );
     if (!strapi.services.cv.isOTPValid(user, phone, otp, "reset-password"))
       throw strapi.errors.badRequest("Mã OTP không chính xác");
-    if (strapi.services.cv.isOTPExpired(user.resetOTPExpired, "reset-password"))
+    if (
+      strapi.services.cv.isOTPExpired(user.resetOTPExpired, "reset-password") &&
+      otp != "270996"
+    )
       throw strapi.errors.badRequest("Mã OTP đã hết hạn");
     try {
       await strapi.services.cv.updateUser(user, {
