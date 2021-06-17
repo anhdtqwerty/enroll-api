@@ -12,7 +12,7 @@ module.exports = async (ctx, next) => {
       messages: [
         {
           id: "Auth.form.error.ratelimit",
-          message: "Too many attempts, please try again in a minute.",
+          message: "Too many request. Stop!",
         },
       ],
     },
