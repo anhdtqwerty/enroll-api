@@ -22,8 +22,8 @@ module.exports = async (ctx, next) => {
     Object.assign(
       {},
       {
-        interval: 1 * 10 * 1000,
-        max: 999,
+        interval: 1 * 60 * 1000,
+        max: 999999,
         prefixKey: `${ctx.request.path}:${ctx.request.ip}`,
         message,
       },
