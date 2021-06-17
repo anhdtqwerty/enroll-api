@@ -71,9 +71,9 @@ const clearUserHourlyLimitOTP = async () => {
       "DD/MM/YYYY HH:mm:ss"
     )} - Start Reset Users'Hourly SMS Limitation`
   );
-  const users = await strapi.plugins[
-    "users-permissions"
-  ].services.user.fetchAll();
+  const users = await strapi
+    .query("user", "users-permissions")
+    .fetch({ _limit: -1 });
   const promises = users.map(async (user) => {
     return await strapi
       .query("user", "users-permissions")
